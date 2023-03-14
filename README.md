@@ -375,7 +375,8 @@ https://hai.stanford.edu/news/could-stable-diffusion-solve-gap-medical-imaging-d
 #### Software Addon
 Blender
 Photoshop
--stable.art https://github.com/isekaidev/stable.art
+- Stable.Art https://github.com/isekaidev/stable.art
+- Auto Photoshop Plugin https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin
 
 ` `  
 ` `  
