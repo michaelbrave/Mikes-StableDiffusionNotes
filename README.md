@@ -133,21 +133,24 @@ DeOldify
 #### Community Chatrooms and Gathering Locations
 Reddit
 - /r/StableDiffusion
-sdforall
-dreambooth
-stablediffusionUI
-civitai
+- /r/sdforall
+- /r/dreambooth
+- /r/stablediffusionUI
+- /r/civitai
 
-aiArt
-AIArtistWorkflows
-aigamedev
-AItoolsCatalog
-artificial
-bigsleep
-deepdream
-dndai
-dreamlikeart
-MediaSynthesis
+- /r/aiArt
+- /r/AIArtistWorkflows
+- /r/aigamedev
+- /r/AItoolsCatalog
+- /r/artificial
+- /r/bigsleep
+- /r/deepdream
+- /r/dndai
+- /r/dreamlikeart
+- /r/MediaSynthesis
+
+Discord
+- Stable Foundation https://discord.gg/stablediffusion
 
 ` `  
 ` `  
