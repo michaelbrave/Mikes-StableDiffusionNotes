@@ -8,15 +8,22 @@
       - [Stable Diffusion Websites and Communities](#stable-diffusion-websites-and-communities)
       - [Related Communities and Tools, not necessarily Stable Diffusion, but Adjacent](#related-communities-and-tools-not-necessarily-stable-diffusion-but-adjacent)
       - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
-  - [Basics and Operations](#basics-and-operations)
+  - [Basics, Settings and Operations](#basics-settings-and-operations)
   - [What Can Be Done With Stable Diffusion](#what-can-be-done-with-stable-diffusion)
-    - [Core Functionality](#core-functionality)
+    - [Core Functionality \& Use Cases](#core-functionality--use-cases)
+      - [Character Design](#character-design)
+      - [Video Game Asset Creation](#video-game-asset-creation)
+      - [Architecture and Interior Design](#architecture-and-interior-design)
     - [Use Cases Other Than Image Generation](#use-cases-other-than-image-generation)
       - [Video \& Animation](#video--animation)
         - [Deforum](#deforum)
         - [Depth Module for Stable Diffusion](#depth-module-for-stable-diffusion)
         - [Gen1](#gen1)
       - [3D Generation Techniques for Stable Diffusion](#3d-generation-techniques-for-stable-diffusion)
+      - [Text to 3D](#text-to-3d)
+      - [DMT Meshes / Point Cloud Based](#dmt-meshes--point-cloud-based)
+      - [3D radiance Fields](#3d-radiance-fields)
+      - [Novel View Synthesis](#novel-view-synthesis)
         - [NeRF Based:](#nerf-based)
         - [Img to Fspy to Blender:](#img-to-fspy-to-blender)
         - [Image to Shapes](#image-to-shapes)
@@ -27,7 +34,7 @@
         - [Riffusion](#riffusion)
       - [Image-Based Mind Reading](#image-based-mind-reading)
       - [Synthetic Data Creation](#synthetic-data-creation)
-      - [Software Addon](#software-addon)
+      - [Software Addons](#software-addons)
   - [How it Works](#how-it-works)
   - [Beginner's How To](#beginners-how-to)
   - [Popular UI's](#popular-uis)
@@ -38,6 +45,9 @@
     - [EasyDiffusion / Formerly Stable Diffusion UI](#easydiffusion--formerly-stable-diffusion-ui)
     - [InvokeAI](#invokeai)
     - [DiffusionBee (Mac OS)](#diffusionbee-mac-os)
+    - [NKMD GUI](#nkmd-gui)
+    - [ComfyUi](#comfyui)
+    - [AINodes](#ainodes)
   - [Model and Training UI's](#model-and-training-uis)
     - [Other Sofware Addons that Act like a UI](#other-sofware-addons-that-act-like-a-ui)
   - [Hardware Requirements and Cloud-Based Solutions](#hardware-requirements-and-cloud-based-solutions)
@@ -156,12 +166,27 @@
       - [Face Restoration](#face-restoration)
         - [GFPGAN](#gfpgan)
         - [Code Former](#code-former)
-  - [Techniques](#techniques)
+  - [Techniques \& Possibilities](#techniques--possibilities)
     - [Clip Skip \& Alternating](#clip-skip--alternating)
-# Mikes-StableDiffusionNotes
-Notes on Stable Diffusion: A Comprehensive List
+    - [Multi Control Net and blender for perfect Hands](#multi-control-net-and-blender-for-perfect-hands)
+    - [Blender to Depth Map](#blender-to-depth-map)
+      - [Blender to depth map for concept art](#blender-to-depth-map-for-concept-art)
+      - [depth map for terrain and map generation?](#depth-map-for-terrain-and-map-generation)
+    - [Blender as Camera Rig](#blender-as-camera-rig)
+    - [SD depthmap to blender for stretched single viewpoint depth perception model](#sd-depthmap-to-blender-for-stretched-single-viewpoint-depth-perception-model)
+    - [Daz3D for posing](#daz3d-for-posing)
+    - [Mixamo for Posing](#mixamo-for-posing)
+    - [Figure Drawing Poses as Reference Poses](#figure-drawing-poses-as-reference-poses)
+    - [Generating Images to turn into 3D sculpting brushes](#generating-images-to-turn-into-3d-sculpting-brushes)
+    - [Stable Diffusion to Blender to create particles using automesh plugin](#stable-diffusion-to-blender-to-create-particles-using-automesh-plugin)
+  - [Not Stable Diffusion But Relevant Techniques](#not-stable-diffusion-but-relevant-techniques)
+  - [Other Resources](#other-resources)
+    - [API's](#apis)
 
-The following is a list of stable diffusion tools and resources compiled from personal research and understanding. Please note that this is not a recommendation unless stated otherwise. Feedback, suggestions and corrections are welcomed and can be submitted through a pull request or by contacting me on Reddit (https://www.reddit.com/user/mikebrave) or Discord (MikeBrave#6085).
+# Mikes-StableDiffusionNotes
+Notes on Stable Diffusion: An attempt at a comprehensive list
+
+The following is a list of stable diffusion tools and resources compiled from personal research and understanding, with a focus on what is possible to do with this technology while also cataloging resources and useful links along with explanations. Please note that an item or link listed here is not a recommendation unless stated otherwise. Feedback, suggestions and corrections are welcomed and can be submitted through a pull request or by contacting me on Reddit (https://www.reddit.com/user/mikebrave) or Discord (MikeBrave#6085).
 
 
 
@@ -285,7 +310,10 @@ DeepDream
 
 StylGAN Transfer
 
-DeOldify
+AI Colorizers  
+- DeOldify
+
+- Style2Paint https://github.com/lllyasviel/style2paints
 
 
 #### Community Chatrooms and Gathering Locations
@@ -315,18 +343,28 @@ Discord
 
 
 
-## Basics and Operations
+## Basics, Settings and Operations
 
-CFG
+different sample methods  
+
+sample steps  
+
+CFG Scale
 - https://arxiv.org/abs/2112.10741
 
-
+denoising settings  
 
 
 ## What Can Be Done With Stable Diffusion
 
-### Core Functionality
-Stable diffusion is primarily used for image generation, upscaling images and editing images. Subsets of these activities could be style transfer, photo repair, color or texture filling, image completion or polishing, and image variation.
+### Core Functionality & Use Cases
+Stable diffusion is primarily used for image generation, upscaling images and editing images. Subsets of these activities could be style transfer, photo repair, color or texture filling, image completion or polishing, and image variation.  
+
+#### Character Design
+
+#### Video Game Asset Creation
+
+#### Architecture and Interior Design
 
 ### Use Cases Other Than Image Generation
 
@@ -354,6 +392,21 @@ https://research.runwayml.com/gen1
 
 Stable Diffusion (SD) is a powerful text-to-image generation model that has inspired the development of several techniques for generating 3D images and scenes based on text prompts. Two of the most notable methods are:
 
+#### Text to 3D
+https://dreamfusion3d.github.io/  
+https://github.com/ashawkey/stable-dreamfusion  
+
+#### DMT Meshes / Point Cloud Based
+https://github.com/Firework-Games-AI-Division/dmt-meshes
+
+#### 3D radiance Fields
+not technically stable diffusion but diffusion based 3D modeling  
+https://sirwyver.github.io/DiffRF/  
+
+#### Novel View Synthesis
+not technicall stable diffusion but is related  
+https://3d-diffusion.github.io/  
+
 ##### NeRF Based:
 This technique uses the Neural Radiance Fields (NeRF) algorithm to generate 3D models based on 2D images. The Stable Dreamfusion repository on Github (https://github.com/ashawkey/stable-dreamfusion) is an implementation of this technique for Stable Diffusion. It allows users to generate high-quality 3D models from text prompts and can be customized to achieve specific effects and styles.
 
@@ -363,10 +416,11 @@ This technique uses a combination of image analysis and 3D modeling software to 
 Both of these techniques offer powerful tools for generating 3D images and scenes based on text prompts. They require some additional software and processing time, but the results can be impressive and add a new dimension to the images generated by Stable Diffusion.
 
 ##### Image to Shapes
-3D shapes on top of images. A tutorial on this technique is available on YouTube (https://youtu.be/ooSW5kcA6gI) and provides step-by-step instructions for building 3D shapes based on images. This technique offers a unique and creative way to incorporate 3D elements into images and videos based on text prompts.
+3D shapes on top of images. A tutorial on this technique is available on YouTube by Albert Bozesan (https://youtu.be/ooSW5kcA6gI) and provides step-by-step instructions for building 3D shapes based on images. Roughly we lay out the image inside blender then extrude the shapes and polish the model while using the image as texture.
+
+Similar to https://github.com/jeacom25b/blender-boundary-aligned-remesh https://www.youtube.com/watch?v=AQckQBNHRMA
 
 #### 3D Texturing Techniques for Stable Diffusion
-
 Stable Diffusion (SD) is a powerful text-to-image generation model that has inspired the development of several techniques for generating 3D textures based on text prompts. Two of the most notable methods are:
 
 ##### Using Stable Diffusion for 3D Texturing:
@@ -388,14 +442,37 @@ https://the-decoder.com/stable-diffusion-can-visualize-human-thoughts-from-mri-d
 #### Synthetic Data Creation
 https://hai.stanford.edu/news/could-stable-diffusion-solve-gap-medical-imaging-data
 
-#### Software Addon
-Blender
-Photoshop
+#### Software Addons
+Blender Addons
+- Blender ControlNet https://github.com/coolzilj/Blender-ControlNet
+- Makes Textures / Vision https://www.reddit.com/r/blender/comments/11pudeo/create_a_360_nonerepetitive_textures_with_stable/
+- OpenPose https://gitlab.com/sat-mtl/metalab/blender-addon-openpose
+- OpenPose Editor https://github.com/fkunn1326/openpose-editor
+- Dream Textures https://github.com/carson-katri/dream-textures https://www.youtube.com/watch?v=yqQvMnJFtfE https://www.youtube.com/watch?v=4C_3HCKn10A, similar to materialize https://boundingboxsoftware.com/materialize/ https://github.com/BoundingBoxSoftware/Materialize
+- AI Render https://blendermarket.com/products/ai-render https://www.youtube.com/watch?v=goRvGFs1sdc https://github.com/benrugg/AI-Render https://airender.gumroad.com/l/ai-render https://blendermarket.com/products/ai-render https://www.youtube.com/watch?v=tmyln5bwnO8 https://github.com/benrugg/AI-Render/wiki/Animation
+- Stability AI's official Blender https://platform.stability.ai/docs/integrations/blender
+- CEB Stable Diffusion (Paid) https://carlosedubarreto.gumroad.com/l/ceb_sd  
+- Cozy Auto Texture https://github.com/torrinworx/Cozy-Auto-Texture
+
+Blender Rigs/Bones
+- ImpactFrames' OpenPose Rig https://ko-fi.com/s/f3da7bd683 https://impactframes.gumroad.com/l/fxnyez https://www.youtube.com/watch?v=MGjdLiz2YLk https://www.reddit.com/r/StableDiffusion/comments/11cxy5h/comment/jacorrt/?utm_source=share&utm_medium=web2x&context=3
+- ToyXYZ's Character bones that look like Openpose for blender https://toyxyz.gumroad.com/l/ciojz script to help it https://www.reddit.com/r/StableDiffusion/comments/11fyd6q/blender_script_for_toyxyzs_46_handfootpose/
+- 3D posable Mannequin Doll https://www.artstation.com/marketplace/p/VOAyv/stable-diffusion-3d-posable-manekin-doll https://www.youtube.com/watch?v=MClbPwu-75o
+- Riggify model https://3dcinetv.gumroad.com/l/osezw  
+- 
+
+Maya
+- ControlNet Maya Rig https://impactframes.gumroad.com/l/gtefj https://youtu.be/CFrAEp-qSsU  
+
+Photoshop  
 - Stable.Art https://github.com/isekaidev/stable.art
-- Auto Photoshop Plugin https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin
+- Auto Photoshop Plugin https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin  
 
+Daz
+- Daz Control Rig https://civitai.com/models/13478/dazstudiog8openposerig
 
-
+Cinema4D
+- Colors Scene (possibly no longer needed since controlNet Update) https://www.reddit.com/r/StableDiffusion/comments/11flemo/color150_segmentation_colors_for_cinema4d_and/
 
 
 ## How it Works
@@ -414,37 +491,46 @@ Photoshop
 
 
 ### Automatic 1111
+Automatic 1111's superpower is it's rapid development speed and leveraging of community addons, usually within days of research being shown an addon for it in Auto1111 appears, if those addons prove popular enough they are eventually merged into standard features of the UI. I would likely say that because of this Aato1111 is the default choice of UI for most users until they have a specialized need or desire something easier to use. It is a powerful and comprehensive UI
+
+Tutorials:  
+
+Local Installation:  
+
+Colab:  
 
 #### Automatic 1111 Extensions
+Stable Diffusion (SD) is a powerful text-to-image generation model that has inspired the development of several extensions and plugins that enhance its capabilities and offer new features. Many of these extensions can be found on the Github repository for AUTOMATIC1111 (https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Extensions) and can be installed through the extensions tab inside of AUTOMATIC1111, or by cloning the respective Github repositories into the extensions folder inside your AUTOMATIC1111 webUI/extensions directory.  
 
-Stable Diffusion (SD) is a powerful text-to-image generation model that has inspired the development of several extensions and plugins that enhance its capabilities and offer new features. Many of these extensions can be found on the Github repository for AUTOMATIC1111 (https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Extensions) and can be installed through the extensions tab inside of AUTOMATIC1111, or by cloning the respective Github repositories into the extensions folder inside your AUTOMATIC1111 webUI/extensions directory.
+Some of the most notable extensions for Stable Diffusion are:  
 
-Some of the most notable extensions for Stable Diffusion are:
+Ultimate Upscale: This is an extension that uses the ESRGAN algorithm to upscale images generated by Stable Diffusion to high-resolution versions. The Github repository for this extension is available at https://github.com/Coyote-A/ultimate-upscale-for-automatic1111, and a FAQ for the extension is available at https://github.com/Coyote-A/ultimate-upscale-for-automatic1111/wiki/FAQ.  
 
-Ultimate Upscale: This is an extension that uses the ESRGAN algorithm to upscale images generated by Stable Diffusion to high-resolution versions. The Github repository for this extension is available at https://github.com/Coyote-A/ultimate-upscale-for-automatic1111, and a FAQ for the extension is available at https://github.com/Coyote-A/ultimate-upscale-for-automatic1111/wiki/FAQ.
+Config Presets: This is an extension that allows users to save and load configuration presets for Stable Diffusion. It simplifies the process of setting up Stable Diffusion for specific tasks and allows users to switch between presets quickly. The Github repository for this extension is available at https://github.com/Zyin055/Config-Presets.  
 
-Config Presets: This is an extension that allows users to save and load configuration presets for Stable Diffusion. It simplifies the process of setting up Stable Diffusion for specific tasks and allows users to switch between presets quickly. The Github repository for this extension is available at https://github.com/Zyin055/Config-Presets.
+Image Browser: This is an extension that provides a visual interface for browsing and selecting images to use as input for Stable Diffusion. It simplifies the process of selecting and managing images and allows users to preview images before generating output.  
 
-Image Browser: This is an extension that provides a visual interface for browsing and selecting images to use as input for Stable Diffusion. It simplifies the process of selecting and managing images and allows users to preview images before generating output.
+Prompt Tag Autocomplete: This is an extension that provides autocomplete suggestions for text prompts based on previously used prompts. It speeds up the process of entering prompts and reduces the likelihood of errors.  
 
-Prompt Tag Autocomplete: This is an extension that provides autocomplete suggestions for text prompts based on previously used prompts. It speeds up the process of entering prompts and reduces the likelihood of errors.
+Txt2Mask: This is an extension that generates masks from text prompts. It allows users to select specific regions of an image to generate output from and can be useful for tasks such as object removal or image editing.  
 
-Txt2Mask: This is an extension that generates masks from text prompts. It allows users to select specific regions of an image to generate output from and can be useful for tasks such as object removal or image editing.
+Ultimate HD Upscaler: This is an extension that uses a neural network to upscale images generated by Stable Diffusion to high-resolution versions. It offers improved upscaling quality compared to traditional algorithms.  
 
-Ultimate HD Upscaler: This is an extension that uses a neural network to upscale images generated by Stable Diffusion to high-resolution versions. It offers improved upscaling quality compared to traditional algorithms.
+Aesthetic Scorer: This is an extension that uses a neural network to score the aesthetic quality of images generated by Stable Diffusion. It can be used to evaluate the quality of generated images and provide feedback for improvement.  
 
-Aesthetic Scorer: This is an extension that uses a neural network to score the aesthetic quality of images generated by Stable Diffusion. It can be used to evaluate the quality of generated images and provide feedback for improvement.
+Tagger: This is an extension that adds tags to generated images based on the input text prompts. It can be useful for organizing and managing large numbers of generated images.  
 
-Tagger: This is an extension that adds tags to generated images based on the input text prompts. It can be useful for organizing and managing large numbers of generated images.
+Inspiration Images: This is an extension that provides a database of images for use as input prompts. It can be useful for generating images based on specific themes or styles.  
 
-Inspiration Images: This is an extension that provides a database of images for use as input prompts. It can be useful for generating images based on specific themes or styles.
+These extensions offer a range of useful features and tools for working with Stable Diffusion. They can enhance the capabilities of the model and simplify the process of generating high-quality images based on text prompts.  
 
-These extensions offer a range of useful features and tools for working with Stable Diffusion. They can enhance the capabilities of the model and simplify the process of generating high-quality images based on text prompts.
+Depth Map Library and Poser
+https://github.com/jexom/sd-webui-depth-lib 
 
-
+OpenPose Editor
+https://github.com/fkunn1326/openpose-editor  
 
 ### Kohya
-
 attempts to get it to run on linux and then in a colab
 https://github.com/kohya-ss/sd-webui-additional-networks
 
@@ -464,13 +550,24 @@ https://github.com/cmdr2/stable-diffusion-ui
 ### InvokeAI
 https://github.com/invoke-ai/InvokeAI
 
+Unified Canvas Option
+
+Diffusers can be used natively
+
 
 ### DiffusionBee (Mac OS)
 https://github.com/divamgupta/diffusionbee-stable-diffusion-ui
 
+### NKMD GUI
 
 
+### ComfyUi
+https://github.com/comfyanonymous/ComfyUI  
 
+### AINodes
+it's not popular yet, but I expect it will be  
+https://www.reddit.com/r/StableDiffusion/comments/11psrvp/ainodes_teaser_update/
+https://github.com/XmYx/ainodes-engine
 
 ## Model and Training UI's
 webui model toolkit https://github.com/arenatemp/stable-diffusion-webui-model-toolkit
@@ -1033,6 +1130,8 @@ Prompt editing is a powerful tool in Stable Diffusion that allows users to manip
 
 https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#prompt-editing 
 
+prompt engineering resources https://www.reddit.com/r/StableDiffusion/comments/xcrm4d/useful_prompt_engineering_tools_and_resources/?utm_source=share&utm_medium=web2x&context=3
+
 #### Negative Prompts
 Negative prompts are used to guide Stable Diffusion models away from certain image characteristics. However, the impact of negative prompts can be unpredictable and requires experimentation. It is important to note that there is no guaranteed set of negative prompts that will always produce the desired outcome, and the effectiveness of negative prompts can vary depending on the specific model, textural inversions, hypernetworks, or LoRA being used. It is recommended to focus on negative prompts that are relevant to the specific image you are trying to generate, rather than including irrelevant or meaningless prompts. Ultimately, it is important to experiment with different prompts and learn what works best for each specific use case.
 
@@ -1106,6 +1205,8 @@ https://github.com/timothybrooks/instruct-pix2pix
 Depth2Image is a feature of Stable Diffusion that performs image generation similar to img2img, but also takes into account depth information estimated using the monocular depth estimator MIDAS. This allows for better preservation of composition in the generated image compared to img2img.
 
 A depth-guided model, named "depth2img", was introduced with the release of Stable Diffusion 2.0 on November 24, 2022; this model infers the depth of the provided input image, and generates a new output image based on both the text prompt and the depth information, which allows the coherence and depth of the original input image to be maintained in the generated output.
+
+https://zenn.dev/discus0434/articles/ef418a8b0b3dc0 (Japanese)
 
 ##### Depth Map
 A depth map is an image that assigns a depth value to each pixel in a given image. It provides information about the distance of objects in the scene from the viewpoint of the camera. In the context of Stable Diffusion, a depth map can be used as a reference to generate images with higher accuracy and create 3D-like effects. It can also be used to separate objects and perform post-processing, such as creating videos. There are scripts available on GitHub that allow for depth map functionality in Stable Diffusion's web interface.
@@ -1227,8 +1328,64 @@ DEMO: https://huggingface.co/spaces/sczhou/CodeFormer
 
 
 
-## Techniques
+## Techniques & Possibilities
 ### Clip Skip & Alternating
 CLIP-Skip is a slider option in the settings of Stable Diffusion that controls how early the processing of prompt by the CLIP network should be stopped. It is important to note that CLIP-Skip should only be used with models that were trained with this kind of tweak, which in this case are the NovelAI models. When using CLIP-Skip, the output of the neural network will be based on fewer layers of processing, resulting in better image generation on the appropriate models.
 https://www.youtube.com/watch?v=IkMIoRCfCgE
 https://www.reddit.com/r/StableDiffusion/comments/yj58r0/psa_clipskip_should_only_be_used_with_models/
+
+### Multi Control Net and blender for perfect Hands
+https://www.youtube.com/watch?v=ptEZQrKgHAg&t=4s
+
+### Blender to Depth Map
+https://www.reddit.com/r/StableDiffusion/comments/115ieay/how_do_i_feed_normal_map_created_in_blender/
+
+Many use freestyle to controlNet instead, claim it gives best results
+
+https://www.reddit.com/r/StableDiffusion/comments/zh8ava/comment/izks993/?utm_source=share&utm_medium=web2x&context=3
+https://stable-diffusion-art.com/depth-to-image/
+
+#### Blender to depth map for concept art
+https://www.youtube.com/watch?v=L6J4IGjjr9w
+
+#### depth map for terrain and map generation?
+
+
+### Blender as Camera Rig
+https://www.reddit.com/r/StableDiffusion/comments/10fqg7u/quick_test_of_ai_and_blender_with_camera/
+
+
+### SD depthmap to blender for stretched single viewpoint depth perception model
+https://www.youtube.com/watch?v=vfu5yzs_2EU https://github.com/Ladypoly/Serpens-Bledner-Addons importdepthmap  
+
+similar to https://huggingface.co/spaces/mattiagatti/image2mesh https://towardsdatascience.com/generate-a-3d-mesh-from-an-image-with-python-12210c73e5cc  
+similar to https://github.com/hesom/depth_to_mesh
+
+### Daz3D for posing
+https://www.reddit.com/r/StableDiffusion/comments/11owo31/comment/jbvdmsm/?utm_source=share&utm_medium=web2x&context=3
+
+### Mixamo for Posing
+https://www.reddit.com/r/StableDiffusion/comments/11owo31/something_that_might_help_ppl_with_posing/
+
+### Figure Drawing Poses as Reference Poses
+https://figurosity.com/figure-drawing-poses
+
+
+### Generating Images to turn into 3D sculpting brushes
+https://www.reddit.com/r/StableDiffusion/comments/xjju0q/ai_generated_3d_sculpting_brushes/
+
+
+### Stable Diffusion to Blender to create particles using automesh plugin
+https://twitter.com/subcivic/status/1570754141995290626  
+https://wesxdz.gumroad.com/l/xfdmzx  
+
+## Not Stable Diffusion But Relevant Techniques
+3D photo effect https://shihmengli.github.io/3D-Photo-Inpainting/
+
+## Other Resources
+
+### API's
+
+NextML API for STable Diffusion https://api.stable-diffusion.nextml.com/redoc
+
+DreamStudio API
