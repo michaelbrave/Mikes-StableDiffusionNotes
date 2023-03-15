@@ -10,11 +10,18 @@
       - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
   - [Basics and Operations](#basics-and-operations)
   - [What Can Be Done With Stable Diffusion](#what-can-be-done-with-stable-diffusion)
-    - [other potential use cases](#other-potential-use-cases)
+    - [Use Cases Other Than Image Generation](#use-cases-other-than-image-generation)
       - [Video](#video)
       - [Animation](#animation)
+        - [Deforum](#deforum)
+        - [Depth Module for Stable Diffusion](#depth-module-for-stable-diffusion)
       - [3D Generation Techniques for Stable Diffusion](#3d-generation-techniques-for-stable-diffusion)
+        - [NeRF Based:](#nerf-based)
+        - [Img to Fspy to Blender:](#img-to-fspy-to-blender)
+        - [Image to Shapes](#image-to-shapes)
       - [3D Texturing Techniques for Stable Diffusion](#3d-texturing-techniques-for-stable-diffusion)
+        - [Using Stable Diffusion for 3D Texturing:](#using-stable-diffusion-for-3d-texturing)
+        - [Dream Textures:](#dream-textures)
       - [Music](#music)
         - [Riffusion](#riffusion)
       - [Image-Based Mind Reading](#image-based-mind-reading)
@@ -155,8 +162,8 @@ Notes on Stable Diffusion: A Comprehensive List
 
 The following is a list of stable diffusion tools and resources compiled from personal research and understanding. Please note that this is not a recommendation unless stated otherwise. Feedback, suggestions and corrections are welcomed and can be submitted through a pull request or by contacting me on Reddit (https://www.reddit.com/user/mikebrave) or Discord (MikeBrave#6085).
 
-` `  
-` `  
+
+
 
 ## What is Stable Diffusion
 
@@ -170,18 +177,16 @@ Stable Diffusion is a latent diffusion model, which is a type of deep generative
 
 Stable Diffusion's code and model weights have been released publicly, and it can run on most consumer hardware equipped with a modest GPU with at least 8 GB VRAM. This marks a departure from previous proprietary text-to-image models such as DALL-E and Midjourney, which were accessible only via cloud services.
 
-Visual Guides to Understanding Stable Diffusion
-
 To better understand Stable Diffusion and how it works, there are several visual guides available. Jalammar's blog (https://jalammar.github.io/illustrated-stable-diffusion/) provides an illustrated guide to the model, while the Stable Diffusion Art website (https://stable-diffusion-art.com/how-stable-diffusion-work/) offers a step-by-step breakdown of the process.
 
 In addition, a Colab notebook (https://colab.research.google.com/drive/1dlgggNa5Mz8sEAGU0wFCHhGLFooW_pf1?usp=sharing) is available to allow users to experiment with and gain a deeper understanding of the Stable Diffusion model.
+  
+Wikiepedia: https://en.wikipedia.org/wiki/Stable_Diffusion  
+source code: https://github.com/justinpinkney/stable-diffusion  
+Homepage: https://stability.ai/  
 
-https://en.wikipedia.org/wiki/Stable_Diffusion
-source code: https://github.com/justinpinkney/stable-diffusion
-https://stability.ai/
 
-` `  
-` `  
+
 ### Origins and Research of Stable Diffusion
 
 Stable Diffusion (SD) is a deep-learning, text-to-image model that was released in 2022. It was developed by the CompVis group at LMU Munich in collaboration with Stability AI, Runway, EleutherAI, and LAION. The model was created through extensive research into deep generative neural networks and the diffusion process.
@@ -197,80 +202,80 @@ Stability AI, the primary sponsor of Stable Diffusion, raised US$101 million in 
 https://research.runwayml.com/the-research-origins-of-stable-difussion
 
 #### Initial Training Data
-LAION-5B - 5 billion image-text pairs were classified based on language and filtered into separate datasets by resolution
-Laion-Aesthetics v2 5+
+LAION-5B - 5 billion image-text pairs were classified based on language and filtered into separate datasets by resolution  
+Laion-Aesthetics v2 5+  
 
 #### Core Technology
-Variational Autoencoder (VAE)
-U-Net
-Text Encoder
+Variational Autoencoder (VAE)  
+U-Net  
+Text Encoder  
 
 #### Tech That Stable Diffusion is Built On & Technical Terms
-Transformers
-LLM
-VQGAN
+Transformers  
+LLM  
+VQGAN  
 - https://compvis.github.io/taming-transformers/
-Diffusion Models
-Latent Diffusion Models
-CLIP
+Diffusion Models  
+Latent Diffusion Models  
+CLIP  
 - https://research.runwayml.com/
-Gaussian Noise
-Denoising Autoencoders
-ResNet
-Latent Space
-Watermark Detection
-- https://github.com/LAION-AI/LAION-5B-WatermarkDetection
+Gaussian Noise  
+Denoising Autoencoders  
+ResNet  
+Latent Space  
+Watermark Detection  
+- https://github.com/LAION-AI/LAION-5B-WatermarkDetection  
 
 
-` `  
-` `  
+
+
 ### Similar Technology / Programs built on Stable Diffusion
 
 Stable Diffusion (SD) is a cutting-edge text-to-image generation model that has been receiving significant attention since its release in 2022. However, there are other similar technologies and programs that have also been developed for this purpose. Some of the most notable ones are:
 
-DALL-E2: This is a text-to-image model developed by OpenAI that is similar to Stable Diffusion in its approach. It uses a transformer architecture and a discrete VAE to generate high-quality images based on text prompts.
-https://openai.com/product/dall-e-2
+DALL-E2: This is a text-to-image model developed by OpenAI that is similar to Stable Diffusion in its approach. It uses a transformer architecture and a discrete VAE to generate high-quality images based on text prompts.  
+https://openai.com/product/dall-e-2  
 
-Google's Imagen: This is a machine learning system developed by Google that generates realistic images from textual descriptions. It uses a combination of neural networks and computer vision algorithms to create images that match the text prompt. This has yet to be released to the public.
-https://imagen.research.google/
+Google's Imagen: This is a machine learning system developed by Google that generates realistic images from textual descriptions. It uses a combination of neural networks and computer vision algorithms to create images that match the text prompt. This has yet to be released to the public.  
+https://imagen.research.google/  
 
-Midjourney: This is a text-to-image model developed by a team of researchers at Peking University that generates images from textual descriptions. It uses a combination of attention mechanisms and adversarial training to generate high-quality images that match the text input.
-https://www.midjourney.com/
+Midjourney: This is a text-to-image model developed by a team of researchers at Peking University that generates images from textual descriptions. It uses a combination of attention mechanisms and adversarial training to generate high-quality images that match the text input.  
+https://www.midjourney.com/  
 
-Each of these programs uses different approaches and techniques to generate images from text descriptions. While Stable Diffusion has received significant attention recently, these other programs offer alternative methods for generating images based on text prompts.
+Each of these programs uses different approaches and techniques to generate images from text descriptions. While Stable Diffusion has received significant attention recently, these other programs offer alternative methods for generating images based on text prompts.  
 
 #### Stable Diffusion Websites and Communities
 Some of the most notable websites and communities based on SD are:
 
-DreamStudio (Official by StabilityAI): This website uses Stable Diffusion to generate high-quality images based on user-submitted text prompts. It offers a simple and intuitive user interface and allows users to download or share their generated images.
+DreamStudio (Official by StabilityAI): This website uses Stable Diffusion to generate high-quality images based on user-submitted text prompts. It offers a simple and intuitive user interface and allows users to download or share their generated images.  
 https://dreamstudio.ai/
 
-Dream by Wombo: This is a mobile application that uses Stable Diffusion to generate animated images based on user-submitted audio prompts. It has gained significant popularity for its ability to create humorous and entertaining animations.
+Dream by Wombo: This is a mobile application that uses Stable Diffusion to generate animated images based on user-submitted audio prompts. It has gained significant popularity for its ability to create humorous and entertaining animations.  
 https://dream.ai/
 
-NightCafe: This website uses Stable Diffusion to generate surreal and dreamlike images based on user-submitted text prompts. It offers a unique and creative approach to image generation and has gained a dedicated following among art enthusiasts.
+NightCafe: This website uses Stable Diffusion to generate surreal and dreamlike images based on user-submitted text prompts. It offers a unique and creative approach to image generation and has gained a dedicated following among art enthusiasts.  
 https://nightcafe.studio/
 
-PlaygroundAI: This is an online community that focuses on exploring the capabilities of Stable Diffusion and other deep-learning models. It provides a platform for researchers and enthusiasts to share their work, collaborate on projects, and discuss the latest developments in the field.
+PlaygroundAI: This is an online community that focuses on exploring the capabilities of Stable Diffusion and other deep-learning models. It provides a platform for researchers and enthusiasts to share their work, collaborate on projects, and discuss the latest developments in the field.  
 https://playgroundai.com/
 
-LeonardoAI: This is an online community that uses Stable Diffusion and other AI models to generate high-quality art and design. It provides a platform for artists and designers to experiment with new tools and techniques and showcase their work to a wider audience.
+LeonardoAI: This is an online community that uses Stable Diffusion and other AI models to generate high-quality art and design. It provides a platform for artists and designers to experiment with new tools and techniques and showcase their work to a wider audience.  
 https://app.leonardo.ai/
 
-BlueWillow: This is a design studio that uses Stable Diffusion and other deep-learning models to generate unique and creative designs for clients. It offers a range of services, including branding, website design, and digital art, and has gained a reputation for its innovative use of AI in design.
+BlueWillow: This is a design studio that uses Stable Diffusion and other deep-learning models to generate unique and creative designs for clients. It offers a range of services, including branding, website design, and digital art, and has gained a reputation for its innovative use of AI in design.  
 https://www.bluewillow.ai/
 
-DreamUp By DeviantArt:
+DreamUp By DeviantArt:  
 https://www.deviantart.com/dreamup
 
-LexicaAI:
+LexicaAI:  
 
-Dreamlike Art:
+Dreamlike Art:  
 
-Art Breeder Collage Tool:
+Art Breeder Collage Tool:  
 
 
-This is not a comprehensive list, and there may be other websites and communities that use Stable Diffusion and other text-to-image models. Please contribute to this list.
+This is not a comprehensive list, and there may be other websites and communities that use Stable Diffusion and other text-to-image models. Please contribute to this list.  
 
 
 #### Related Communities and Tools, not necessarily Stable Diffusion, but Adjacent
@@ -304,10 +309,10 @@ Reddit
 Discord
 - Stable Foundation https://discord.gg/stablediffusion
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 
 ## Basics and Operations
 
@@ -318,17 +323,17 @@ CFG
 
 
 ## What Can Be Done With Stable Diffusion
-` `  
-` `  
-### other potential use cases
+
+
+### Use Cases Other Than Image Generation
 
 #### Video
 
 #### Animation
 
-Deforum
+##### Deforum
 
-Depth Module for Stable Diffusion
+##### Depth Module for Stable Diffusion
 
 Stable Diffusion (SD) is a powerful text-to-image generation model that can be used for a wide range of applications. To generate videos with a 3D perspective, a Depth Module has been developed that adds a mesh generation capability to SD.
 
@@ -343,23 +348,27 @@ The Depth Module is a useful extension to Stable Diffusion that enables users to
 
 Stable Diffusion (SD) is a powerful text-to-image generation model that has inspired the development of several techniques for generating 3D images and scenes based on text prompts. Two of the most notable methods are:
 
-NeRF Based: This technique uses the Neural Radiance Fields (NeRF) algorithm to generate 3D models based on 2D images. The Stable Dreamfusion repository on Github (https://github.com/ashawkey/stable-dreamfusion) is an implementation of this technique for Stable Diffusion. It allows users to generate high-quality 3D models from text prompts and can be customized to achieve specific effects and styles.
+##### NeRF Based:
+This technique uses the Neural Radiance Fields (NeRF) algorithm to generate 3D models based on 2D images. The Stable Dreamfusion repository on Github (https://github.com/ashawkey/stable-dreamfusion) is an implementation of this technique for Stable Diffusion. It allows users to generate high-quality 3D models from text prompts and can be customized to achieve specific effects and styles.
 
-Img to Fspy to Blender: This technique uses a combination of image analysis and 3D modeling software to create 3D scenes based on 2D images. It involves using the Img to Fspy tool (https://fspy.io/) to analyze an image and generate a camera location, then importing the camera location into Blender to create a 3D scene. A tutorial on this technique is available on YouTube (https://youtu.be/5ntdkwAt3Uw) and provides step-by-step instructions for generating 3D scenes based on images.
+##### Img to Fspy to Blender:
+This technique uses a combination of image analysis and 3D modeling software to create 3D scenes based on 2D images. It involves using the Img to Fspy tool (https://fspy.io/) to analyze an image and generate a camera location, then importing the camera location into Blender to create a 3D scene. A tutorial on this technique is available on YouTube (https://youtu.be/5ntdkwAt3Uw) and provides step-by-step instructions for generating 3D scenes based on images.
 
 Both of these techniques offer powerful tools for generating 3D images and scenes based on text prompts. They require some additional software and processing time, but the results can be impressive and add a new dimension to the images generated by Stable Diffusion.
+
+##### Image to Shapes
+3D shapes on top of images. A tutorial on this technique is available on YouTube (https://youtu.be/ooSW5kcA6gI) and provides step-by-step instructions for building 3D shapes based on images. This technique offers a unique and creative way to incorporate 3D elements into images and videos based on text prompts.
 
 #### 3D Texturing Techniques for Stable Diffusion
 
 Stable Diffusion (SD) is a powerful text-to-image generation model that has inspired the development of several techniques for generating 3D textures based on text prompts. Two of the most notable methods are:
 
-Using Stable Diffusion for 3D Texturing: This technique involves using Stable Diffusion to generate high-quality images based on text prompts, and then using those images as textures for 3D models. This technique is described in detail in an article on 80.lv (https://80.lv/articles/using-stable-diffusion-for-3d-texturing/) and offers a powerful tool for generating realistic and detailed 3D textures.
+##### Using Stable Diffusion for 3D Texturing:
+This technique involves using Stable Diffusion to generate high-quality images based on text prompts, and then using those images as textures for 3D models. This technique is described in detail in an article on 80.lv (https://80.lv/articles/using-stable-diffusion-for-3d-texturing/) and offers a powerful tool for generating realistic and detailed 3D textures.
 
-Dream Textures: This is a project on Github (https://github.com/carson-katri/dream-textures) that uses Stable Diffusion to generate high-quality textures for 3D models. It allows users to customize the texture generation process and create unique and creative textures based on text prompts.
+##### Dream Textures:
+This is a project on Github (https://github.com/carson-katri/dream-textures) that uses Stable Diffusion to generate high-quality textures for 3D models. It allows users to customize the texture generation process and create unique and creative textures based on text prompts.
 
-Both of these techniques offer powerful tools for generating 3D textures based on text prompts. They require some additional processing time and software tools, but the results can be impressive and add a new level of detail and realism to 3D models.
-
-In addition to generating textures, Stable Diffusion can also be used to create 3D shapes on top of images. A tutorial on this technique is available on YouTube (https://youtu.be/ooSW5kcA6gI) and provides step-by-step instructions for building 3D shapes based on images. This technique offers a unique and creative way to incorporate 3D elements into images and videos based on text prompts.
 
 
 #### Music
@@ -379,25 +388,25 @@ Photoshop
 - Stable.Art https://github.com/isekaidev/stable.art
 - Auto Photoshop Plugin https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## How it Works
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Beginner's How To
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Popular UI's
-` `  
-` `  
+
+
 ### Automatic 1111
 
 #### Automatic 1111 Extensions
@@ -426,8 +435,8 @@ Inspiration Images: This is an extension that provides a database of images for 
 
 These extensions offer a range of useful features and tools for working with Stable Diffusion. They can enhance the capabilities of the model and simplify the process of generating high-quality images based on text prompts.
 
-` `  
-` `  
+
+
 ### Kohya
 
 attempts to get it to run on linux and then in a colab
@@ -439,42 +448,42 @@ https://github.com/Thund3rPat/kohya_ss-linux
 #### Addons
 https://github.com/kohya-ss/sd-webui-additional-networks
 
-` `  
-` `  
+
+
 
 ### EasyDiffusion / Formerly Stable Diffusion UI
 https://github.com/cmdr2/stable-diffusion-ui
-` `  
-` `  
+
+
 ### InvokeAI
 https://github.com/invoke-ai/InvokeAI
-` `  
-` `  
+
+
 ### DiffusionBee (Mac OS)
 https://github.com/divamgupta/diffusionbee-stable-diffusion-ui
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Model and Training UI's
 webui model toolkit https://github.com/arenatemp/stable-diffusion-webui-model-toolkit
 
 
 
-` `  
-` `  
+
+
 ### Other Sofware Addons that Act like a UI
 https://github.com/carson-katri/dream-textures
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Hardware Requirements and Cloud-Based Solutions
 
-` `  
-` `  
+
+
 ### Xformers for Stable Diffusion
 
 Xformers is a set of transformers that can be used as an alternative to Stable Diffusion's built-in transformers for text-to-image generation. Xformers can run on fewer resources and provide comparable or better results than built-in transformers, making them a popular choice for many users.
@@ -494,19 +503,19 @@ Run the following command: "pip install xformers==0.0.17.dev449".
 This will downgrade Xformers to the specified version and resolve any compatibility issues. However, users should be aware that downgrading may result in some loss of functionality or performance compared to newer versions. It is recommended to carefully evaluate the specific needs and requirements of your project before downgrading.
 
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Resources
 Stable Horde
 
-` `  
-` `  
+
+
 ### Communities/Sites to Use it
 
-` `  
-` `  
+
+
 ### Where to Get Models
 Pickling and Safetensors
 
@@ -516,12 +525,12 @@ SafeTensors: This is a technique used to ensure that the tensors used in SD are 
 
 Both pickling and SafeTensors are important techniques for ensuring the safety and performance of SD. They allow for models to be saved, loaded, and transferred between environments, while also ensuring that the data used in SD is secure and cannot be manipulated by attackers.
 
-` `  
-` `  
+
+
 ### Communities/Sites to discuss and share things with it
 
-` `  
-` `  
+
+
 ### Sites for Prompt Inspiration for Stable Diffusion
 
 Stable Diffusion (SD) is a powerful text-to-image generation model that relies on high-quality text prompts to generate images. To generate the best possible results, users need access to a wide range of high-quality prompts that are relevant to their projects.
@@ -542,10 +551,10 @@ PageBrain.ai: This is a website that offers a range of writing prompts and exerc
 
 These websites offer a wealth of creative prompts and exercises that can be adapted for use with SD to generate high-quality images based on text. Users should explore these sites and other similar resources to find the best prompts for their specific projects and goals.
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Stable Diffusion (SD) Core and Models
 
 At the core of SD is the stable diffusion model, which is contained in a ckpt file. The stable diffusion model consists of three sub-models:
@@ -560,8 +569,8 @@ Different models can use different versions of the VAE, U-Net, and CLIP models, 
 
 Understanding the core components and models of SD is important for optimizing its performance and for selecting the appropriate models and settings for specific projects.
 
-` `  
-` `  
+
+
 ### Base Models for Stable Diffusion
 
 Stable Diffusion (SD) relies on pre-trained models to generate high-quality images from text prompts. These models can be broadly categorized into two types: official models and community models.
@@ -600,8 +609,8 @@ As with earlier models, it is important to carefully evaluate the specific needs
 
 The 512-depth model is a Stable Diffusion model that enables image-to-image translation at a resolution of 512x512. While conventional image-to-image translation methods can suffer from issues with preserving the composition of the original image, the 512-depth model is designed to preserve composition much better. However, it is important to note that this model is limited to image-to-image translation and does not support other tasks such as text-to-image generation or inpainting.
 
-` `  
-` `  
+
+
 ### VAE (Variational Autoencoder) in Stable Diffusion
 
 In Stable Diffusion, the VAE (or encoder-decoder) component is responsible for compressing the input images into a smaller, latent space, which helps to reduce the VRAM requirements for the diffusion process. In practice, it is important to use a decoder that can effectively reconstruct the original image from the latent space representation.
@@ -634,8 +643,8 @@ Compared to the original autoencoder and other VAE models included with Stable D
 
 Overall, the MSE VAE is a useful option for applications that require high-quality image generation of human faces, particularly when used in combination with other techniques such as diffusion and CLIP-guidance.
 
-` `  
-` `  
+
+
 ### Samplers
 samplers are used in Stable Diffusion to denoise images during the diffusion process. They are different methods to solve differential equations, and there are both classic methods like Euler and Heun as well as newer neural network-based methods like DDIM, DPM, and DPM2. Some samplers are faster than others, and some converge to a final image while others like ancestral samplers simply keep generating new images with an increasing number of steps. It's important to test and compare the speed and performance of different samplers for different use cases, but generally, the DPM++ sampler is considered the best option for most situations.
 
@@ -670,8 +679,8 @@ DPM++ SDE is a stochastic version of the DPM++ sampler. It solves the diffusion 
 ##### DPM++ 2M
 DPM++ 2M is a multi-step sampler based on the Diffusion Probabilistic Models (DPM++) solver. It is designed to perform better for large guidance scales and produces high-quality images in fewer steps compared to other samplers. The Karras version is also available, which produces similar results to the original DPM++ 2M sampler. DPM++ 2M is recommended for users who want to generate high-quality images with large guidance scales efficiently.
 
-` `  
-` `  
+
+
 ### Community Models
 #### Fine Tuned
 Fine-tuned models for Stable Diffusion are models that have been trained on top of the pre-trained Stable Diffusion model using a specific dataset or a specific task. These fine-tuned models can be more specialized and provide better results for certain tasks, such as generating images of specific objects or styles.
@@ -715,10 +724,10 @@ Style2Paints
 Community forks are variations of the Stable Diffusion model that are developed and maintained by individuals or groups within the community. One such fork is Style2Paints, which is focused on being more of an artist's assistant than creating random generations. It seems to be highly anime-focused, but it is doing some interesting things with sketch infilling. The Style2Paints fork can be found on GitHub and includes a preview of version 5.
 https://github.com/lllyasviel/style2paints/tree/master/V5_preview 
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Capturing Concepts / Training
 Capturing concepts involves training a model to generate images that match a certain style or object. This can be done in several ways, such as using a dataset of images that represent the desired style or object, or by fine-tuning an existing model on a small dataset of images that match the desired concept.
 
@@ -728,8 +737,8 @@ Another approach is to use a method called "latent space interpolation," which i
 
 Overall, capturing concepts involves training a model to generate images that match a desired style or object, and there are several methods available for doing so, including guided diffusion and latent space interpolation.
 
-` `  
-` `  
+
+
 ### Image2Text
 Image2text is a technique used to convert images into text descriptions, also known as image captioning. It involves using a trained model to generate a textual description of the content of an image. This can be useful for a variety of applications, such as generating captions for social media posts or providing context for image datasets used in machine learning.
 
@@ -770,8 +779,8 @@ The tagger works by taking an input image and generating tags for it using DeepD
 The tool is available as an open-source project on GitHub and can be used by anyone for free.
 https://github.com/toriato/stable-diffusion-webui-wd14-tagger
 
-` `  
-` `  
+
+
 ### Dataset and Image Preparation
 Dataset and Image Preparation is a crucial step in training and generating images with stable diffusion models. A well-prepared dataset can lead to better image quality and more efficient training.
 
@@ -804,8 +813,8 @@ In addition to their use in regularization, classifier images can also be used t
 Overall, regularization/classifier images are an important tool in the stable diffusion training process, helping to ensure that models are stable, generalizable, and capable of generating high-quality images.
 https://www.reddit.com/r/StableDiffusion/comments/z9g46h/i_was_wrong_classifierregularization_images_do/
 
-` `  
-` `  
+
+
 ### Training
 Training is the process of fine-tuning a pre-existing model or creating a new one from scratch to generate images based on a specific subject or style. This is achieved by feeding the model with a large dataset of images that represent the subject or style. The model then learns the patterns and features of the input images and uses them to generate new images that are similar in style or subject.
 
@@ -890,8 +899,8 @@ Paper: https://openreview.net/pdf?id=d71n4ftoCBy
 #### Aescetic Gradients
 Aesthetic gradients are a type of image input that can be used as an alternative to textual prompts. They are useful when trying to generate an image that is difficult to describe in words, allowing for a more intuitive approach to image generation. However, some users have reported underwhelming results when using aesthetic gradients as input. The settings to modify weight may be unclear and unintuitive, making experimentation necessary. Aesthetic gradients may work best as a supplement to a trained model, as both the model and the gradients have been trained on the same data, allowing for added variation in generated images.
 
-` `  
-` `  
+
+
 ### Fine Tuning / Checkpoints/Diffusers/Safetensors
 To fine-tune a model, you start with a pre-trained checkpoint or diffuser and then continue training it on your own dataset or with your own prompts. This allows you to customize the model to better fit your specific needs. Checkpoints are saved models that can be loaded to continue training or to generate images. Diffusers, on the other hand, are used for guiding the diffusion process during image generation.
 
@@ -942,8 +951,8 @@ https://github.com/devilismyfriend/StableTuner
 #### Decoding Checkpoints
 Decoding checkpoints refer to a method of using pre-trained models to generate images based on textual prompts or other inputs. These checkpoints contain a set of weights that have been optimized during the training process to produce high-quality images. The decoding process involves feeding a textual prompt into the model and using the learned weights to generate an image that matches the input. These checkpoints can be used for a wide variety of image generation tasks, including creating artwork, generating realistic photographs, or creating new designs for products. Different types of decoding checkpoints may be used for different types of tasks, and users may experiment with different models to find the one that works best for their specific needs. Overall, decoding checkpoints are a powerful tool for generating high-quality images quickly and efficiently.
 
-` `  
-` `  
+
+
 ### Mixing
 Mixing in Stable Diffusion refers to combining different models, embeddings, prompts, or other inputs to generate novel and varied images. Image2text is a tool that can be used to analyze existing images and generate prompts that capture the style or content of the image. These prompts can then be used to generate new images using Stable Diffusion models. Additionally, mixing can be achieved by combining different models or embeddings together, either through merging or using hypernetworks. This can allow for greater flexibility in generating images with unique styles and content.
 
@@ -975,8 +984,8 @@ To convert a checkpoint to a Safetensor, you can use the "export.py" script prov
 
 Converting checkpoints to LORA or Safetensors can be useful for sharing models with others or for using them in other applications that require compressed model files.
 
-` `  
-` `  
+
+
 ### One Shot Learning & Similar
 One-shot learning is a machine learning technique where a model is trained on a small set of examples to classify new examples. In the context of Stable Diffusion, one-shot learning can be used to quickly train a model on a new concept or object with just a few images.
 
@@ -995,14 +1004,14 @@ Universal Guided Diffusion is a method for training a diffusion model that can g
 https://github.com/arpitbansal297/Universal-Guided-Diffusion
 PAPER: https://arxiv.org/abs/2302.07121
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Initiating Composition
 Initiating composition in the context of stable diffusion generally refers to the process of generating an image from scratch using a combination of textual prompts and/or image inputs. This process can be done using various techniques such as fine-tuning pre-trained models, using multiple embeddings, hypernetworks, and LORAs, merging models, and utilizing aesthetic gradients. The goal is to generate an image that reflects the desired style, subject, or concept that the user has in mind. Once an image has been generated, it can be further refined and tweaked using techniques such as image manipulation, denoising, and interpolation to achieve the desired outcome.
-` `  
-` `  
+
+
 ### Text2Image
 Stable Diffusion is a machine learning framework that is used for generating images from textual prompts. This is achieved through a process known as Text2Image, where textual input is used to generate corresponding images. The core functionality of Stable Diffusion is based on the use of a diffusion process, where a series of random noise vectors are iteratively modified to generate high-quality images. This process involves using a series of convolutional neural networks and other machine-learning techniques to generate the final image output.
 
@@ -1033,8 +1042,8 @@ Prompt Weighting can be used in several interfaces for stable diffusion. The syn
 
 #### Ui specific Syntax
 Stable Diffusion offers various UI frontends, each with its own unique or specific syntax for prompting. Examples of these syntaxes are provided with links to demonstrate the differences.
-` `  
-` `  
+
+
 ### Exploring
 Exploring the latent space in Stable Diffusion can be a daunting task due to its sheer size. However, there are several methods to explore it and find the desired image. One approach is to use brute force on a small part of the space near the optimal solution. Another method is to use random words or parameters to explore the space and discover new and interesting images. Overall, exploring the latent space is a key component of using Stable Diffusion effectively, and there are various techniques available to help with this task.
 
@@ -1059,15 +1068,15 @@ XY Grid exploration is a method of exploring the parameter space of stable diffu
 
 ##### One Parameter
 One parameter exploration involves generating a set of images by varying a single parameter, such as the delay in prompt delay. It can be useful for fine-tuning the impact of a particular parameter on image generation.
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Editing Composition
 Tools in Stable Diffusion used to edit the composition of an image
 
-` `  
-` `  
+
+
 ### Image2Image
 Img2img, or image-to-image, is a feature of Stable Diffusion that allows for image generation using both a prompt and an existing image. Users upload a base photo, and the AI applies changes based on entered prompts, resulting in refined and sophisticated art. The feature is similar to text-to-image generation, but with the added component of an existing image as a starting point. The possibilities for img2img generation are endless, with users experimenting with messy drawings, portraits, landscapes, and more to create a wide range of unique and creative artwork. The higher the denoising strength, the more different the image obtained will be.
 
@@ -1118,8 +1127,8 @@ Compressed Models - https://huggingface.co/webui/ControlNet-modules-safetensors/
 Automatic 1111 Addon - https://github.com/Mikubill/sd-webui-controlnet
 Tutorial - https://youtu.be/vhqqmkTBMlU https://youtu.be/OxFcIv8Gq8o 
 
-` `  
-` `  
+
+
 ### Pix2Pix-zero
 Pix2Pix-zero is an interactive image-to-image translation tool built on top of the Pix2Pix architecture. It allows users to sketch simple drawings, which are then transformed into a fully realized image by the model. The unique aspect of Pix2Pix-zero is that it is a zero-shot learning approach, meaning that it can generate images based on unseen or incomplete sketches.
 
@@ -1129,21 +1138,21 @@ The Pix2Pix-zero repository on GitHub includes pre-trained models as well as cod
 https://pix2pixzero.github.io/
 https://github.com/pix2pixzero/pix2pix-zero
 
-` `  
-` `  
+
+
 ### Seed Resize
 Seed resize is a feature in Stable Diffusion that allows users to preserve the composition of an image while changing its size. Users can resize the seed image, which is the initial image that is fed into the image generation process to generate images of different sizes while maintaining the same composition. This feature is useful for creating images of different resolutions or aspect ratios without sacrificing the overall composition. It is also helpful in generating images for specific platforms or devices that require specific resolutions or sizes.
 
 #### Variations
 Variations are a feature of Stable Diffusion that allows for traversing latent space near the seed with a defined amount of difference. It generates a set of images that are similar to the original but with variations based on the given parameters. The variations can be used to explore different styles and variations for the same image, or to fine-tune the final output to the desired result. The feature can be useful in creating art that has a consistent theme or style while still being unique and interesting.
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Finishing
 Finishing in Stable Diffusion refers to the final touches required to display the generated image. These include correcting any issues with faces using face restoration techniques. Once the image is satisfactory, it can be upscaled to the desired image size using SD upscaling, which is considered one of the best methods for this task. In some cases, inpainting can also be used to touch up small details after upscaling.
-` `  
-` `  
+
+
 ### Upscaling
 Upscaling is a process of increasing the resolution of an image. In Stable Diffusion, images are usually generated at a lower resolution such as 512x512 or 768x768 for faster processing. However, to obtain higher-quality output or to use the generated image for printing or large displays, upscaling is necessary. There are various upscaling techniques available, including interpolation-based methods and deep learning-based methods. In Stable Diffusion, the preferred upscaling method is SD Upscale, which is a deep learning-based method specifically designed for stable diffusion.
 
@@ -1190,8 +1199,8 @@ SD Upscale is a method of upscaling images that uses Stable Diffusion to add det
 
 ##### SD 2.0 4xUpscaler
 SD 2.0 4x Upscaler is the official model from stability.ai that allows for upscaling images by a factor of four. However, it requires a lot of VRAM to use, which can be a limitation for some users.
-` `  
-` `  
+
+
 ### Restoring
 Restoring is a process of fixing and improving the quality of an image. It can involve sharpening the image to enhance its details, or it can be used to fix specific issues like smoothing out skin textures or removing noise and artifacts. Restoring can be performed using various techniques and algorithms, depending on the specific needs of the image. For example, face restoration can be used to improve the quality of facial features and expressions, while denoising algorithms can be used to remove unwanted noise and improve the clarity of the image. Restoring is an important step in the image creation process to ensure that the final product is of high quality and meets the desired standards.
 
@@ -1208,10 +1217,10 @@ Code Former is a face restoration algorithm that utilizes a convolutional neural
 https://github.com/sczhou/CodeFormer
 DEMO: https://huggingface.co/spaces/sczhou/CodeFormer
 
-` `  
-` `  
-` `  
-` `  
+
+
+
+
 ## Techniques
 ### Clip Skip & Alternating
 CLIP-Skip is a slider option in the settings of Stable Diffusion that controls how early the processing of prompt by the CLIP network should be stopped. It is important to note that CLIP-Skip should only be used with models that were trained with this kind of tweak, which in this case are the NovelAI models. When using CLIP-Skip, the output of the neural network will be based on fewer layers of processing, resulting in better image generation on the appropriate models.
