@@ -20,6 +20,7 @@
       - [Art Breeder Collage Tool:](#art-breeder-collage-tool)
       - [Dream by Wombo:](#dream-by-wombo)
     - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
+      - [Prompt Inspiration Communities \& Tools](#prompt-inspiration-communities--tools)
   - [Basics, Settings and Operations](#basics-settings-and-operations)
   - [What Can Be Done With Stable Diffusion](#what-can-be-done-with-stable-diffusion)
     - [Core Functionality \& Use Cases](#core-functionality--use-cases)
@@ -64,10 +65,9 @@
   - [Hardware Requirements and Cloud-Based Solutions](#hardware-requirements-and-cloud-based-solutions)
     - [Xformers for Stable Diffusion](#xformers-for-stable-diffusion)
   - [Resources](#resources)
-    - [Communities/Sites to Use it](#communitiessites-to-use-it)
+    - [Methods of Compute](#methods-of-compute)
     - [Where to Get Models](#where-to-get-models)
-    - [Communities/Sites to discuss and share things with it](#communitiessites-to-discuss-and-share-things-with-it)
-    - [Sites for Prompt Inspiration for Stable Diffusion](#sites-for-prompt-inspiration-for-stable-diffusion)
+      - [Notes About Models](#notes-about-models)
   - [Stable Diffusion (SD) Core and Models](#stable-diffusion-sd-core-and-models)
     - [Base Models for Stable Diffusion](#base-models-for-stable-diffusion)
       - [Stable Diffusion Models 1.4 and 1.5](#stable-diffusion-models-14-and-15)
@@ -428,7 +428,26 @@ Reddit Related Communities
 Discord  
 - Stable Foundation https://discord.gg/stablediffusion  
 
+#### Prompt Inspiration Communities & Tools
+Websites and platforms that offer prompt inspiration for SD.
 
+Libraire.ai:  
+This is a website that offers a wide range of writing prompts and exercises for writers. Many of these prompts can be adapted for use with SD to generate images based on text.  
+
+Lexica.art:  
+This is a platform that offers a range of creative prompts for artists and writers. These prompts can be used to generate ideas for SD images and to refine text prompts for better results.  
+
+Krea.ai:  
+This is a platform that offers a range of prompts for creative projects, including writing and art prompts. Many of these prompts can be adapted for use with SD to generate high-quality images based on text.  
+
+PromptHero.com:  
+This is a website that offers a wide range of prompts for writing, storytelling, and creative projects. These prompts can be used to generate ideas for SD images and to refine text prompts for better results.  
+
+OpenArt.ai:  
+This is a platform that offers a range of creative prompts and challenges for artists and designers. These prompts can be used to generate ideas for SD images and to refine text prompts for better results.  
+
+PageBrain.ai:  
+This is a website that offers a range of writing prompts and exercises for writers. Many of these prompts can be adapted for use with SD to generate images based on text.  
 
 
 
@@ -679,15 +698,25 @@ This will downgrade Xformers to the specified version and resolve any compatibil
 
 
 ## Resources
-Stable Horde
+
+### Methods of Compute
+Personal Hardware
+- Requires Cuda GPU
+- Requires Minimum of 8gb VRAM, more is better
 
 
+Community Contributed Compute
+- Stable Horde
 
-### Communities/Sites to Use it
-
-
+Cloud Based Solutions
+- Colab
+- 
 
 ### Where to Get Models
+
+
+
+#### Notes About Models
 Pickling and Safetensors
 
 Pickling: This is a technique used to serialize and deserialize Python objects. Pickling is used in SD to save and load models, as well as to transfer data between processes. Pickling can be used to save the state of the model at various stages of training or to transfer a model between different machines or environments. However, pickling can also introduce security risks if used improperly, as it allows for arbitrary code execution.
@@ -698,29 +727,6 @@ Both pickling and SafeTensors are important techniques for ensuring the safety a
 
 
 
-### Communities/Sites to discuss and share things with it
-
-
-
-### Sites for Prompt Inspiration for Stable Diffusion
-
-Stable Diffusion (SD) is a powerful text-to-image generation model that relies on high-quality text prompts to generate images. To generate the best possible results, users need access to a wide range of high-quality prompts that are relevant to their projects.
-
-Fortunately, there are several websites and platforms that offer prompt inspiration for SD, including:
-
-Libraire.ai: This is a website that offers a wide range of writing prompts and exercises for writers. Many of these prompts can be adapted for use with SD to generate images based on text.
-
-Lexica.art: This is a platform that offers a range of creative prompts for artists and writers. These prompts can be used to generate ideas for SD images and to refine text prompts for better results.
-
-Krea.ai: This is a platform that offers a range of prompts for creative projects, including writing and art prompts. Many of these prompts can be adapted for use with SD to generate high-quality images based on text.
-
-PromptHero.com: This is a website that offers a wide range of prompts for writing, storytelling, and creative projects. These prompts can be used to generate ideas for SD images and to refine text prompts for better results.
-
-OpenArt.ai: This is a platform that offers a range of creative prompts and challenges for artists and designers. These prompts can be used to generate ideas for SD images and to refine text prompts for better results.
-
-PageBrain.ai: This is a website that offers a range of writing prompts and exercises for writers. Many of these prompts can be adapted for use with SD to generate images based on text.
-
-These websites offer a wealth of creative prompts and exercises that can be adapted for use with SD to generate high-quality images based on text. Users should explore these sites and other similar resources to find the best prompts for their specific projects and goals.
 
 
 
