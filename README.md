@@ -19,6 +19,8 @@
       - [Dreamlike Art:](#dreamlike-art)
       - [Art Breeder Collage Tool:](#art-breeder-collage-tool)
       - [Dream by Wombo:](#dream-by-wombo)
+      - [Draw Things](#draw-things)
+      - [Krea AI](#krea-ai)
     - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
       - [Prompt Inspiration Communities \& Tools](#prompt-inspiration-communities--tools)
   - [Basics, Settings and Operations](#basics-settings-and-operations)
@@ -47,11 +49,39 @@
         - [Riffusion](#riffusion)
       - [Image-Based Mind Reading](#image-based-mind-reading)
       - [Synthetic Data Creation](#synthetic-data-creation)
-  - [How it Works](#how-it-works)
+  - [How Stable Diffusion Works](#how-stable-diffusion-works)
   - [Beginner's How To](#beginners-how-to)
-  - [Popular UI's](#popular-uis)
+  - [Popular UIs](#popular-uis)
     - [Automatic 1111](#automatic-1111)
       - [Automatic 1111 Extensions](#automatic-1111-extensions)
+        - [Ultimate Upscale:](#ultimate-upscale)
+        - [Config Presets:](#config-presets)
+        - [Image Browser:](#image-browser)
+        - [Prompt Tag Autocomplete:](#prompt-tag-autocomplete)
+        - [Txt2Mask:](#txt2mask)
+        - [Ultimate HD Upscaler:](#ultimate-hd-upscaler)
+        - [Aesthetic Scorer:](#aesthetic-scorer)
+        - [Tagger:](#tagger)
+        - [Inspiration Images:](#inspiration-images)
+        - [Depth Map Library and Poser:](#depth-map-library-and-poser)
+        - [OpenPose Editor:](#openpose-editor)
+        - [Shift Attention Script](#shift-attention-script)
+        - [prompt interpolation](#prompt-interpolation)
+        - [Text2Palette](#text2palette)
+        - [Multiple Hypernetworks](#multiple-hypernetworks)
+        - [Img2Tiles \& Img2Mosaic](#img2tiles--img2mosaic)
+        - [Depthmap \& Stereo Image](#depthmap--stereo-image)
+        - [Layers Editing, Blending](#layers-editing-blending)
+        - [Model Toolkit](#model-toolkit)
+        - [Prompt Test](#prompt-test)
+        - [Booru Tag Autocomplete](#booru-tag-autocomplete)
+        - [Aescetic Scorer](#aescetic-scorer)
+        - [Alpha Canvas](#alpha-canvas)
+        - [Unofficial PEZ - hard prompts made easy](#unofficial-pez---hard-prompts-made-easy)
+        - [Two Shot](#two-shot)
+        - [Composable Lora](#composable-lora)
+        - [Couple Helper - lets you choose where to apply prompts on a grid](#couple-helper---lets-you-choose-where-to-apply-prompts-on-a-grid)
+        - [latent couple extension](#latent-couple-extension)
     - [Kohya](#kohya)
       - [Addons](#addons)
     - [EasyDiffusion / Formerly Stable Diffusion UI](#easydiffusion--formerly-stable-diffusion-ui)
@@ -64,10 +94,13 @@
     - [Other Sofware Addons that Act like a UI](#other-sofware-addons-that-act-like-a-ui)
   - [Hardware Requirements and Cloud-Based Solutions](#hardware-requirements-and-cloud-based-solutions)
     - [Xformers for Stable Diffusion](#xformers-for-stable-diffusion)
-  - [Resources](#resources)
+  - [Resources \& Useful Links](#resources--useful-links)
+    - [Helpful Tools](#helpful-tools)
+      - [Tool Directories and Explanations](#tool-directories-and-explanations)
     - [Methods of Compute](#methods-of-compute)
-    - [Where to Get Models](#where-to-get-models)
+    - [Where to Get Models Made By Community](#where-to-get-models-made-by-community)
       - [Notes About Models](#notes-about-models)
+        - [Model Safety Measures](#model-safety-measures)
   - [Stable Diffusion (SD) Core and Models](#stable-diffusion-sd-core-and-models)
     - [Base Models for Stable Diffusion](#base-models-for-stable-diffusion)
       - [Stable Diffusion Models 1.4 and 1.5](#stable-diffusion-models-14-and-15)
@@ -87,6 +120,11 @@
       - [DPM++](#dpm)
         - [DPM++ SDE](#dpm-sde)
         - [DPM++ 2M](#dpm-2m)
+      - [Common Samplers / Equilibrium Samplers](#common-samplers--equilibrium-samplers)
+        - [k\_LMS](#k_lms)
+        - [DDIM](#ddim)
+        - [k\_euler\_a and Heun](#k_euler_a-and-heun)
+        - [k\_dpm\_2\_a](#k_dpm_2_a)
     - [Community Models](#community-models)
       - [Fine Tuned](#fine-tuned)
       - [Merged/Merges](#mergedmerges)
@@ -103,6 +141,7 @@
     - [Dataset and Image Preparation](#dataset-and-image-preparation)
       - [Captioning](#captioning)
       - [Regularization/Classifier Images](#regularizationclassifier-images)
+        - [Links to Some Regularization Images](#links-to-some-regularization-images)
     - [Training](#training)
       - [File Type Overview](#file-type-overview)
       - [Textual Inversion](#textual-inversion)
@@ -121,7 +160,7 @@
     - [Mixing](#mixing)
       - [Using Multiple types of models and embeddings](#using-multiple-types-of-models-and-embeddings)
         - [Multiple Embeddings](#multiple-embeddings)
-        - [Multiple Hypernetworks](#multiple-hypernetworks)
+        - [Multiple Hypernetworks](#multiple-hypernetworks-1)
         - [Multiple LORA's](#multiple-loras)
       - [Merging](#merging)
         - [Merging Checkpoints](#merging-checkpoints)
@@ -182,7 +221,7 @@
       - [Blender ControlNet](#blender-controlnet)
       - [Makes Textures / Vision](#makes-textures--vision)
       - [OpenPose](#openpose)
-      - [OpenPose Editor](#openpose-editor)
+      - [OpenPose Editor](#openpose-editor-1)
       - [Dream Textures](#dream-textures-1)
       - [AI Render](#ai-render)
       - [Stability AI's official Blender](#stability-ais-official-blender)
@@ -204,11 +243,17 @@
       - [Colors Scene (possibly no longer needed since controlNet Update)](#colors-scene-possibly-no-longer-needed-since-controlnet-update)
   - [Related Technologies, Communities and Tools, not necessarily Stable Diffusion, but Adjacent](#related-technologies-communities-and-tools-not-necessarily-stable-diffusion-but-adjacent)
   - [Techniques \& Possibilities](#techniques--possibilities)
+    - [Seed and prompt blending](#seed-and-prompt-blending)
+    - [Loopback Superimpose](#loopback-superimpose)
+    - [txt2img2img](#txt2img2img)
+    - [Seed Traveling](#seed-traveling)
+    - [Alternate Noise Samplers](#alternate-noise-samplers)
     - [Clip Skip \& Alternating](#clip-skip--alternating)
     - [Multi Control Net and blender for perfect Hands](#multi-control-net-and-blender-for-perfect-hands)
     - [Blender to Depth Map](#blender-to-depth-map)
       - [Blender to depth map for concept art](#blender-to-depth-map-for-concept-art)
       - [depth map for terrain and map generation?](#depth-map-for-terrain-and-map-generation)
+      - [Detextify - removes pseudo text from generations](#detextify---removes-pseudo-text-from-generations)
     - [Blender as Camera Rig](#blender-as-camera-rig)
     - [SD depthmap to blender for stretched single viewpoint depth perception model](#sd-depthmap-to-blender-for-stretched-single-viewpoint-depth-perception-model)
     - [Daz3D for posing](#daz3d-for-posing)
@@ -269,9 +314,12 @@ LAION-5B - 5 billion image-text pairs were classified based on language and filt
 Laion-Aesthetics v2 5+  
 
 #### Core Technologies
+See Also [Stable Diffusion (SD) Core and Models](#stable-diffusion-sd-core-and-models)  
+
 Variational Autoencoder (VAE)  
 - The simplest explanation is that it makes an image small then makes it bigger again. 
 - A Variational Autoencoder (VAE) is an artificial neural network architecture that belongs to the families of probabilistic graphical models and variational Bayesian methods. It is a type of neural network that learns to reproduce its input, and also map data to latent space. VAEs use probability modeling in a neural network system to provide the kinds of equilibrium that autoencoders are typically used to produce. The neural network components are typically referred to as the encoder and decoder for the first and second component respectively. VAE's are part of the neural network model that encodes and decodes the images to and from the smaller latent space, so that computation can be faster. Any models you use, be it v1, v2 or custom, already comes with a default VAE
+- See also [VAE (Variational Autoencoder) in Stable Diffusion](#vae-variational-autoencoder-in-stable-diffusion)  
 
 
 U-Net  
@@ -402,6 +450,12 @@ https://www.artbreeder.com/browse
 This is a mobile application that uses Stable Diffusion to generate animated images based on user-submitted audio prompts. It has gained significant popularity for its ability to create humorous and entertaining animations.  
 https://dream.ai/  
 
+#### Draw Things
+https://apps.apple.com/us/app/draw-things-ai-generation/id6444050820
+
+#### Krea AI
+https://www.krea.ai/
+
 
 This is not a comprehensive list, there are many other websites and communities that use Stable Diffusion and other text-to-image models. Please contribute to this list.  
 
@@ -490,6 +544,11 @@ Stable diffusion is primarily used for image generation, upscaling images and ed
 #### Video & Animation
 
 ##### Deforum
+https://github.com/deforum-art/deforum-stable-diffusion
+
+helpful Addons:
+https://github.com/deforum-art/deforum-for-automatic1111-webui
+https://github.com/rewbs/sd-parseq
 
 ##### Depth Module for Stable Diffusion
 
@@ -562,7 +621,7 @@ https://hai.stanford.edu/news/could-stable-diffusion-solve-gap-medical-imaging-d
 
 
 
-## How it Works
+## How Stable Diffusion Works
 
 
 
@@ -574,48 +633,127 @@ https://hai.stanford.edu/news/could-stable-diffusion-solve-gap-medical-imaging-d
 
 
 
-## Popular UI's
+## Popular UIs
 
 
 ### Automatic 1111
-Automatic 1111's superpower is it's rapid development speed and leveraging of community addons, usually within days of research being shown an addon for it in Auto1111 appears, if those addons prove popular enough they are eventually merged into standard features of the UI. I would likely say that because of this Aato1111 is the default choice of UI for most users until they have a specialized need or desire something easier to use. It is a powerful and comprehensive UI
+Automatic 1111's superpower is its rapid development speed and leveraging of community addons, usually within days of research being shown an addon for it in Auto1111 appears, if those addons prove popular enough they are eventually merged into standard features of the UI. I would likely say that because of this Aato1111 is the default choice of UI for most users until they have a specialized need or desire something easier to use. It is a powerful and comprehensive UI. 
 
-Tutorials:  
+Github:
+https://github.com/AUTOMATIC1111/stable-diffusion-webui  
+
+Features:  
+https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features  
+
+Wiki:  
+https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki  
 
 Local Installation:  
+https://github.com/AUTOMATIC1111/stable-diffusion-webui#installation-and-running  
+- Windows Auto installer https://github.com/EmpireMediaScience/A1111-Web-UI-Installer
 
 Colab:  
 
+Tutorials / How to Use:  
+
 #### Automatic 1111 Extensions
 Stable Diffusion (SD) is a powerful text-to-image generation model that has inspired the development of several extensions and plugins that enhance its capabilities and offer new features. Many of these extensions can be found on the Github repository for AUTOMATIC1111 (https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Extensions) and can be installed through the extensions tab inside of AUTOMATIC1111, or by cloning the respective Github repositories into the extensions folder inside your AUTOMATIC1111 webUI/extensions directory.  
+Github: https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Extensions  
+Github: https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Custom-Scripts
 
 Some of the most notable extensions for Stable Diffusion are:  
 
-Ultimate Upscale: This is an extension that uses the ESRGAN algorithm to upscale images generated by Stable Diffusion to high-resolution versions. The Github repository for this extension is available at https://github.com/Coyote-A/ultimate-upscale-for-automatic1111, and a FAQ for the extension is available at https://github.com/Coyote-A/ultimate-upscale-for-automatic1111/wiki/FAQ.  
+##### Ultimate Upscale:  
+This is an extension that uses the ESRGAN algorithm to upscale images generated by Stable Diffusion to high-resolution versions.  
+Github: https://github.com/Coyote-A/ultimate-upscale-for-automatic1111  
+FAQ: https://github.com/Coyote-A/ultimate-upscale-for-automatic1111/wiki/FAQ  
 
-Config Presets: This is an extension that allows users to save and load configuration presets for Stable Diffusion. It simplifies the process of setting up Stable Diffusion for specific tasks and allows users to switch between presets quickly. The Github repository for this extension is available at https://github.com/Zyin055/Config-Presets.  
+##### Config Presets:
+This is an extension that allows users to save and load configuration presets for Stable Diffusion. It simplifies the process of setting up Stable Diffusion for specific tasks and allows users to switch between presets quickly. The Github repository for this extension is available at https://github.com/Zyin055/Config-Presets.  
 
-Image Browser: This is an extension that provides a visual interface for browsing and selecting images to use as input for Stable Diffusion. It simplifies the process of selecting and managing images and allows users to preview images before generating output.  
+##### Image Browser:
+This is an extension that provides a visual interface for browsing and selecting images to use as input for Stable Diffusion. It simplifies the process of selecting and managing images and allows users to preview images before generating output.  
 
-Prompt Tag Autocomplete: This is an extension that provides autocomplete suggestions for text prompts based on previously used prompts. It speeds up the process of entering prompts and reduces the likelihood of errors.  
+##### Prompt Tag Autocomplete:
+This is an extension that provides autocomplete suggestions for text prompts based on previously used prompts. It speeds up the process of entering prompts and reduces the likelihood of errors.  
 
-Txt2Mask: This is an extension that generates masks from text prompts. It allows users to select specific regions of an image to generate output from and can be useful for tasks such as object removal or image editing.  
+##### Txt2Mask:
+This is an extension that generates masks from text prompts. It allows users to select specific regions of an image to generate output from and can be useful for tasks such as object removal or image editing.  
 
-Ultimate HD Upscaler: This is an extension that uses a neural network to upscale images generated by Stable Diffusion to high-resolution versions. It offers improved upscaling quality compared to traditional algorithms.  
+##### Ultimate HD Upscaler:
+This is an extension that uses a neural network to upscale images generated by Stable Diffusion to high-resolution versions. It offers improved upscaling quality compared to traditional algorithms.  
 
-Aesthetic Scorer: This is an extension that uses a neural network to score the aesthetic quality of images generated by Stable Diffusion. It can be used to evaluate the quality of generated images and provide feedback for improvement.  
+##### Aesthetic Scorer:
+This is an extension that uses a neural network to score the aesthetic quality of images generated by Stable Diffusion. It can be used to evaluate the quality of generated images and provide feedback for improvement.  
 
-Tagger: This is an extension that adds tags to generated images based on the input text prompts. It can be useful for organizing and managing large numbers of generated images.  
+##### Tagger:
+This is an extension that adds tags to generated images based on the input text prompts. It can be useful for organizing and managing large numbers of generated images.  
 
-Inspiration Images: This is an extension that provides a database of images for use as input prompts. It can be useful for generating images based on specific themes or styles.  
+##### Inspiration Images:
+This is an extension that provides a database of images for use as input prompts. It can be useful for generating images based on specific themes or styles.  
 
-These extensions offer a range of useful features and tools for working with Stable Diffusion. They can enhance the capabilities of the model and simplify the process of generating high-quality images based on text prompts.  
-
-Depth Map Library and Poser
+##### Depth Map Library and Poser:  
 https://github.com/jexom/sd-webui-depth-lib 
 
-OpenPose Editor
+##### OpenPose Editor:  
 https://github.com/fkunn1326/openpose-editor  
+
+##### Shift Attention Script
+https://github.com/yownas/shift-attention
+
+##### prompt interpolation
+https://github.com/EugeoSynthesisThirtyTwo/prompt-interpolation-script-for-sd-webui
+
+##### Text2Palette
+https://github.com/1ort/txt2palette
+
+##### Multiple Hypernetworks
+https://github.com/antis0007/sd-webui-multiple-hypernetworks
+
+##### Img2Tiles & Img2Mosaic
+https://github.com/arcanite24/img2tiles
+https://github.com/1ort/img2mosaic
+
+##### Depthmap & Stereo Image
+https://github.com/thygate/stable-diffusion-webui-depthmap-script
+
+##### Layers Editing, Blending
+https://github.com/KohakuBlueleaf/a1111-sd-webui-haku-img
+
+##### Model Toolkit
+https://github.com/arenatemp/stable-diffusion-webui-model-toolkit
+
+##### Prompt Test
+it creates a grid of entire prompt but each image has one item of the prompt removed so you can see which part of the prompt affected the image and which did not
+https://github.com/Extraltodeus/test_my_prompt
+
+##### Booru Tag Autocomplete
+https://github.com/DominikDoom/a1111-sd-webui-tagcomplete
+
+##### Aescetic Scorer
+https://github.com/grexzen/SD-Chad
+
+##### Alpha Canvas
+https://github.com/TKoestlerx/sdexperiments
+
+##### Unofficial PEZ - hard prompts made easy
+https://github.com/YuxinWenRick/hard-prompts-made-easy
+
+##### Two Shot
+https://github.com/opparco/stable-diffusion-webui-two-shot
+
+##### Composable Lora
+https://github.com/opparco/stable-diffusion-webui-composable-lora
+
+##### Couple Helper - lets you choose where to apply prompts on a grid
+https://github.com/Zuntan03/LatentCoupleHelper
+https://github-com.translate.goog/Zuntan03/LatentCoupleHelper?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp
+
+##### latent couple extension
+https://github.com/miZyind/sd-webui-latent-couple
+https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
+
+
 
 ### Kohya
 attempts to get it to run on linux and then in a colab
@@ -646,7 +784,14 @@ Diffusers can be used natively
 https://github.com/divamgupta/diffusionbee-stable-diffusion-ui
 
 ### NKMD GUI
+https://nmkd.itch.io/t2i-gui
+https://github.com/n00mkrad/text2image-gui
 
+Requirements:
+https://github.com/n00mkrad/text2image-gui/blob/main/README.md#system-requirements
+
+Features:
+https://github.com/n00mkrad/text2image-gui/blob/main/README.md#features-and-how-to-use-them
 
 ### ComfyUi
 https://github.com/comfyanonymous/ComfyUI  
@@ -697,7 +842,15 @@ This will downgrade Xformers to the specified version and resolve any compatibil
 
 
 
-## Resources
+## Resources & Useful Links
+
+### Helpful Tools
+
+#### Tool Directories and Explanations
+https://sdtools.org/
+
+https://diffusiondb.com/
+
 
 ### Methods of Compute
 Personal Hardware
@@ -712,18 +865,31 @@ Cloud Based Solutions
 - Colab
 - 
 
-### Where to Get Models
+### Where to Get Models Made By Community
+https://civitai.com/  
 
+https://huggingface.co/spaces/huggingface-projects/diffusers-gallery  
+
+https://huggingface.co/sd-dreambooth-library
+
+https://fantasy.ai/
+
+https://sinkin.ai/
 
 
 #### Notes About Models
-Pickling and Safetensors
 
-Pickling: This is a technique used to serialize and deserialize Python objects. Pickling is used in SD to save and load models, as well as to transfer data between processes. Pickling can be used to save the state of the model at various stages of training or to transfer a model between different machines or environments. However, pickling can also introduce security risks if used improperly, as it allows for arbitrary code execution.
-
-SafeTensors: This is a technique used to ensure that the tensors used in SD are safe and do not pose a security risk. SafeTensors are created by wrapping tensors with metadata that defines their type and shape. This metadata can be used to verify that tensors are being used correctly and to prevent attacks such as tensor poisoning.
-
+##### Model Safety Measures
+There is a possibility of someone injecting code via a ckpt model, I've yet to hear of anyone doing so but there is a possibility of it, to avoid this only download from trusted sources, check them with a pickle file or download a safetensor instead of a ckpt as those are designed to be safer. 
 Both pickling and SafeTensors are important techniques for ensuring the safety and performance of SD. They allow for models to be saved, loaded, and transferred between environments, while also ensuring that the data used in SD is secure and cannot be manipulated by attackers.
+
+Pickling:
+This is a technique used to serialize and deserialize Python objects. Pickling is used in SD to save and load models, as well as to transfer data between processes. Pickling can be used to save the state of the model at various stages of training or to transfer a model between different machines or environments. However, pickling can also introduce security risks if used improperly, as it allows for arbitrary code execution.
+
+SafeTensors:
+This is a technique used to ensure that the tensors used in SD are safe and do not pose a security risk. SafeTensors are created by wrapping tensors with metadata that defines their type and shape. This metadata can be used to verify that tensors are being used correctly and to prevent attacks such as tensor poisoning.
+
+
 
 
 
@@ -856,7 +1022,19 @@ DPM++ SDE is a stochastic version of the DPM++ sampler. It solves the diffusion 
 ##### DPM++ 2M
 DPM++ 2M is a multi-step sampler based on the Diffusion Probabilistic Models (DPM++) solver. It is designed to perform better for large guidance scales and produces high-quality images in fewer steps compared to other samplers. The Karras version is also available, which produces similar results to the original DPM++ 2M sampler. DPM++ 2M is recommended for users who want to generate high-quality images with large guidance scales efficiently.
 
+#### Common Samplers / Equilibrium Samplers
 
+##### k_LMS 
+The k-LMS Stable Diffusion technique involves a sequence of minute, stochastic increments that proceed along the gradient of the distribution, originating from a specific location within the parameter space. By adapting the step magnitude according to the curvature of the distribution, this method reduces sample variance. Consequently, it facilitates swifter and more efficient sampling in the direction of the desired distribution.
+
+##### DDIM
+The DDIM Stable Diffusion technique represents an advanced adaptation of the k-LMS Stable Diffusion algorithm, delivering superior sampling accuracy. By further reducing sample variance and bolstering convergence towards the target distribution, this method attains enhanced performance. This improvement is achieved through the incorporation of additional information regarding the distribution's curvature into the model. Distinct from alternative algorithms, DDIM necessitates a mere eight steps to generate exceptional imagery.
+
+##### k_euler_a and Heun
+Analogous to DDIM, the k_euler_a and Heun samplers exhibit remarkable speed and generate outstanding outcomes with a minimal number of steps. Nonetheless, these methods also considerably modify the generative style. To achieve the optimal result, it is advised to transfer a promising image discovered in k_euler and Heun samplers to DDIM, or vice versa, and iterate until the ideal outcome is obtained.
+
+##### k_dpm_2_a
+Regarded by numerous experts as surpassing its counterparts, the k_dpm_2_a sampler prioritizes quality over speed. Entailing a 30- to 80-step procedure, this sampler yields exceptional outcomes. Ideally, it is employed for meticulously refined prompts exhibiting minimal inaccuracies, and may not be the most suitable sampler for exploratory purposes.
 
 ### Community Models
 #### Fine Tuned
@@ -989,6 +1167,9 @@ In addition to their use in regularization, classifier images can also be used t
 
 Overall, regularization/classifier images are an important tool in the stable diffusion training process, helping to ensure that models are stable, generalizable, and capable of generating high-quality images.
 https://www.reddit.com/r/StableDiffusion/comments/z9g46h/i_was_wrong_classifierregularization_images_do/
+
+##### Links to Some Regularization Images
+https://github.com/aitrepreneur/REGULARIZATION-IMAGES-SD
 
 
 
@@ -1465,6 +1646,24 @@ AI Colorizers
 - Style2Paint https://github.com/lllyasviel/style2paints
 
 ## Techniques & Possibilities
+
+### Seed and prompt blending
+https://github.com/amotile/stable-diffusion-backend/tree/master/src/process/implementations/automatic1111_scripts
+
+### Loopback Superimpose
+https://github.com/DiceOwl/StableDiffusionStuff
+https://github.com/Extraltodeus/advanced-loopback-for-sd-webui
+
+### txt2img2img
+https://github.com/ThereforeGames/txt2img2img (Outdated)
+https://github.com/ThereforeGames/unprompted
+
+### Seed Traveling
+https://github.com/yownas/seed_travel
+
+### Alternate Noise Samplers
+https://gist.github.com/dfaker/f88aa62e3a14b559fe4e5f6b345db664
+
 ### Clip Skip & Alternating
 CLIP-Skip is a slider option in the settings of Stable Diffusion that controls how early the processing of prompt by the CLIP network should be stopped. It is important to note that CLIP-Skip should only be used with models that were trained with this kind of tweak, which in this case are the NovelAI models. When using CLIP-Skip, the output of the neural network will be based on fewer layers of processing, resulting in better image generation on the appropriate models.
 https://www.youtube.com/watch?v=IkMIoRCfCgE
@@ -1485,6 +1684,9 @@ https://stable-diffusion-art.com/depth-to-image/
 https://www.youtube.com/watch?v=L6J4IGjjr9w
 
 #### depth map for terrain and map generation?
+
+#### Detextify - removes pseudo text from generations
+https://github.com/iuliaturc/detextify
 
 
 ### Blender as Camera Rig
