@@ -80,6 +80,7 @@
         - [Negative Embedding](#negative-embedding)
       - [Hypernetworks](#hypernetworks)
       - [LORA](#lora)
+        - [LoHa](#loha)
       - [Aescetic Gradients](#aescetic-gradients)
     - [Fine Tuning / Checkpoints/Diffusers/Safetensors](#fine-tuning--checkpointsdiffuserssafetensors)
       - [Token Based](#token-based)
@@ -880,6 +881,11 @@ Changing Lora Weight example: 0.5-:0.7
 Number of Images in training data
 
 Converting  Checkpoint to LORA
+
+##### LoHa
+Seems to be a LORA that has something to do with federated learning, meaning can be trained in small pieces by many computers instead of all at once in one large go? I'm not completely sure yet
+Github: https://github.com/KohakuBlueleaf/LyCORIS
+Paper: https://openreview.net/pdf?id=d71n4ftoCBy
 
 #### Aescetic Gradients
 Aesthetic gradients are a type of image input that can be used as an alternative to textual prompts. They are useful when trying to generate an image that is difficult to describe in words, allowing for a more intuitive approach to image generation. However, some users have reported underwhelming results when using aesthetic gradients as input. The settings to modify weight may be unclear and unintuitive, making experimentation necessary. Aesthetic gradients may work best as a supplement to a trained model, as both the model and the gradients have been trained on the same data, allowing for added variation in generated images.
