@@ -407,26 +407,26 @@ This is not a comprehensive list, there are many other websites and communities 
 
 ### Community Chatrooms and Gathering Locations
 Reddit Core Communities
-- /r/StableDiffusion
-- /r/sdforall
-- /r/dreambooth
-- /r/stablediffusionUI
-- /r/civitai  
+- /r/StableDiffusion https://www.reddit.com/r/StableDiffusion  
+- /r/sdforall https://www.reddit.com/r/sdforall  
+- /r/dreambooth https://www.reddit.com/r/dreambooth  
+- /r/stablediffusionUI https://www.reddit.com/r/stablediffusionUI  
+- /r/civitai https://www.reddit.com/r/civitai  
 
-Reddit Related Communities
-- /r/aiArt
-- /r/AIArtistWorkflows
-- /r/aigamedev
-- /r/AItoolsCatalog
-- /r/artificial
-- /r/bigsleep
-- /r/deepdream
-- /r/dndai
-- /r/dreamlikeart
-- /r/MediaSynthesis
+Reddit Related Communities  
+- /r/aiArt https://www.reddit.com/r/aiArt  
+- /r/AIArtistWorkflows https://www.reddit.com/r/AIArtistWorkflows  
+- /r/aigamedev https://www.reddit.com/r/aigamedev  
+- /r/AItoolsCatalog https://www.reddit.com/r/AItoolsCatalog  
+- /r/artificial https://www.reddit.com/r/artificial  
+- /r/bigsleep https://www.reddit.com/r/bigsleep  
+- /r/deepdream https://www.reddit.com/r/deepdream  
+- /r/dndai https://www.reddit.com/r/dndai  
+- /r/dreamlikeart https://www.reddit.com/r/dreamlikeart  
+- /r/MediaSynthesis https://www.reddit.com/r/MediaSynthesis  
 
-Discord
-- Stable Foundation https://discord.gg/stablediffusion
+Discord  
+- Stable Foundation https://discord.gg/stablediffusion  
 
 
 
