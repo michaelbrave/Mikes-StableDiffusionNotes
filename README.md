@@ -2,23 +2,11 @@
   - [What is Stable Diffusion](#what-is-stable-diffusion)
     - [Origins and Research of Stable Diffusion](#origins-and-research-of-stable-diffusion)
       - [Initial Training Data](#initial-training-data)
-      - [Core Technology](#core-technology)
-  - [Variational Autoencoder (VAE)](#variational-autoencoder-vae)
-  - [U-Net](#u-net)
-  - [Text Encoder](#text-encoder)
+      - [Core Technologies](#core-technologies)
       - [Tech That Stable Diffusion is Built On \& Technical Terms](#tech-that-stable-diffusion-is-built-on--technical-terms)
-  - [Transformers](#transformers)
-  - [LLM](#llm)
-  - [Diffusion Models](#diffusion-models)
-  - [Latent Diffusion Models](#latent-diffusion-models)
-  - [Gaussian Noise](#gaussian-noise)
-  - [Denoising Autoencoders](#denoising-autoencoders)
-  - [ResNet](#resnet)
-  - [Latent Space](#latent-space)
-    - [Similar Technology / Programs built on Stable Diffusion](#similar-technology--programs-built-on-stable-diffusion)
+    - [Similar Technology / Programs built on top of Stable Diffusion](#similar-technology--programs-built-on-top-of-stable-diffusion)
       - [Stable Diffusion Websites and Communities](#stable-diffusion-websites-and-communities)
       - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
-      - [Related Communities and Tools, not necessarily Stable Diffusion, but Adjacent](#related-communities-and-tools-not-necessarily-stable-diffusion-but-adjacent)
   - [Basics, Settings and Operations](#basics-settings-and-operations)
   - [What Can Be Done With Stable Diffusion](#what-can-be-done-with-stable-diffusion)
     - [Core Functionality \& Use Cases](#core-functionality--use-cases)
@@ -201,6 +189,7 @@
       - [Daz Control Rig](#daz-control-rig)
     - [Cinema4D](#cinema4d)
       - [Colors Scene (possibly no longer needed since controlNet Update)](#colors-scene-possibly-no-longer-needed-since-controlnet-update)
+  - [Related Technologies, Communities and Tools, not necessarily Stable Diffusion, but Adjacent](#related-technologies-communities-and-tools-not-necessarily-stable-diffusion-but-adjacent)
   - [Techniques \& Possibilities](#techniques--possibilities)
     - [Clip Skip \& Alternating](#clip-skip--alternating)
     - [Multi Control Net and blender for perfect Hands](#multi-control-net-and-blender-for-perfect-hands)
@@ -266,42 +255,77 @@ https://research.runwayml.com/the-research-origins-of-stable-difussion
 LAION-5B - 5 billion image-text pairs were classified based on language and filtered into separate datasets by resolution  
 Laion-Aesthetics v2 5+  
 
-#### Core Technology
+#### Core Technologies
 Variational Autoencoder (VAE)  
-- 
-U-Net  
-- 
-Text Encoder  
-- 
+- A Variational Autoencoder (VAE) is an artificial neural network architecture that belongs to the families of probabilistic graphical models and variational Bayesian methods. It is a type of neural network that learns to reproduce its input, and also map data to latent space. VAEs use probability modeling in a neural network system to provide the kinds of equilibrium that autoencoders are typically used to produce. The neural network components are typically referred to as the encoder and decoder for the first and second component respectively. VAE's are part of the neural network model that encodes and decodes the images to and from the smaller latent space, so that computation can be faster. Any models you use, be it v1, v2 or custom, already comes with a default VAE
 
-#### Tech That Stable Diffusion is Built On & Technical Terms
+
+U-Net  
+-  U-Net is used in Stable Diffusion to reduce the noise (denoises) in the image using the text prompt as a conditional. The U-Net model is used in the diffusion process to generate images.  The network is based on the fully convolutional network and its architecture was modified and extended to work with fewer training images and to yield more precise segmentations.
+- In the case of image segmentation, the goal is to classify each pixel of an image into a specific class. For example, in medical imaging, the goal is to classify each pixel of an image into a specific organ or tissue type. U-Net is used to perform image segmentation by taking an image as input and outputting a segmentation map that classifies each pixel of the input image into a specific class
+- U-Net is designed to work with fewer training images by using data augmentation to use the available annotated samples more efficiently
+-  The architecture of U-Net is also designed to yield more precise segmentations by using a contracting path to capture context and a symmetric expanding path that enables precise localization
+
+
+Text Encoder  
+- Stable Diffusion is a latent diffusion model conditioned on the (non-pooled) text embeddings of a CLIP ViT-L/14 text encoder1. The text encoder is used to turn your prompt into a latent vector
+- In the context of machine learning, a latent vector is a vector that represents a learned feature or representation of a data point that is not directly observable. For example, in the case of Stable Diffusion, the text encoder is used to turn your prompt into a latent vector that represents a learned feature or representation of the prompt that is not directly observable.
+
+#### Tech That Stable Diffusion is Built On & Technical Terms  
 Transformers  
-- 
+- A transformer is a deep learning model that adopts the mechanism of self-attention, differentially weighting the significance of each part of the input data. It is used primarily in the fields of natural language processing (NLP) and computer vision (CV)
+- Transformers are neural networks that learn context and understanding through sequential data analysis. The Transformer models use a modern and evolving mathematical techniques set, generally known as attention or self-attention. This set helps identify how distant data elements influence and depend on one another
+
+
 LLM  
-- 
+- LLM stands for Large Language Model. Large language models are a type of neural network that can generate human-like text by predicting the probability of the next word in a sequence of words. a good example of this would be ChatGPT
+
+
 VQGAN  
+- VQGAN is short for Vector Quantized Generative Adversarial Network and is utilized for high-resolution images; and is a type of neural network architecture that combines convolutional neural networks with Transformers. VQGAN employs the same two-stage structure by learning an intermediary representation before feeding it to a transformer. However, instead of downsampling the image, VQGAN uses a codebook to represent visual parts.
 - https://compvis.github.io/taming-transformers/
+
+
 Diffusion Models  
-- 
+- a simple explanation is that it uses noising and denoising to learn how to reconstruct images.
+- Diffusion models are a class of generative models used in machine learning to learn the latent structure of a dataset by modeling the way in which data points diffuse through the latent space1. They are Markov chains trained using variational inference1. The goal of diffusion models is to generate data similar to the data on which they are trained by destroying training data through the successive addition of Gaussian noise, and then learning to recover the data by reversing this noising process2.
+- Diffusion models have emerged as a powerful new family of deep generative models with record-breaking performance in many applications, including image synthesis, video generation, and molecule design
+
+
 Latent Diffusion Models  
-- 
+- Latent diffusion models are machine learning models designed to learn the underlying structure of a dataset by mapping it to a lower-dimensional latent space. This latent space represents the data in which the relationships between different data points are more easily understood and analyzed1. Latent diffusion models use an auto-encoder to map between image space and latent space. The diffusion model works on the latent space, which makes it a lot easier to train2. Our latent diffusion models (LDMs) achieve a new state of the art for image inpainting and highly competitive performance on various tasks, including unconditional image generation, semantic scene synthesis, and super-resolution, while significantly reducing computational requirements compared to pixel-based DMs
+
+
 CLIP  
+- CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a variety of (image, text) pairs. It can be instructed in natural language to predict the most relevant text snippet, given an image, without directly optimizing for the task, similar to the zero-shot capabilities of GPT-2 and 31. CLIP is much more efficient and achieves the same accuracy roughly 10x faster2. Because they learn a wide range of visual concepts directly from natural language, CLIP models are significantly more flexible and general than existing ImageNet models
 - https://research.runwayml.com/
-Gaussian Noise  
-- 
+
+
+Gaussian Noise
+- the simplest way to explain it is random static that get's used a lot for things we want randomness for.
+- Gaussian noise is a term from signal processing theory denoting a kind of signal noise that has a probability density function (pdf) equal to that of the normal distribution (which is also known as the Gaussian distribution)1. Gaussian noise is a statistical noise having a probability density function equal to normal distribution, also known as Gaussian Distribution. Random Gaussian function is added to Image function to generate this noise2. Gaussian noise is a type of noise that follows a Gaussian distribution. A Gaussian filter is a tool for de-noising, smoothing and blurring
+
+
 Denoising Autoencoders  
-- 
+- A Denoising Autoencoder (DAE) is a type of autoencoder, which is a type of neural network used for unsupervised learning. The DAE is used to remove noise from data, making it better for analysis. The DAE works by taking a noisy input signal and encoding it into a smaller representation, removing the noise. The smaller representation is then decoded back into the original input signal1. Denoising autoencoders are a stochastic version of standard autoencoders that reduces the risk of learning the identity function2. Specifically, if the autoencoder is too big, then it can just learn the data, so the output equals the input, and does not perform any useful representation learning or dimensionality reduction
+
+
 ResNet  
-- 
+- ResNet, short for Residual Network is a specific type of neural network that was introduced in 2015 by Kaiming He, Xiangyu Zhang, Shaoqing Ren and Jian Sun in their paper “Deep Residual Learning for Image Recognition”. The ResNet models were extremely successful which you can guess from the following: ResNet won the ImageNet and COCO 2015 competitions, and its variants were the foundations of the first places in all five main tracks of the ImageNet and COCO 2016 competitions1. A Residual Neural Network (ResNet) is an Artificial Neural Network (ANN) of a kind that stacks residual blocks on top of each other to form a network2. ResNet is a deep neural network that is capable of learning thousands of layers
+
+
 Latent Space  
-- 
+- Latent space, also known as a latent feature space or embedding space, is an embedding of a set of items within a manifold in which items resembling each other are positioned closer to one another in the latent space. Position within the latent space can be viewed as being defined by a set of latent variables that emerge from the resemblances between the items1. If I have to describe latent space in one sentence, it simply means a representation of compressed data2. Latent space is a concept in machine learning and deep learning that refers to the space of latent variables that are learned by a model
+
+
 Watermark Detection  
+- The creators of LAION-5B trained a watermark detection model and used it to calculate confidence scores for every image in LAION-5B
 - https://github.com/LAION-AI/LAION-5B-WatermarkDetection  
 
 
 
 
-### Similar Technology / Programs built on Stable Diffusion
+### Similar Technology / Programs built on top of Stable Diffusion
 
 Stable Diffusion (SD) is a cutting-edge text-to-image generation model that has been receiving significant attention since its release in 2022. However, there are other similar technologies and programs that have also been developed for this purpose. Some of the most notable ones are:
 
@@ -372,16 +396,7 @@ Reddit Related Communities
 Discord
 - Stable Foundation https://discord.gg/stablediffusion
 
-#### Related Communities and Tools, not necessarily Stable Diffusion, but Adjacent
-DeepDream
-- https://deepdreamgenerator.com/
 
-StylGAN Transfer
-
-AI Colorizers  
-- DeOldify
-
-- Style2Paint https://github.com/lllyasviel/style2paints
 
 
 
@@ -1399,6 +1414,17 @@ DEMO: https://huggingface.co/spaces/sczhou/CodeFormer
 - https://www.reddit.com/r/StableDiffusion/comments/11flemo/color150_segmentation_colors_for_cinema4d_and/
 
 
+
+## Related Technologies, Communities and Tools, not necessarily Stable Diffusion, but Adjacent
+DeepDream
+- https://deepdreamgenerator.com/
+
+StylGAN Transfer
+
+AI Colorizers  
+- DeOldify
+
+- Style2Paint https://github.com/lllyasviel/style2paints
 
 ## Techniques & Possibilities
 ### Clip Skip & Alternating
