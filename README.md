@@ -4,9 +4,22 @@
       - [Initial Training Data](#initial-training-data)
       - [Core Technologies](#core-technologies)
       - [Tech That Stable Diffusion is Built On \& Technical Terms](#tech-that-stable-diffusion-is-built-on--technical-terms)
-    - [Similar Technology / Programs built on top of Stable Diffusion](#similar-technology--programs-built-on-top-of-stable-diffusion)
-      - [Stable Diffusion Websites and Communities](#stable-diffusion-websites-and-communities)
-      - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
+    - [Similar Technology / Top Competitors](#similar-technology--top-competitors)
+      - [DALL-E2:](#dall-e2)
+      - [Google's Imagen:](#googles-imagen)
+      - [Midjourney:](#midjourney)
+    - [Stable Diffusion Powered Websites and Communities](#stable-diffusion-powered-websites-and-communities)
+      - [DreamStudio (Official by StabilityAI):](#dreamstudio-official-by-stabilityai)
+      - [PlaygroundAI:](#playgroundai)
+      - [LeonardoAI:](#leonardoai)
+      - [NightCafe:](#nightcafe)
+      - [BlueWillow:](#bluewillow)
+      - [DreamUp By DeviantArt:](#dreamup-by-deviantart)
+      - [Lexica:](#lexica)
+      - [Dreamlike Art:](#dreamlike-art)
+      - [Art Breeder Collage Tool:](#art-breeder-collage-tool)
+      - [Dream by Wombo:](#dream-by-wombo)
+    - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
   - [Basics, Settings and Operations](#basics-settings-and-operations)
   - [What Can Be Done With Stable Diffusion](#what-can-be-done-with-stable-diffusion)
     - [Core Functionality \& Use Cases](#core-functionality--use-cases)
@@ -257,6 +270,7 @@ Laion-Aesthetics v2 5+
 
 #### Core Technologies
 Variational Autoencoder (VAE)  
+- The simplest explanation is that it makes an image small then makes it bigger again. 
 - A Variational Autoencoder (VAE) is an artificial neural network architecture that belongs to the families of probabilistic graphical models and variational Bayesian methods. It is a type of neural network that learns to reproduce its input, and also map data to latent space. VAEs use probability modeling in a neural network system to provide the kinds of equilibrium that autoencoders are typically used to produce. The neural network components are typically referred to as the encoder and decoder for the first and second component respectively. VAE's are part of the neural network model that encodes and decodes the images to and from the smaller latent space, so that computation can be faster. Any models you use, be it v1, v2 or custom, already comes with a default VAE
 
 
@@ -325,55 +339,71 @@ Watermark Detection
 
 
 
-### Similar Technology / Programs built on top of Stable Diffusion
+### Similar Technology / Top Competitors
 
 Stable Diffusion (SD) is a cutting-edge text-to-image generation model that has been receiving significant attention since its release in 2022. However, there are other similar technologies and programs that have also been developed for this purpose. Some of the most notable ones are:
 
-DALL-E2: This is a text-to-image model developed by OpenAI that is similar to Stable Diffusion in its approach. It uses a transformer architecture and a discrete VAE to generate high-quality images based on text prompts.  
+#### DALL-E2:
+This is a text-to-image model developed by OpenAI that is similar to Stable Diffusion in its approach. It uses a transformer architecture and a discrete VAE to generate high-quality images based on text prompts.  
 https://openai.com/product/dall-e-2  
 
-Google's Imagen: This is a machine learning system developed by Google that generates realistic images from textual descriptions. It uses a combination of neural networks and computer vision algorithms to create images that match the text prompt. This has yet to be released to the public.  
+#### Google's Imagen:
+This is a machine learning system developed by Google that generates realistic images from textual descriptions. It uses a combination of neural networks and computer vision algorithms to create images that match the text prompt. This has yet to be released to the public.  
 https://imagen.research.google/  
 
-Midjourney: This is a text-to-image model developed by a team of researchers at Peking University that generates images from textual descriptions. It uses a combination of attention mechanisms and adversarial training to generate high-quality images that match the text input.  
+#### Midjourney:
+This is a text-to-image model developed by a team of researchers at Peking University that generates images from textual descriptions. It uses a combination of attention mechanisms and adversarial training to generate high-quality images that match the text input.  
 https://www.midjourney.com/  
 
 Each of these programs uses different approaches and techniques to generate images from text descriptions. While Stable Diffusion has received significant attention recently, these other programs offer alternative methods for generating images based on text prompts.  
 
-#### Stable Diffusion Websites and Communities
+
+### Stable Diffusion Powered Websites and Communities
 Some of the most notable websites and communities based on SD are:
 
-DreamStudio (Official by StabilityAI): This website uses Stable Diffusion to generate high-quality images based on user-submitted text prompts. It offers a simple and intuitive user interface and allows users to download or share their generated images.  
+#### DreamStudio (Official by StabilityAI):
+This website uses Stable Diffusion to generate high-quality images based on user-submitted text prompts. It offers a simple and intuitive user interface and allows users to download or share their generated images.  
 https://dreamstudio.ai/
 
-Dream by Wombo: This is a mobile application that uses Stable Diffusion to generate animated images based on user-submitted audio prompts. It has gained significant popularity for its ability to create humorous and entertaining animations.  
-https://dream.ai/
-
-NightCafe: This website uses Stable Diffusion to generate surreal and dreamlike images based on user-submitted text prompts. It offers a unique and creative approach to image generation and has gained a dedicated following among art enthusiasts.  
-https://nightcafe.studio/
-
-PlaygroundAI: This is an online community that focuses on exploring the capabilities of Stable Diffusion and other deep-learning models. It provides a platform for researchers and enthusiasts to share their work, collaborate on projects, and discuss the latest developments in the field.  
+#### PlaygroundAI:
+This is an online community that focuses on exploring the capabilities of Stable Diffusion and other deep-learning models. It provides a platform for researchers and enthusiasts to share their work, collaborate on projects, and discuss the latest developments in the field.  
 https://playgroundai.com/
 
-LeonardoAI: This is an online community that uses Stable Diffusion and other AI models to generate high-quality art and design. It provides a platform for artists and designers to experiment with new tools and techniques and showcase their work to a wider audience.  
+#### LeonardoAI:
+This is an online community that uses Stable Diffusion and other AI models to generate high-quality art and design. It provides a platform for artists and designers to experiment with new tools and techniques and showcase their work to a wider audience.  
 https://app.leonardo.ai/
 
-BlueWillow: This is a design studio that uses Stable Diffusion and other deep-learning models to generate unique and creative designs for clients. It offers a range of services, including branding, website design, and digital art, and has gained a reputation for its innovative use of AI in design.  
+#### NightCafe:
+This website uses Stable Diffusion to generate surreal and dreamlike images based on user-submitted text prompts. It offers a unique and creative approach to image generation and has gained a dedicated following among art enthusiasts.  
+https://nightcafe.studio/
+
+#### BlueWillow:
+This is a design studio that uses Stable Diffusion and other deep-learning models to generate unique and creative designs for clients. It offers a range of services, including branding, website design, and digital art, and has gained a reputation for its innovative use of AI in design.  
 https://www.bluewillow.ai/
 
-DreamUp By DeviantArt:  
+#### DreamUp By DeviantArt:  
 https://www.deviantart.com/dreamup
 
-LexicaAI:  
+#### Lexica:  
+Lexica is a self-styled stable diffusion search engine, it is a web app that provides access to a massive database of AI-generated images and their accompanying text prompts. It features a simple search box and discord link, a grid layout mode to view hundreds of images on one page, and a slider to change the size of the image previews. It also has image generation capabilities which can be especially useful when finding a prompt you like that you would like to immediately try. 
+https://lexica.art/
 
-Dreamlike Art:  
+#### Dreamlike Art:  
+Dreamlike.art that lets you generate free AI art straight from their website. It features a “Infinity Canvas” feature which allows you to outpaint images. This lets you create images larger than usual and can result in some amazing panoramic-style pictures
+https://dreamlike.art/
+https://www.reddit.com/r/DreamlikeArt/
 
-Art Breeder Collage Tool:  
+#### Art Breeder Collage Tool:  
+Artbreeder Collage is a structured image generation tool with prompts and simple drawing tools. It allows mixing different pictures and shapes you can choose from the library or draw yourself with a text prompt to generate new art with the power of neural networks12. You can start with a collage that someone else has already created and make your own tweaks by moving, resizing and changing the colors of elements or by adding new ones. Or you can start out from scratch, either using a text prompt generated by the platform or by writing your own
+
+#### Dream by Wombo:
+This is a mobile application that uses Stable Diffusion to generate animated images based on user-submitted audio prompts. It has gained significant popularity for its ability to create humorous and entertaining animations.  
+https://dream.ai/
 
 
-This is not a comprehensive list, and there may be other websites and communities that use Stable Diffusion and other text-to-image models. Please contribute to this list.  
+This is not a comprehensive list, there are many other websites and communities that use Stable Diffusion and other text-to-image models. Please contribute to this list.  
 
-#### Community Chatrooms and Gathering Locations
+### Community Chatrooms and Gathering Locations
 Reddit Core Communities
 - /r/StableDiffusion
 - /r/sdforall
