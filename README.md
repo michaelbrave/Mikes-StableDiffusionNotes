@@ -3,11 +3,22 @@
     - [Origins and Research of Stable Diffusion](#origins-and-research-of-stable-diffusion)
       - [Initial Training Data](#initial-training-data)
       - [Core Technology](#core-technology)
+  - [Variational Autoencoder (VAE)](#variational-autoencoder-vae)
+  - [U-Net](#u-net)
+  - [Text Encoder](#text-encoder)
       - [Tech That Stable Diffusion is Built On \& Technical Terms](#tech-that-stable-diffusion-is-built-on--technical-terms)
+  - [Transformers](#transformers)
+  - [LLM](#llm)
+  - [Diffusion Models](#diffusion-models)
+  - [Latent Diffusion Models](#latent-diffusion-models)
+  - [Gaussian Noise](#gaussian-noise)
+  - [Denoising Autoencoders](#denoising-autoencoders)
+  - [ResNet](#resnet)
+  - [Latent Space](#latent-space)
     - [Similar Technology / Programs built on Stable Diffusion](#similar-technology--programs-built-on-stable-diffusion)
       - [Stable Diffusion Websites and Communities](#stable-diffusion-websites-and-communities)
-      - [Related Communities and Tools, not necessarily Stable Diffusion, but Adjacent](#related-communities-and-tools-not-necessarily-stable-diffusion-but-adjacent)
       - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
+      - [Related Communities and Tools, not necessarily Stable Diffusion, but Adjacent](#related-communities-and-tools-not-necessarily-stable-diffusion-but-adjacent)
   - [Basics, Settings and Operations](#basics-settings-and-operations)
   - [What Can Be Done With Stable Diffusion](#what-can-be-done-with-stable-diffusion)
     - [Core Functionality \& Use Cases](#core-functionality--use-cases)
@@ -19,7 +30,7 @@
         - [Deforum](#deforum)
         - [Depth Module for Stable Diffusion](#depth-module-for-stable-diffusion)
         - [Gen1](#gen1)
-      - [3D Generation Techniques for Stable Diffusion](#3d-generation-techniques-for-stable-diffusion)
+      - [3D Generation Techniques for Stable Diffusion \& Related Diffusion Based 3D Generation](#3d-generation-techniques-for-stable-diffusion--related-diffusion-based-3d-generation)
       - [Text to 3D](#text-to-3d)
       - [DMT Meshes / Point Cloud Based](#dmt-meshes--point-cloud-based)
       - [3D radiance Fields](#3d-radiance-fields)
@@ -34,7 +45,6 @@
         - [Riffusion](#riffusion)
       - [Image-Based Mind Reading](#image-based-mind-reading)
       - [Synthetic Data Creation](#synthetic-data-creation)
-      - [Software Addons](#software-addons)
   - [How it Works](#how-it-works)
   - [Beginner's How To](#beginners-how-to)
   - [Popular UI's](#popular-uis)
@@ -166,6 +176,31 @@
       - [Face Restoration](#face-restoration)
         - [GFPGAN](#gfpgan)
         - [Code Former](#code-former)
+  - [Software Addons](#software-addons)
+    - [Blender Addons](#blender-addons)
+      - [Blender ControlNet](#blender-controlnet)
+      - [Makes Textures / Vision](#makes-textures--vision)
+      - [OpenPose](#openpose)
+      - [OpenPose Editor](#openpose-editor)
+      - [Dream Textures](#dream-textures-1)
+      - [AI Render](#ai-render)
+      - [Stability AI's official Blender](#stability-ais-official-blender)
+      - [CEB Stable Diffusion (Paid)](#ceb-stable-diffusion-paid)
+      - [Cozy Auto Texture](#cozy-auto-texture)
+    - [Blender Rigs/Bones](#blender-rigsbones)
+      - [ImpactFrames' OpenPose Rig](#impactframes-openpose-rig)
+      - [ToyXYZ's Character bones that look like Openpose for blender](#toyxyzs-character-bones-that-look-like-openpose-for-blender)
+      - [3D posable Mannequin Doll](#3d-posable-mannequin-doll)
+      - [Riggify model](#riggify-model)
+    - [Maya](#maya)
+      - [ControlNet Maya Rig](#controlnet-maya-rig)
+    - [Photoshop](#photoshop)
+      - [Stable.Art](#stableart)
+      - [Auto Photoshop Plugin](#auto-photoshop-plugin)
+    - [Daz](#daz)
+      - [Daz Control Rig](#daz-control-rig)
+    - [Cinema4D](#cinema4d)
+      - [Colors Scene (possibly no longer needed since controlNet Update)](#colors-scene-possibly-no-longer-needed-since-controlnet-update)
   - [Techniques \& Possibilities](#techniques--possibilities)
     - [Clip Skip \& Alternating](#clip-skip--alternating)
     - [Multi Control Net and blender for perfect Hands](#multi-control-net-and-blender-for-perfect-hands)
@@ -233,22 +268,33 @@ Laion-Aesthetics v2 5+
 
 #### Core Technology
 Variational Autoencoder (VAE)  
+- 
 U-Net  
+- 
 Text Encoder  
+- 
 
 #### Tech That Stable Diffusion is Built On & Technical Terms
 Transformers  
+- 
 LLM  
+- 
 VQGAN  
 - https://compvis.github.io/taming-transformers/
 Diffusion Models  
+- 
 Latent Diffusion Models  
+- 
 CLIP  
 - https://research.runwayml.com/
 Gaussian Noise  
+- 
 Denoising Autoencoders  
+- 
 ResNet  
+- 
 Latent Space  
+- 
 Watermark Detection  
 - https://github.com/LAION-AI/LAION-5B-WatermarkDetection  
 
@@ -303,27 +349,15 @@ Art Breeder Collage Tool:
 
 This is not a comprehensive list, and there may be other websites and communities that use Stable Diffusion and other text-to-image models. Please contribute to this list.  
 
-
-#### Related Communities and Tools, not necessarily Stable Diffusion, but Adjacent
-DeepDream
-- https://deepdreamgenerator.com/
-
-StylGAN Transfer
-
-AI Colorizers  
-- DeOldify
-
-- Style2Paint https://github.com/lllyasviel/style2paints
-
-
 #### Community Chatrooms and Gathering Locations
-Reddit
+Reddit Core Communities
 - /r/StableDiffusion
 - /r/sdforall
 - /r/dreambooth
 - /r/stablediffusionUI
-- /r/civitai
+- /r/civitai  
 
+Reddit Related Communities
 - /r/aiArt
 - /r/AIArtistWorkflows
 - /r/aigamedev
@@ -338,7 +372,16 @@ Reddit
 Discord
 - Stable Foundation https://discord.gg/stablediffusion
 
+#### Related Communities and Tools, not necessarily Stable Diffusion, but Adjacent
+DeepDream
+- https://deepdreamgenerator.com/
 
+StylGAN Transfer
+
+AI Colorizers  
+- DeOldify
+
+- Style2Paint https://github.com/lllyasviel/style2paints
 
 
 
@@ -359,6 +402,16 @@ denoising settings
 
 ### Core Functionality & Use Cases
 Stable diffusion is primarily used for image generation, upscaling images and editing images. Subsets of these activities could be style transfer, photo repair, color or texture filling, image completion or polishing, and image variation.  
+
+- Image Generation
+- Upscaling Images
+- Editing Images
+- Style Transfer
+- Photo Repair/Touchups
+- Color/Texture Filling
+- Image Completion/Polishing
+- Image Variation
+- Outpainting
 
 #### Character Design
 
@@ -388,8 +441,7 @@ though not publicly released and technically separate from stable diffusion, it 
 Gen1 takes a video and a style image and applies that style to that image, this allows for things like a video of stacks of boxes to be turned into a cityscape or things like that.   
 https://research.runwayml.com/gen1 
 
-#### 3D Generation Techniques for Stable Diffusion
-
+#### 3D Generation Techniques for Stable Diffusion & Related Diffusion Based 3D Generation
 Stable Diffusion (SD) is a powerful text-to-image generation model that has inspired the development of several techniques for generating 3D images and scenes based on text prompts. Two of the most notable methods are:
 
 #### Text to 3D
@@ -442,37 +494,6 @@ https://the-decoder.com/stable-diffusion-can-visualize-human-thoughts-from-mri-d
 #### Synthetic Data Creation
 https://hai.stanford.edu/news/could-stable-diffusion-solve-gap-medical-imaging-data
 
-#### Software Addons
-Blender Addons
-- Blender ControlNet https://github.com/coolzilj/Blender-ControlNet
-- Makes Textures / Vision https://www.reddit.com/r/blender/comments/11pudeo/create_a_360_nonerepetitive_textures_with_stable/
-- OpenPose https://gitlab.com/sat-mtl/metalab/blender-addon-openpose
-- OpenPose Editor https://github.com/fkunn1326/openpose-editor
-- Dream Textures https://github.com/carson-katri/dream-textures https://www.youtube.com/watch?v=yqQvMnJFtfE https://www.youtube.com/watch?v=4C_3HCKn10A, similar to materialize https://boundingboxsoftware.com/materialize/ https://github.com/BoundingBoxSoftware/Materialize
-- AI Render https://blendermarket.com/products/ai-render https://www.youtube.com/watch?v=goRvGFs1sdc https://github.com/benrugg/AI-Render https://airender.gumroad.com/l/ai-render https://blendermarket.com/products/ai-render https://www.youtube.com/watch?v=tmyln5bwnO8 https://github.com/benrugg/AI-Render/wiki/Animation
-- Stability AI's official Blender https://platform.stability.ai/docs/integrations/blender
-- CEB Stable Diffusion (Paid) https://carlosedubarreto.gumroad.com/l/ceb_sd  
-- Cozy Auto Texture https://github.com/torrinworx/Cozy-Auto-Texture
-
-Blender Rigs/Bones
-- ImpactFrames' OpenPose Rig https://ko-fi.com/s/f3da7bd683 https://impactframes.gumroad.com/l/fxnyez https://www.youtube.com/watch?v=MGjdLiz2YLk https://www.reddit.com/r/StableDiffusion/comments/11cxy5h/comment/jacorrt/?utm_source=share&utm_medium=web2x&context=3
-- ToyXYZ's Character bones that look like Openpose for blender https://toyxyz.gumroad.com/l/ciojz script to help it https://www.reddit.com/r/StableDiffusion/comments/11fyd6q/blender_script_for_toyxyzs_46_handfootpose/
-- 3D posable Mannequin Doll https://www.artstation.com/marketplace/p/VOAyv/stable-diffusion-3d-posable-manekin-doll https://www.youtube.com/watch?v=MClbPwu-75o
-- Riggify model https://3dcinetv.gumroad.com/l/osezw  
-- 
-
-Maya
-- ControlNet Maya Rig https://impactframes.gumroad.com/l/gtefj https://youtu.be/CFrAEp-qSsU  
-
-Photoshop  
-- Stable.Art https://github.com/isekaidev/stable.art
-- Auto Photoshop Plugin https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin  
-
-Daz
-- Daz Control Rig https://civitai.com/models/13478/dazstudiog8openposerig
-
-Cinema4D
-- Colors Scene (possibly no longer needed since controlNet Update) https://www.reddit.com/r/StableDiffusion/comments/11flemo/color150_segmentation_colors_for_cinema4d_and/
 
 
 ## How it Works
@@ -1325,6 +1346,57 @@ https://github.com/sczhou/CodeFormer
 DEMO: https://huggingface.co/spaces/sczhou/CodeFormer
 
 
+
+## Software Addons  
+
+### Blender Addons  
+#### Blender ControlNet
+- https://github.com/coolzilj/Blender-ControlNet
+#### Makes Textures / Vision
+- https://www.reddit.com/r/blender/comments/11pudeo/create_a_360_nonerepetitive_textures_with_stable/
+#### OpenPose
+- https://gitlab.com/sat-mtl/metalab/blender-addon-openpose
+#### OpenPose Editor
+- https://github.com/fkunn1326/openpose-editor
+#### Dream Textures
+- https://github.com/carson-katri/dream-textures https://www.youtube.com/watch?v=yqQvMnJFtfE https://www.youtube.com/watch?v=4C_3HCKn10A, similar to materialize https://boundingboxsoftware.com/materialize/ https://github.com/BoundingBoxSoftware/Materialize
+#### AI Render
+- https://blendermarket.com/products/ai-render https://www.youtube.com/watch?v=goRvGFs1sdc https://github.com/benrugg/AI-Render https://airender.gumroad.com/l/ai-render https://blendermarket.com/products/ai-render https://www.youtube.com/watch?v=tmyln5bwnO8 https://github.com/benrugg/AI-Render/wiki/Animation
+#### Stability AI's official Blender
+- https://platform.stability.ai/docs/integrations/blender
+#### CEB Stable Diffusion (Paid)
+- https://carlosedubarreto.gumroad.com/l/ceb_sd  
+#### Cozy Auto Texture
+- https://github.com/torrinworx/Cozy-Auto-Texture
+
+### Blender Rigs/Bones  
+#### ImpactFrames' OpenPose Rig
+- https://ko-fi.com/s/f3da7bd683 https://impactframes.gumroad.com/l/fxnyez https://www.youtube.com/watch?v=MGjdLiz2YLk https://www.reddit.com/r/StableDiffusion/comments/11cxy5h/comment/jacorrt/?utm_source=share&utm_medium=web2x&context=3
+#### ToyXYZ's Character bones that look like Openpose for blender
+- https://toyxyz.gumroad.com/l/ciojz script to help it https://www.reddit.com/r/StableDiffusion/comments/11fyd6q/blender_script_for_toyxyzs_46_handfootpose/
+#### 3D posable Mannequin Doll
+- https://www.artstation.com/marketplace/p/VOAyv/stable-diffusion-3d-posable-manekin-doll https://www.youtube.com/watch?v=MClbPwu-75o
+#### Riggify model
+- https://3dcinetv.gumroad.com/l/osezw  
+- 
+
+### Maya
+#### ControlNet Maya Rig
+- https://impactframes.gumroad.com/l/gtefj https://youtu.be/CFrAEp-qSsU  
+
+### Photoshop  
+#### Stable.Art
+- https://github.com/isekaidev/stable.art
+#### Auto Photoshop Plugin
+- https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin  
+
+### Daz
+#### Daz Control Rig
+- https://civitai.com/models/13478/dazstudiog8openposerig
+
+### Cinema4D
+#### Colors Scene (possibly no longer needed since controlNet Update)
+- https://www.reddit.com/r/StableDiffusion/comments/11flemo/color150_segmentation_colors_for_cinema4d_and/
 
 
 
