@@ -23,7 +23,6 @@
       - [Krea AI](#krea-ai)
     - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
       - [Prompt Inspiration Communities \& Tools](#prompt-inspiration-communities--tools)
-  - [Basics, Settings and Operations](#basics-settings-and-operations)
   - [What Can Be Done With Stable Diffusion](#what-can-be-done-with-stable-diffusion)
     - [Core Functionality \& Use Cases](#core-functionality--use-cases)
       - [Character Design](#character-design)
@@ -50,7 +49,11 @@
       - [Image-Based Mind Reading](#image-based-mind-reading)
       - [Synthetic Data Creation](#synthetic-data-creation)
   - [How Stable Diffusion Works](#how-stable-diffusion-works)
+  - [Hardware Requirements and Cloud-Based Solutions](#hardware-requirements-and-cloud-based-solutions)
+    - [Methods of Compute](#methods-of-compute)
+    - [Xformers for Stable Diffusion](#xformers-for-stable-diffusion)
   - [Beginner's How To](#beginners-how-to)
+    - [Basics, Settings and Operations](#basics-settings-and-operations)
   - [Popular UIs](#popular-uis)
     - [Automatic 1111](#automatic-1111)
       - [Automatic 1111 Extensions](#automatic-1111-extensions)
@@ -82,6 +85,7 @@
         - [Composable Lora](#composable-lora)
         - [Couple Helper - lets you choose where to apply prompts on a grid](#couple-helper---lets-you-choose-where-to-apply-prompts-on-a-grid)
         - [latent couple extension](#latent-couple-extension)
+        - [Remove Background](#remove-background)
     - [Kohya](#kohya)
       - [Addons](#addons)
     - [EasyDiffusion / Formerly Stable Diffusion UI](#easydiffusion--formerly-stable-diffusion-ui)
@@ -90,85 +94,15 @@
     - [NKMD GUI](#nkmd-gui)
     - [ComfyUi](#comfyui)
     - [AINodes](#ainodes)
-  - [Model and Training UI's](#model-and-training-uis)
+  - [Model Training and Other Training UIs](#model-training-and-other-training-uis)
     - [Other Sofware Addons that Act like a UI](#other-sofware-addons-that-act-like-a-ui)
-  - [Hardware Requirements and Cloud-Based Solutions](#hardware-requirements-and-cloud-based-solutions)
-    - [Xformers for Stable Diffusion](#xformers-for-stable-diffusion)
   - [Resources \& Useful Links](#resources--useful-links)
     - [Helpful Tools](#helpful-tools)
       - [Tool Directories and Explanations](#tool-directories-and-explanations)
-    - [Methods of Compute](#methods-of-compute)
     - [Where to Get Models Made By Community](#where-to-get-models-made-by-community)
       - [Notes About Models](#notes-about-models)
         - [Model Safety Measures](#model-safety-measures)
-  - [Stable Diffusion (SD) Core and Models](#stable-diffusion-sd-core-and-models)
-    - [Base Models for Stable Diffusion](#base-models-for-stable-diffusion)
-      - [Stable Diffusion Models 1.4 and 1.5](#stable-diffusion-models-14-and-15)
-      - [Stable Diffusion Models 2.0 and 2.1](#stable-diffusion-models-20-and-21)
-        - [512-Depth Model for Image-to-Image Translation](#512-depth-model-for-image-to-image-translation)
-    - [VAE (Variational Autoencoder) in Stable Diffusion](#vae-variational-autoencoder-in-stable-diffusion)
-      - [Original Autoencoder in Stable Diffusion](#original-autoencoder-in-stable-diffusion)
-      - [EMA VAE in Stable Diffusion](#ema-vae-in-stable-diffusion)
-      - [MSE VAE in Stable Diffusion](#mse-vae-in-stable-diffusion)
-    - [Samplers](#samplers)
-      - [Ancestral Samplers](#ancestral-samplers)
-        - [DPM++ 2S A Karras](#dpm-2s-a-karras)
-        - [DPM++ A](#dpm-a)
-        - [Euler A](#euler-a)
-        - [DPM Fast](#dpm-fast)
-        - [DPM Adaptive](#dpm-adaptive)
-      - [DPM++](#dpm)
-        - [DPM++ SDE](#dpm-sde)
-        - [DPM++ 2M](#dpm-2m)
-      - [Common Samplers / Equilibrium Samplers](#common-samplers--equilibrium-samplers)
-        - [k\_LMS](#k_lms)
-        - [DDIM](#ddim)
-        - [k\_euler\_a and Heun](#k_euler_a-and-heun)
-        - [k\_dpm\_2\_a](#k_dpm_2_a)
-    - [Community Models](#community-models)
-      - [Fine Tuned](#fine-tuned)
-      - [Merged/Merges](#mergedmerges)
-        - [Tutorial for Add Difference Method](#tutorial-for-add-difference-method)
-      - [Megamerged/MegaMerges](#megamergedmegamerges)
-      - [Embeddings](#embeddings)
-      - [Community Forks](#community-forks)
-  - [Capturing Concepts / Training](#capturing-concepts--training)
-    - [Image2Text](#image2text)
-      - [CLIP Interrogation](#clip-interrogation)
-      - [BLIP Captioning](#blip-captioning)
-      - [DanBooru Tags / Deepdanbooru](#danbooru-tags--deepdanbooru)
-      - [Waifu Diffusion 1.4 tagger - Using DeepDanBooru Tags](#waifu-diffusion-14-tagger---using-deepdanbooru-tags)
-    - [Dataset and Image Preparation](#dataset-and-image-preparation)
-      - [Captioning](#captioning)
-      - [Regularization/Classifier Images](#regularizationclassifier-images)
-        - [Links to Some Regularization Images](#links-to-some-regularization-images)
-    - [Training](#training)
-      - [File Type Overview](#file-type-overview)
-      - [Textual Inversion](#textual-inversion)
-        - [Negative Embedding](#negative-embedding)
-      - [Hypernetworks](#hypernetworks)
-      - [LORA](#lora)
-        - [LoHa](#loha)
-      - [Aescetic Gradients](#aescetic-gradients)
-    - [Fine Tuning / Checkpoints/Diffusers/Safetensors](#fine-tuning--checkpointsdiffuserssafetensors)
-      - [Token Based](#token-based)
-        - [Dreambooth](#dreambooth)
-        - [Custom Diffusion by Adobe](#custom-diffusion-by-adobe)
-      - [Caption Based Fine Tuning](#caption-based-fine-tuning)
-        - [Fine Tuning](#fine-tuning)
-      - [Decoding Checkpoints](#decoding-checkpoints)
-    - [Mixing](#mixing)
-      - [Using Multiple types of models and embeddings](#using-multiple-types-of-models-and-embeddings)
-        - [Multiple Embeddings](#multiple-embeddings)
-        - [Multiple Hypernetworks](#multiple-hypernetworks-1)
-        - [Multiple LORA's](#multiple-loras)
-      - [Merging](#merging)
-        - [Merging Checkpoints](#merging-checkpoints)
-      - [Converting](#converting)
-    - [One Shot Learning \& Similar](#one-shot-learning--similar)
-      - [DreamArtist (WebUI Extension)](#dreamartist-webui-extension)
-      - [Universal Guided Diffusion](#universal-guided-diffusion)
-  - [Initiating Composition](#initiating-composition)
+  - [Generating Images \& Methods of Image Generation](#generating-images--methods-of-image-generation)
     - [Text2Image](#text2image)
       - [Notes on Resolution](#notes-on-resolution)
       - [Prompt Editing](#prompt-editing)
@@ -216,7 +150,75 @@
       - [Face Restoration](#face-restoration)
         - [GFPGAN](#gfpgan)
         - [Code Former](#code-former)
-  - [Software Addons](#software-addons)
+  - [Models ETC](#models-etc)
+    - [Base Models for Stable Diffusion](#base-models-for-stable-diffusion)
+      - [Stable Diffusion Models 1.4 and 1.5](#stable-diffusion-models-14-and-15)
+      - [Stable Diffusion Models 2.0 and 2.1](#stable-diffusion-models-20-and-21)
+        - [512-Depth Model for Image-to-Image Translation](#512-depth-model-for-image-to-image-translation)
+    - [Community Models](#community-models)
+      - [Fine Tuned](#fine-tuned)
+      - [Merged/Merges](#mergedmerges)
+        - [Tutorial for Add Difference Method](#tutorial-for-add-difference-method)
+      - [Megamerged/MegaMerges](#megamergedmegamerges)
+      - [Embeddings](#embeddings)
+      - [Community Forks](#community-forks)
+    - [VAE (Variational Autoencoder) in Stable Diffusion](#vae-variational-autoencoder-in-stable-diffusion)
+      - [Original Autoencoder in Stable Diffusion](#original-autoencoder-in-stable-diffusion)
+      - [EMA VAE in Stable Diffusion](#ema-vae-in-stable-diffusion)
+      - [MSE VAE in Stable Diffusion](#mse-vae-in-stable-diffusion)
+    - [Samplers](#samplers)
+      - [Ancestral Samplers](#ancestral-samplers)
+        - [DPM++ 2S A Karras](#dpm-2s-a-karras)
+        - [DPM++ A](#dpm-a)
+        - [Euler A](#euler-a)
+        - [DPM Fast](#dpm-fast)
+        - [DPM Adaptive](#dpm-adaptive)
+      - [DPM++](#dpm)
+        - [DPM++ SDE](#dpm-sde)
+        - [DPM++ 2M](#dpm-2m)
+      - [Common Samplers / Equilibrium Samplers](#common-samplers--equilibrium-samplers)
+        - [k\_LMS](#k_lms)
+        - [DDIM](#ddim)
+        - [k\_euler\_a and Heun](#k_euler_a-and-heun)
+        - [k\_dpm\_2\_a](#k_dpm_2_a)
+  - [Methods of Training Models and Creating Embeddings](#methods-of-training-models-and-creating-embeddings)
+    - [Dataset and Image Preparation](#dataset-and-image-preparation)
+      - [Captioning](#captioning)
+      - [Regularization/Classifier Images](#regularizationclassifier-images)
+        - [Links to Some Regularization Images](#links-to-some-regularization-images)
+    - [Training](#training)
+      - [File Type Overview](#file-type-overview)
+      - [CKPT/Diffuser/SAfetensor](#ckptdiffusersafetensor)
+      - [Textual Inversion](#textual-inversion)
+        - [Negative Embedding](#negative-embedding)
+      - [LORA](#lora)
+        - [LoHa](#loha)
+      - [Hypernetworks](#hypernetworks)
+      - [Aescetic Gradients](#aescetic-gradients)
+    - [Fine Tuning / Checkpoints/Diffusers/Safetensors](#fine-tuning--checkpointsdiffuserssafetensors)
+      - [Token Based](#token-based)
+        - [Dreambooth](#dreambooth)
+        - [Custom Diffusion by Adobe](#custom-diffusion-by-adobe)
+      - [Caption Based Fine Tuning](#caption-based-fine-tuning)
+        - [Fine Tuning](#fine-tuning)
+      - [Decoding Checkpoints](#decoding-checkpoints)
+    - [Mixing](#mixing)
+      - [Using Multiple types of models and embeddings](#using-multiple-types-of-models-and-embeddings)
+        - [Multiple Embeddings](#multiple-embeddings)
+        - [Multiple Hypernetworks](#multiple-hypernetworks-1)
+        - [Multiple LORA's](#multiple-loras)
+      - [Merging](#merging)
+        - [Merging Checkpoints](#merging-checkpoints)
+      - [Converting Checkpoints/Diffusers/LORAs](#converting-checkpointsdiffusersloras)
+    - [Image2Text](#image2text)
+      - [CLIP Interrogation](#clip-interrogation)
+      - [BLIP Captioning](#blip-captioning)
+      - [DanBooru Tags / Deepdanbooru](#danbooru-tags--deepdanbooru)
+      - [Waifu Diffusion 1.4 tagger - Using DeepDanBooru Tags](#waifu-diffusion-14-tagger---using-deepdanbooru-tags)
+    - [One Shot Learning \& Similar](#one-shot-learning--similar)
+      - [DreamArtist (WebUI Extension)](#dreamartist-webui-extension)
+      - [Universal Guided Diffusion](#universal-guided-diffusion)
+  - [Other Software Addons](#other-software-addons)
     - [Blender Addons](#blender-addons)
       - [Blender ControlNet](#blender-controlnet)
       - [Makes Textures / Vision](#makes-textures--vision)
@@ -396,7 +398,7 @@ This is a text-to-image model developed by OpenAI that is similar to Stable Diff
 https://openai.com/product/dall-e-2  
 
 #### Google's Imagen:
-This is a machine learning system developed by Google that generates realistic images from textual descriptions. It uses a combination of neural networks and computer vision algorithms to create images that match the text prompt. This has yet to be released to the public.  
+This is a machine learning system developed by Google that generates realistic images from textual descriptions. It uses a combination of neural networks and computer vision algorithms to create images that match the text prompt. This has yet to be released to the public. It seems to be able to do Text very well and seems to be GAN based with a massive amount of image data.  
 https://imagen.research.google/  
 
 #### Midjourney:
@@ -506,16 +508,6 @@ This is a website that offers a range of writing prompts and exercises for write
 
 
 
-## Basics, Settings and Operations
-
-different sample methods  
-
-sample steps  
-
-CFG Scale
-- https://arxiv.org/abs/2112.10741
-
-denoising settings  
 
 
 ## What Can Be Done With Stable Diffusion
@@ -625,9 +617,64 @@ https://hai.stanford.edu/news/could-stable-diffusion-solve-gap-medical-imaging-d
 
 
 
+## Hardware Requirements and Cloud-Based Solutions
+
+### Methods of Compute
+Personal Hardware
+- Requires Cuda GPU
+- Requires Minimum of 8gb VRAM, more is better
+
+
+Community Contributed Compute
+- Stable Horde
+
+Cloud Based Solutions
+- Colab
+- 
+
+
+### Xformers for Stable Diffusion
+
+Xformers is a set of transformers that can be used as an alternative to Stable Diffusion's built-in transformers for text-to-image generation. Xformers can run on fewer resources and provide comparable or better results than built-in transformers, making them a popular choice for many users.
+
+However, Xformers can be prone to compatibility issues when upgrading, and many users have reported problems when upgrading to newer versions. Some users have had to downgrade to previous versions to resolve these issues.
+
+To downgrade Xformers, users can follow these instructions:
+
+Navigate to your Stable Diffusion webUI folder and go into venv, then scripts.
+
+Select the navigation bar and type in CMD. This should open a CMD window in this folder. Alternatively, users can open the CMD window and navigate to this folder.
+
+Type "activate" and hit enter to activate the virtual environment.
+
+Run the following command: "pip install xformers==0.0.17.dev449".
+
+This will downgrade Xformers to the specified version and resolve any compatibility issues. However, users should be aware that downgrading may result in some loss of functionality or performance compared to newer versions. It is recommended to carefully evaluate the specific needs and requirements of your project before downgrading.
 
 
 ## Beginner's How To
+
+
+### Basics, Settings and Operations
+
+different sample methods  
+
+sample steps  
+
+CFG (Classifier-Free Guidance) Scale
+it is a setting that tells the AI how much effort it should use to force your prompt onto the seed theme.
+Higher CFG can cause higher contrast and saturation, lower can be blurry and desaturated, this is due to CFG stacking layers of influence each pass. 
+- https://arxiv.org/abs/2112.10741
+
+denoising settings  
+
+Seed Selection and Randomization
+Seeds that look kind of like what you want or have similar coloration to what you want will help you make that image easier and clearer and can do so with lower CFG. 
+https://www.reddit.com/r/StableDiffusion/comments/xhsf8c/a_seed_tutorial/
+https://www.reddit.com/r/StableDiffusion/comments/x8szj9/tutorial_seed_selection_and_the_impact_on_your/
+
+
+
 
 
 
@@ -753,6 +800,8 @@ https://github-com.translate.goog/Zuntan03/LatentCoupleHelper?_x_tr_sl=auto&_x_t
 https://github.com/miZyind/sd-webui-latent-couple
 https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
 
+##### Remove Background
+https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg
 
 
 ### Kohya
@@ -801,7 +850,7 @@ it's not popular yet, but I expect it will be
 https://www.reddit.com/r/StableDiffusion/comments/11psrvp/ainodes_teaser_update/
 https://github.com/XmYx/ainodes-engine
 
-## Model and Training UI's
+## Model Training and Other Training UIs
 webui model toolkit https://github.com/arenatemp/stable-diffusion-webui-model-toolkit
 
 
@@ -815,27 +864,6 @@ https://github.com/carson-katri/dream-textures
 
 
 
-## Hardware Requirements and Cloud-Based Solutions
-
-
-
-### Xformers for Stable Diffusion
-
-Xformers is a set of transformers that can be used as an alternative to Stable Diffusion's built-in transformers for text-to-image generation. Xformers can run on fewer resources and provide comparable or better results than built-in transformers, making them a popular choice for many users.
-
-However, Xformers can be prone to compatibility issues when upgrading, and many users have reported problems when upgrading to newer versions. Some users have had to downgrade to previous versions to resolve these issues.
-
-To downgrade Xformers, users can follow these instructions:
-
-Navigate to your Stable Diffusion webUI folder and go into venv, then scripts.
-
-Select the navigation bar and type in CMD. This should open a CMD window in this folder. Alternatively, users can open the CMD window and navigate to this folder.
-
-Type "activate" and hit enter to activate the virtual environment.
-
-Run the following command: "pip install xformers==0.0.17.dev449".
-
-This will downgrade Xformers to the specified version and resolve any compatibility issues. However, users should be aware that downgrading may result in some loss of functionality or performance compared to newer versions. It is recommended to carefully evaluate the specific needs and requirements of your project before downgrading.
 
 
 
@@ -852,18 +880,6 @@ https://sdtools.org/
 https://diffusiondb.com/
 
 
-### Methods of Compute
-Personal Hardware
-- Requires Cuda GPU
-- Requires Minimum of 8gb VRAM, more is better
-
-
-Community Contributed Compute
-- Stable Horde
-
-Cloud Based Solutions
-- Colab
-- 
 
 ### Where to Get Models Made By Community
 https://civitai.com/  
@@ -894,480 +910,8 @@ This is a technique used to ensure that the tensors used in SD are safe and do n
 
 
 
-
-
-
-
-## Stable Diffusion (SD) Core and Models
-
-At the core of SD is the stable diffusion model, which is contained in a ckpt file. The stable diffusion model consists of three sub-models:
-
-Variational autoencoder (VAE): This sub-model is responsible for compressing and decompressing the image data into a smaller latent space. The VAE is used to generate a representation of the input image that can be easily manipulated by the other sub-models.
-
-U-Net: This sub-model is responsible for performing the diffusion process that generates the final image. The U-Net is used to gradually refine the image by adding or removing noise and information based on the text prompts.
-
-CLIP: This sub-model is responsible for guiding the diffusion process with text prompts. CLIP is a natural language processing model that is used to generate embeddings of the text prompts that are used to guide the diffusion process.
-
-Different models can use different versions of the VAE, U-Net, and CLIP models, depending on the specific requirements of the project. In addition, different samplers can be used to perform denoising in different ways, providing additional flexibility and control over the image generation process.
-
-Understanding the core components and models of SD is important for optimizing its performance and for selecting the appropriate models and settings for specific projects.
-
-
-
-### Base Models for Stable Diffusion
-
-Stable Diffusion (SD) relies on pre-trained models to generate high-quality images from text prompts. These models can be broadly categorized into two types: official models and community models.
-
-Official models are trained on large datasets of images, typically billions of images, and are often referred to by their dataset size. For example, the LAION-2B model was trained on a dataset of 2 billion images, while the LAION-5B model was trained on a dataset of 5.6 billion images. These models are typically trained on a wide range of images and can generate high-quality images that are suitable for many different applications.
-
-Community models, on the other hand, are models that have been finetuned by users for specific styles or objects. These models are often based on the official models, but with modifications to the Unet and decoder or just the Unet. For example, a user might finetune an official model to generate images of specific animals or to generate images with a particular style or aesthetic.
-
-The choice of which model to use depends on the specific requirements of the project. Official models are generally more versatile and can be used for a wide range of applications, but may not produce the specific style or quality of image desired. on the other hand, community models may be more tailored to specific applications but may not be as versatile as official models.
-
-It is important to carefully evaluate the specific needs and requirements of a project before selecting a model and to consider factors such as dataset size, style, object, and computational resources when making a decision.
-
-#### Stable Diffusion Models 1.4 and 1.5
-
-Stable Diffusion (SD) has gone through several iterations of models, each trained on different datasets and with different hyperparameters. The earliest models, 1.1, 1.2, and 1.3, were trained on subsets of the LAION-2B dataset at resolutions of 256x256 and 512x512.
-
-Model 1.4 was the first SD model to really stand out, and it was trained on the LAION-aesthetics v2.5+ dataset at a resolution of 512x512 for 225k steps. Model 1.5 was also trained on the LAION-aesthetics v2.5+ dataset, but for 595k steps. It comes in two flavors: vanilla 1.5 and inpainting 1.5.
-
-Both models are widely used in the SD community, with many finetuned models and embeddings based on 1.4. However, 1.5 is considered the dominant model in use because it produces good results and is a solid all-purpose model.
-
-One important consideration for users is compatibility between models. Most things are compatible between 1.4 and 1.5, which makes it easier for users to switch between models and take advantage of different features or capabilities.
-
-It is important to evaluate the specific needs and requirements of a project when selecting a model and to consider factors such as dataset size, resolution, and hyperparameters when making a decision.
-
-#### Stable Diffusion Models 2.0 and 2.1
-
-Stable Diffusion (SD) models 2.0 and 2.1 were released closely together, with 2.1 considered an improvement over 2.0. Both models were trained on the LAION-5B dataset, which contains roughly 5 billion images, compared to the LAION-2B dataset used for earlier models.
-
-One of the biggest changes from a user perspective was the switch from CLIP (OpenAI) to OpenCLIP, which is an open-source version of CLIP. While this is a positive development from an open-source perspective, it does mean that some workflows and capabilities that were easy to achieve in earlier versions may not be as easy to replicate in 2.0 and 2.1.
-
-SD2.1 comes in both 512x512 and 768x768 versions. Because it uses OpenCLIP instead of CLIP, some users have expressed frustration at not being able to replicate their SD1.5 workflows on SD2.1. However, new fine-tuned models and embeddings are emerging rapidly, which are extending the capabilities of SD2.1 and making it more versatile for different applications.
-
-As with earlier models, it is important to carefully evaluate the specific needs and requirements of a project when selecting a model and to consider factors such as dataset size, resolution, and hyperparameters when making a decision.
-
-##### 512-Depth Model for Image-to-Image Translation
-
-The 512-depth model is a Stable Diffusion model that enables image-to-image translation at a resolution of 512x512. While conventional image-to-image translation methods can suffer from issues with preserving the composition of the original image, the 512-depth model is designed to preserve composition much better. However, it is important to note that this model is limited to image-to-image translation and does not support other tasks such as text-to-image generation or inpainting.
-
-
-
-### VAE (Variational Autoencoder) in Stable Diffusion
-
-In Stable Diffusion, the VAE (or encoder-decoder) component is responsible for compressing the input images into a smaller, latent space, which helps to reduce the VRAM requirements for the diffusion process. In practice, it is important to use a decoder that can effectively reconstruct the original image from the latent space representation.
-
-While the default VAE models included with Stable Diffusion are suitable for many applications, there are other fine-tuned models available that may better meet specific needs. For example, the Hugging Face model repository includes a range of fine-tuned VAE models that may be useful for certain tasks.
-
-When selecting a VAE model, it is important to consider factors such as dataset size, resolution, and other hyperparameters that may impact performance. Ultimately, the choice of VAE model will depend on the specific needs and requirements of the project at hand.
-
-#### Original Autoencoder in Stable Diffusion
-
-The original autoencoder included in Stable Diffusion is the default encoder-decoder used in the model. While it is generally effective at compressing images into a latent space for the diffusion process, it may not perform as well on certain types of images, particularly human faces.
-
-Over time, several fine-tuned autoencoder models have been developed and made available to the community. These models often perform better than the original autoencoder for specific tasks and image types.
-
-When selecting an autoencoder model for a specific application, it is important to consider factors such as image resolution, dataset size, and other hyperparameters that may impact performance. Ultimately, the choice of the autoencoder model will depend on the specific needs and requirements of the project at hand.
-
-#### EMA VAE in Stable Diffusion
-
-The EMA (Exponential Moving Average) VAE is a fine-tuned encoder-decoder included in Stable Diffusion that is specifically designed to perform well on human faces. This model uses an exponential moving average of the encoder weights during training, which helps to stabilize the training process and improve overall performance.
-
-Compared to the original autoencoder included with Stable Diffusion, the EMA VAE generally produces better results on images of human faces. However, it is important to consider other factors such as image resolution, dataset size, and other hyperparameters when selecting a VAE model for a specific application.
-
-Overall, the EMA VAE is a valuable addition to the range of encoder-decoder models available in Stable Diffusion, particularly for applications that require high-quality image generation of human faces.
-
-#### MSE VAE in Stable Diffusion
-
-The MSE (Mean Squared Error) VAE is another fine-tuned encoder-decoder included in Stable Diffusion that is designed to perform well on images of human faces. This model uses MSE as the reconstruction loss during training, which can help to improve the quality of the reconstructed images.
-
-Compared to the original autoencoder and other VAE models included with Stable Diffusion, the MSE VAE generally produces better results on images of human faces. However, as with any model selection, it is important to consider other factors such as image resolution, dataset size, and other hyperparameters.
-
-Overall, the MSE VAE is a useful option for applications that require high-quality image generation of human faces, particularly when used in combination with other techniques such as diffusion and CLIP-guidance.
-
-
-
-### Samplers
-samplers are used in Stable Diffusion to denoise images during the diffusion process. They are different methods to solve differential equations, and there are both classic methods like Euler and Heun as well as newer neural network-based methods like DDIM, DPM, and DPM2. Some samplers are faster than others, and some converge to a final image while others like ancestral samplers simply keep generating new images with an increasing number of steps. It's important to test and compare the speed and performance of different samplers for different use cases, but generally, the DPM++ sampler is considered the best option for most situations.
-
-https://www.youtube.com/watch?v=gtr-4CUBfeQ
-
-#### Ancestral Samplers
-Ancestral samplers are designed to maintain the stochasticity of the diffusion process, where a small amount of noise is added to the image at each step, leading to different possible outcomes. This is in contrast to non-ancestral samplers, which aim to converge to a single image by minimizing diffusion loss. Ancestral samplers can produce interesting and diverse results with a low number of steps, but the downside is that the generated images can be more noisy and less realistic compared to the results obtained from non-ancestral samplers.
-
-##### DPM++ 2S A Karras
-DPM++ 2S A Karras is a two-step DPM++ solver. The "2S" in the name stands for "two-step". The "A" means it is an ancestral sampler and the "Karras" refers to the fact that it is based on the architecture used in the StyleGAN2 paper by Tero Karras et al.
-
-##### DPM++ A
-DPM++ A is an ancestral sampler version of the DPM++ sampler, meaning that it adds a little bit of noise at each step and never converges to a final image. It is a multi-step sampler that is based on a neural network approach to solving the diffusion process. It has been shown to produce high-quality results and is often used for generating images with complex textures and patterns. However, it can be computationally expensive and may take longer to generate images compared to other samplers.
-
-##### Euler A
-Euler A is an ancestral sampler that uses the classic Euler method to solve the discretized differential equations involved in the denoising process but adds a bit of noise at each step. This results in an image that is not necessarily converging to a single solution but rather keeps generating new variations at each step. Euler A is particularly effective at generating high-quality images at low step counts and offers a degree of control over the amount of noise added at each step for adjusting the output image.
-
-##### DPM Fast
-DPM Fast is a fast implementation of DPM (Dynamic Progressive Mesh) sampler, which is a neural network-based method of solving the problem of image denoising in Stable Diffusion models. It is a single-step method that is designed to converge faster than other methods, but it sacrifices some image quality to achieve this speed. DPM Fast is typically used for large batch processing, where speed is of the utmost importance. However, it may not be suitable for high-quality image generation where image fidelity is a priority.
-
-##### DPM Adaptive
-DPM Adaptive is a sampling method for Stable Diffusion that adapts the number of steps required to achieve a certain level of denoising based on the input image. It is designed to be more efficient than other methods by reducing the number of unnecessary steps and thus, the overall processing time. However, unlike other samplers, DPM Adaptive does not converge to a final image, meaning it will continue generating different variations of the image with an increasing number of steps. It is particularly useful for large images that require more processing time to denoise.
-
-#### DPM++
-DPM++ is a diffusion probabilistic model that uses a fast solver to speed up guided sampling. Compared to other samplers like Euler, LMS, PLMS, and DDIM, DPM++ is super fast and can achieve the same result in fewer steps. Its speed makes it a popular choice for generating high-quality images quickly. The DPM++ model is described in two research papers, available at the links provided.
-PAPER: https://arxiv.org/pdf/2211.01095.pdf
-PAPER: https://arxiv.org/pdf/2206.00364.pdf
-
-##### DPM++ SDE
-DPM++ SDE is a stochastic version of the DPM++ sampler. It solves the diffusion process using a stochastic differential equation (SDE) solver, which can handle both continuous and discrete-time noise. This sampler is designed to handle larger-scale guided sampling and can generate high-quality images in a relatively small number of steps. It is also one of the fastest DPM++ samplers available. The Karras version is a similar sampler that produces similar images but is optimized for smaller guidance scales.
-
-##### DPM++ 2M
-DPM++ 2M is a multi-step sampler based on the Diffusion Probabilistic Models (DPM++) solver. It is designed to perform better for large guidance scales and produces high-quality images in fewer steps compared to other samplers. The Karras version is also available, which produces similar results to the original DPM++ 2M sampler. DPM++ 2M is recommended for users who want to generate high-quality images with large guidance scales efficiently.
-
-#### Common Samplers / Equilibrium Samplers
-
-##### k_LMS 
-The k-LMS Stable Diffusion technique involves a sequence of minute, stochastic increments that proceed along the gradient of the distribution, originating from a specific location within the parameter space. By adapting the step magnitude according to the curvature of the distribution, this method reduces sample variance. Consequently, it facilitates swifter and more efficient sampling in the direction of the desired distribution.
-
-##### DDIM
-The DDIM Stable Diffusion technique represents an advanced adaptation of the k-LMS Stable Diffusion algorithm, delivering superior sampling accuracy. By further reducing sample variance and bolstering convergence towards the target distribution, this method attains enhanced performance. This improvement is achieved through the incorporation of additional information regarding the distribution's curvature into the model. Distinct from alternative algorithms, DDIM necessitates a mere eight steps to generate exceptional imagery.
-
-##### k_euler_a and Heun
-Analogous to DDIM, the k_euler_a and Heun samplers exhibit remarkable speed and generate outstanding outcomes with a minimal number of steps. Nonetheless, these methods also considerably modify the generative style. To achieve the optimal result, it is advised to transfer a promising image discovered in k_euler and Heun samplers to DDIM, or vice versa, and iterate until the ideal outcome is obtained.
-
-##### k_dpm_2_a
-Regarded by numerous experts as surpassing its counterparts, the k_dpm_2_a sampler prioritizes quality over speed. Entailing a 30- to 80-step procedure, this sampler yields exceptional outcomes. Ideally, it is employed for meticulously refined prompts exhibiting minimal inaccuracies, and may not be the most suitable sampler for exploratory purposes.
-
-### Community Models
-#### Fine Tuned
-Fine-tuned models for Stable Diffusion are models that have been trained on top of the pre-trained Stable Diffusion model using a specific dataset or a specific task. These fine-tuned models can be more specialized and provide better results for certain tasks, such as generating images of specific objects or styles.
-
-For example, a fine-tuned model for generating anime-style images can be trained on a dataset of anime images. Similarly, a fine-tuned model for generating high-resolution images can be trained on a dataset of high-resolution images.
-
-Fine-tuned models can be created using transfer learning, where the pre-trained model is used as a starting point and the weights are fine-tuned on the specific task or dataset. This approach can significantly reduce the time and resources required to train a new model from scratch.
-
-There are many fine-tuned models available for Stable Diffusion, and they can be found on various repositories and platforms, such as Hugging Face, GitHub, and other online communities.
-
-#### Merged/Merges
-In Stable Diffusion, merged models are created by combining the weights of two or more pre-trained models to create a new model. This process involves taking the learned parameters of each model and averaging them to create a new set of weights.
-
-Merging models is often done to combine the strengths of multiple models and create a new model that is better suited for a specific task. For example, one might merge a model that is good at generating realistic faces with a model that excels at generating landscapes to create a new model that can generate realistic faces in landscapes.
-
-Merging models requires some knowledge of deep learning and neural networks, as the models being merged need to have similar architectures and be trained on similar tasks to be effectively combined. However, there are many pre-trained models available in Stable Diffusion that have already been merged and fine-tuned for specific tasks, making it easier for users to quickly find and use models that are suitable for their needs.
-
-##### Tutorial for Add Difference Method 
-An alternative method to merge models is the use of the merge_lora script by kohya_ss.
-
-To use this method, first, create a mix of the target model and the LoRa model using the merge_lora script. The resulting image is almost identical to just adding the LoRa, with the difference attributed to small rounding errors.
-
-Next, add the LoRa to the target model, and also add the result of the add_difference method applied to the fine-tuned model and the mix of the target model and LoRa. The resulting merge, called the Ultimate_Merge, is 99.99% similar to the target model and can handle massive merges of hundreds of specialized models with the preferred mix without affecting it much. The Ultimate_Merge only loses 0.01% or even less of the information.
-
-link to original tutorial/comment (NSFW) https://www.reddit.com/r/sdnsfw/comments/10nb2jr/comment/j67trgn/
-
-
-
-#### Megamerged/MegaMerges
-Megamerged models in Stable Diffusion are models that have been created by merging more than 5 models with a specific style, object, or capabilities in mind. These models can be quite complex and powerful and are often used for specific purposes or applications.
-
-Creating a megamerged model involves taking several existing models and merging them together in a way that preserves the desired features of each individual model. This can be done using techniques like add_difference or merge_lora, as well as other methods. The resulting megamerged model is a new model that combines the strengths of each of the individual models that were used to create it.
-
-Megamerged models can be quite powerful and effective, but they can also be more complex and difficult to work with than simpler models. They may require more VRAM and longer training times, and they may require more expertise to fine-tune and optimize for specific tasks. However, for certain applications and use cases, megamerged models can be an effective tool for achieving high-quality results.
-
-#### Embeddings
-Embeddings in Stable Diffusion are a way to add additional information to the model through text prompts. Community embeddings are created through textual inversion and can be added to prompts to achieve a desired style or object without using a fully fine-tuned model. These embeddings are not a checkpoint, but rather a new set of embeddings created by the community. Using embeddings can improve the quality and specificity of the generated images. Embeddings can be used to reduce biases within the original model or mimic visual styles.
-
-#### Community Forks
-Style2Paints
-Community forks are variations of the Stable Diffusion model that are developed and maintained by individuals or groups within the community. One such fork is Style2Paints, which is focused on being more of an artist's assistant than creating random generations. It seems to be highly anime-focused, but it is doing some interesting things with sketch infilling. The Style2Paints fork can be found on GitHub and includes a preview of version 5.
-https://github.com/lllyasviel/style2paints/tree/master/V5_preview 
-
-
-
-
-
-## Capturing Concepts / Training
-Capturing concepts involves training a model to generate images that match a certain style or object. This can be done in several ways, such as using a dataset of images that represent the desired style or object, or by fine-tuning an existing model on a small dataset of images that match the desired concept.
-
-One approach to capturing concepts is to use a method called "guided diffusion," which involves generating images that match a given prompt or text description. This can be done by using a pre-trained model and fine-tuning it on a small dataset of images that match the desired concept, or by using a style transfer method to transfer the desired style onto a set of images.
-
-Another approach is to use a method called "latent space interpolation," which involves exploring the latent space of a pre-trained model and manipulating the latent vectors to generate images that match a desired style or object. This method can be used to generate new images that are similar to a given image or to explore the space of different styles or objects.
-
-Overall, capturing concepts involves training a model to generate images that match a desired style or object, and there are several methods available for doing so, including guided diffusion and latent space interpolation.
-
-
-
-### Image2Text
-Image2text is a technique used to convert images into text descriptions, also known as image captioning. It involves using a trained model to generate a textual description of the content of an image. This can be useful for a variety of applications, such as generating captions for social media posts or providing context for image datasets used in machine learning.
-
-There are a few different approaches to image captioning, such as using a CNN-RNN model, which involves using a convolutional neural network to extract features from an image and then passing those features to a recurrent neural network to generate a description. Other models may use attention mechanisms or transformer architectures.
-
-To train an image captioning model, a large dataset of images with corresponding text descriptions is typically used. The model is then trained on this dataset using a loss function that compares the generated captions to the actual captions. Once trained, the model can be used to generate captions for new images.
-
-In the context of mixing two concepts, image2text can be used to generate textual descriptions of the different styles or objects being combined. These descriptions can then be used as prompts for a diffusion model to generate an image that combines those concepts.
-
-#### CLIP Interrogation
-CLIP Interrogator is a Python package that enables users to find the most suitable text prompts that describe an existing image based on the CLIP model. This tool can be useful for generating and refining prompts for image generation models or for labeling images programmatically during training.
-
-CLIP Interrogator is available on GitHub and can be installed via pip. The package also includes a demo notebook showcasing the tool's functionality. Additionally, the package can be used with the Hugging Face Transformers library to further streamline the prompt generation process.
-https://github.com/pharmapsychotic/clip-interrogator
-DEMO: https://huggingface.co/spaces/pharma/CLIP-Interrogator
-
-#### BLIP Captioning
-BLIP (Bootstrapping Language-Image Pre-training) is a framework for pre-training vision and language models that can generate captions for images. It uses a two-stage approach, where the first stage involves training an image encoder and a text decoder on large-scale image-caption datasets, and the second stage involves fine-tuning the model on a smaller dataset with captions and corresponding prompts. This fine-tuning process uses a novel method called Contrastive Learning for Prompt (CLP) which aims to learn the relationship between the image and the prompt.
-
-BLIP Image Captioning allows you to generate prompts for an existing image by interrogating the model. This is helpful in crafting your own prompts or for programatically labeling images during training. BLIP2 is the latest version of BLIP which has been further improved with new training techniques and larger datasets. A demo of BLIP Image Captioning can be found on the Hugging Face website.
-Paper: https://arxiv.org/pdf/2201.12086.pdf
-Summary: https://ahmed-sabir.medium.com/paper-summary-blip-bootstrapping-language-image-pre-training-for-unified-vision-language-c1df6f6c9166
-DEMO: https://huggingface.co/spaces/Salesforce/BLIP
-BLIP2: 
-
-#### DanBooru Tags / Deepdanbooru
-Danbooru is a popular anime and manga imageboard website where users can upload and tag images. DeepDanbooru is a neural network trained on the Danbooru2018 dataset to automatically tag images with relevant tags. The tags can then be used as prompts to generate images in a particular style or with certain objects.
-
-DeepDanbooru is available as a web service or can be run locally on a machine with GPU support. The DeepDanbooru model is trained on more than 3 million images and over 10,000 tags, and is capable of tagging images with a high degree of accuracy.
-
-Using DeepDanbooru tags as prompts can be a powerful tool for generating anime and manga-style images or images featuring particular characters or objects. It can also be used for automating the tagging process for large collections of images.
-
-#### Waifu Diffusion 1.4 tagger - Using DeepDanBooru Tags
-Waifu Diffusion 1.4 tagger is a tool developed using the DeepDanBooru tagger to automatically generate tags for images. The tool uses Stable Diffusion 1.4 model to generate images and DeepDanBooru model to generate tags. The generated tags can be used for various purposes such as organizing and searching images.
-
-The tagger works by taking an input image and generating tags for it using DeepDanBooru model. The generated tags are then displayed alongside the image. The user can edit the generated tags and add new tags as required. Once the tags are finalized, they can be saved and used for organizing and searching images.
-
-The tool is available as an open-source project on GitHub and can be used by anyone for free.
-https://github.com/toriato/stable-diffusion-webui-wd14-tagger
-
-
-
-### Dataset and Image Preparation
-Dataset and Image Preparation is a crucial step in training and generating images with stable diffusion models. A well-prepared dataset can lead to better image quality and more efficient training.
-
-Image preparation is also important to ensure that images are of good quality and uniform in size. Images can be resized and cropped to a consistent aspect ratio, and color correction can be applied to ensure consistency across the dataset.
-
-A screenshot pipeline can be used to automatically extract screenshots from anime or video game footage. This can be a more efficient way to gather images for training or generating images in a specific style.
-
-Overall, preparing a high-quality dataset is essential for stable diffusion models to generate high-quality images.
-
-Tutorial: https://github.com/nitrosocke/dreambooth-training-guide
-
-Screenshot Pipeline: https://github.com/cyber-meow/anime_screenshot_pipeline
-
-#### Captioning
-Captioning is the process of providing textual descriptions or labels to images, which is a crucial step in many machine-learning tasks, such as image recognition, object detection, and image captioning. In the context of training Stable Diffusion models, captioning can be helpful in providing additional context and guidance to the model, particularly when dealing with images of specific objects or styles.
-
-For example, when training a model to generate images of a particular character with different hairstyles or clothing, providing captions that mention the character's hair or clothing can help the model to focus on remembering the character's other built-in features and reproduce these features more consistently while allowing for variation of the features that were captioned.
-
-Captioning can also be useful in creating training datasets by automatically generating captions for images using techniques like object recognition or text-based image retrieval. These captions can then be used to train models for a variety of image-related tasks, including Stable Diffusion.
-
-#### Regularization/Classifier Images
-Regularization/Classifier Images are images used during the training process to help stabilize and regularize the model. They are typically created by training a classifier on a set of images and using the activations of that classifier as a form of regularization during training.
-
-The use of regularization images was initially met with skepticism in the Stable Diffusion community but has since been shown to be effective in improving model stability and image quality.
-
-The process of creating regularization images involves training a classifier on a dataset of images and then using the activations of that classifier as a form of regularization during the training process. This helps to ensure that the model is not overfitting to the training data and is able to generalize to new images.
-
-In addition to their use in regularization, classifier images can also be used to generate prompts for image generation. By identifying the features and attributes of images that are most important for classification, these images can be used to guide the generation of new images that meet certain criteria.
-
-Overall, regularization/classifier images are an important tool in the stable diffusion training process, helping to ensure that models are stable, generalizable, and capable of generating high-quality images.
-https://www.reddit.com/r/StableDiffusion/comments/z9g46h/i_was_wrong_classifierregularization_images_do/
-
-##### Links to Some Regularization Images
-https://github.com/aitrepreneur/REGULARIZATION-IMAGES-SD
-
-
-
-### Training
-Training is the process of fine-tuning a pre-existing model or creating a new one from scratch to generate images based on a specific subject or style. This is achieved by feeding the model with a large dataset of images that represent the subject or style. The model then learns the patterns and features of the input images and uses them to generate new images that are similar in style or subject.
-
-Training a model can be done in various ways, including transfer learning, where a pre-existing model is fine-tuned on a new dataset, or by creating a new model from scratch. The process typically involves setting hyperparameters, selecting the training dataset, defining the loss function, and training the model using an optimizer.
-
-Once a model is trained, it can be used to generate new images that represent the subject or style it was trained on. This can be useful for creating custom art, generating images for specific applications, or even creating new datasets for further training. Training a model can be a complex and time-consuming process, but it can also be very rewarding in terms of the results that can be achieved.
-
-#### File Type Overview
-Most common files types used as models or embeddings
-
-Models:
-.ckpt (Checkpoint file): This is a file format used by TensorFlow to save model checkpoints. It contains the weights and biases of the trained model and can be used to restore the model at a later time.
-.safetensor (SafeTensor file): This is a custom file format used by Stable Diffusion to store models and embeddings. It is optimized for efficient storage and retrieval of large models and embeddings, is also designed to be more secure. 
-.pth (PyTorch model file): This is a file format used by PyTorch to save trained models. It contains the model architecture and the learned parameters.
-.pkl: A Python pickle file, which is a serialized object that can be saved to disk and loaded later. This is the most common file type for saved models in Stable Diffusion.
-.pt: A PyTorch model file, which is used to save PyTorch models. This file type is also used in Stable Diffusion for saved models.
-.h5: A Hierarchical Data Format file, which is commonly used in machine learning for saving models. This file type is used for some Stable Diffusion models.
-
-Embeddings:
-.pt: PyTorch tensor file, which is a file format used for PyTorch tensors. This is the most common file type for embeddings in Stable Diffusion.
-.npy: NumPy array file, which is a file format used for NumPy arrays. Some Stable Diffusion embeddings are saved in this format.
-.h5: Hierarchical Data Format file, which can also be used for saving embeddings in Stable Diffusion.
-.bin (Binary file): This is a general-purpose file format that can be used to store binary data, including models and embeddings. It is a compact format that is efficient for storing large amounts of data.
-
-#### Textual Inversion
-Textual inversion is a technique in which a new keyword is created to represent data that is already known to the model, without changing its weights. It can be particularly useful for creating images of characters or people. Textual inversion can be used in conjunction with almost any other option and can help achieve more consistent results when training models. It is not simply a compilation of prompts, but rather a way to push the output toward a desired outcome. By mixing and matching different techniques, interesting and unique results can be achieved.
-
-Textual inversion is trained on a model so although it will often work with compatible models this is not always the case. 
-
-https://github.com/rinongal/textual_inversion
-COLAB: https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/stable_diffusion_textual_inversion_library_navigator.ipynb
-
-Train New Embedding Tutorial: https://youtu.be/7OnZ_I5dYgw
-
-##### Negative Embedding
-A negative embedding is an embedding used as a negative prompt to avoid certain unwanted aspects in generated images. These embeddings are typically created by generating images using only negative prompts. They can be used to group or condense a long negative prompt into a single word or phrase. Negative embeddings are useful in improving the consistency and quality of generated images, particularly in avoiding undesirable artistic aspects.
-
-#### Hypernetworks
-Hypernetworks are a machine learning technique that allows for the training of a model without altering its weights. This technique involves the use of a separate small network, known as a hypernetwork, to modify the generated images after they have been created. This approach can be useful for fine-tuning generated images without changing the underlying model architecture.
-
-How Hypernetworks Work:
-
-Hypernetworks are typically applied to various points within a larger neural network. This allows them to steer results in a particular direction, such as imitating the art style of a specific artist, even if the artist is not recognized by the original model. Hypernetworks work by finding key areas of importance in the image, such as hair and eyes, and then patching these areas in secondary latent space.
-
-Benefits of Hypernetworks:
-
-One of the main benefits of hypernetworks is that they can be used to fine-tune generated images without changing the underlying model architecture. This can be useful in situations where changing the model architecture is not feasible or desirable. Additionally, hypernetworks are known for their lower hardware requirements compared to other training methods.
-
-Limitations of Hypernetworks:
-
-Despite their benefits, hypernetworks can be difficult to train effectively. Many users have voiced that hypernetworks work best with styles rather than faces or characters. This means that hypernetworks may not be suitable for all types of image-generation tasks.
-
-Tutorial: https://www.youtube.com/watch?v=1mEggRgRgfg
-
-G.A.?
-
-#### LORA
-LORA, or Low-Rank Adaptation, is a technique for training a model to a specific subject or style. LORA is advantageous over Dreambooth in that it only requires 6GB of VRAM to run and produces two small files of 6MB, making it less hardware-intensive. However, it is less flexible than Dreambooth and primarily focuses on faces. LORA can be thought of as injecting a part of a model and teaching it new concepts, making it a powerful tool for fine-tuning generated images without altering the underlying model architecture. One of the primary benefits of LORA is that it has a lower hardware requirement to train, although it can be more complex to train than other techniques. It also does not water down the model in the same way that merging models does.
-
-Training LORA requires following a specific set of instructions, which can be found in various tutorials available online. It is important to consider the weight of the LORA during training, with a recommended weight range of 0.5 to 0.7.
-
-LORA is not solely used in Stable Diffusion and is used in other machine learning projects as well. Additionally, DIM-Networks can be used in conjunction with LORA to further enhance training.
-
-https://github.com/cloneofsimo/lora
-DEMO - Broken?: https://huggingface.co/spaces/ysharma/Low-rank-Adaptation
-
-Training LORA
-Tutorial: https://www.reddit.com/r/StableDiffusion/comments/111mhsl/lora_training_guide_version_20_i_added_multiple/?utm_source=share&utm_medium=web2x&context=3
-
-Changing Lora Weight example: 0.5-:0.7
-
-
-Number of Images in training data
-
-Converting  Checkpoint to LORA
-
-##### LoHa
-Seems to be a LORA that has something to do with federated learning, meaning can be trained in small pieces by many computers instead of all at once in one large go? I'm not completely sure yet
-Github: https://github.com/KohakuBlueleaf/LyCORIS
-Paper: https://openreview.net/pdf?id=d71n4ftoCBy
-
-#### Aescetic Gradients
-Aesthetic gradients are a type of image input that can be used as an alternative to textual prompts. They are useful when trying to generate an image that is difficult to describe in words, allowing for a more intuitive approach to image generation. However, some users have reported underwhelming results when using aesthetic gradients as input. The settings to modify weight may be unclear and unintuitive, making experimentation necessary. Aesthetic gradients may work best as a supplement to a trained model, as both the model and the gradients have been trained on the same data, allowing for added variation in generated images.
-
-
-
-### Fine Tuning / Checkpoints/Diffusers/Safetensors
-To fine-tune a model, you start with a pre-trained checkpoint or diffuser and then continue training it on your own dataset or with your own prompts. This allows you to customize the model to better fit your specific needs. Checkpoints are saved models that can be loaded to continue training or to generate images. Diffusers, on the other hand, are used for guiding the diffusion process during image generation.
-
-Fine-tuning can be done on a variety of pre-trained models, including the base models such as 1.4, 1.5, 2.0, 2.1, as well as custom models. Fine-tuning can be useful for training a model to recognize a specific subject or style, or for improving the performance of a model on a specific task.
-
-A diffuser, checkpoint (ckpt), and safetensor are all related to the process of training and using neural network models, but they serve different purposes:
-
-A diffuser is a term used in the Stable Diffusion framework to refer to a specific type of image generation model. Diffusers are trained using a diffusion process that gradually adds noise to an image, allowing the model to generate increasingly complex images over time. Diffusers are a key component of the Stable Diffusion framework and are used to generate high-quality images based on textual prompts.
-
-A checkpoint (ckpt) is a file that contains the trained parameters (weights) of a neural network model at a particular point in the training process. Checkpoints are typically used for saving the progress of a training session so that it can be resumed later, or for transferring a pre-trained model to another computer or environment. Checkpoints can also be used to fine-tune a pre-trained model on a new dataset or task.
-
-A safetensor is a file format used to store the trained parameters (weights) of a neural network model in a way that is optimized for fast and efficient loading and processing. Safetensors are similar to checkpoints in that they store the model parameters, but they are specifically designed for use with the TensorFlow machine learning library. Safetensors can be used to save and load pre-trained models in TensorFlow, and can also be used for fine-tuning or transfer learning.
-
-In summary, diffusers are a type of image generation model used in the Stable Diffusion framework, while checkpoints and safetensors are file formats used to store and load the trained parameters of a neural network model. Checkpoints and safetensors are often used for fine-tuning or transfer learning, while diffusers are used for generating high-quality images based on textual prompts.
-
-#### Token Based
-Token-based fine-tuning is a simplified form of fine-tuning that requires fewer images and utilizes a single token to modify the model. This approach does not require captions for each image, making it easier to execute and reducing the chances of error. The single token is used to modify the model's weights to achieve the desired outcome. While token-based fine-tuning is a simpler method, it may not provide the same level of accuracy and customization as other forms of fine-tuning that use more detailed captions or multiple tokens.
-
-##### Dreambooth
-Dreambooth is a tool that allows you to fine-tune a Stable Diffusion checkpoint based on a single keyword that represents all of your images, for example, "mycat." This approach does not require you to caption each individual image, which can save time and effort. To use Dreambooth, you need to prepare at least 20 images in a square format of 512x512 or 768x768 and fine-tune the Stable Diffusion checkpoint on them. This process requires a significant amount of VRAM, typically above 15GB, and will produce a file ranging from 2GB to 5GB. Accumulative stacking is also possible in Dreambooth, which involves consecutive training while maintaining the structure of the models. However, this technique is challenging to execute. Overall, Dreambooth can be a useful tool for fine-tuning a Stable Diffusion checkpoint to a specific set of images using a single keyword.
-
-PAPER: https://dreambooth.github.io/
-TUTORIAL: https://www.youtube.com/watch?v=7m__xadX0z0 or https://www.youtube.com/watch?v=Bdl-jWR3Ukc
-COLAB: https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast-DreamBooth.ipynb
-
-##### Custom Diffusion by Adobe
-Custom Diffusion by Adobe is a technique for fine-tuning a Stable Diffusion model to a specific dataset. This approach involves training a new model on the dataset using the Diffusion process, which can take several days or even weeks depending on the size and complexity of the dataset. The resulting model can then be used to generate images with the specific style or content of the training dataset.
-
-One of the key benefits of Custom Diffusion by Adobe is its ability to generate high-quality images that are visually consistent with the training data. This makes it a powerful tool for a wide range of applications, from generating art and design to creating realistic simulations for video games and movies.
-
-However, Custom Diffusion by Adobe is also a computationally intensive process that requires significant resources, including powerful hardware and access to large amounts of data. As such, it may not be practical for all users or applications. Additionally, the technique may require significant expertise and training to use effectively, making it more suitable for advanced users with experience in machine learning and computer vision.
-https://github.com/adobe-research/custom-diffusion
-https://huggingface.co/spaces/nupurkmr9/custom-diffusion
-
-#### Caption Based Fine Tuning
-Caption-based fine-tuning is a method of fine-tuning a stable diffusion model that requires a large number of images, typically in the range of hundreds to thousands. In this approach, the image captions are used as the basis for fine-tuning, allowing for multi-concept training. While this method allows for more flexibility in training, it requires more work than other methods such as token-based fine-tuning. The key advantage of this approach is its ability to capture multiple concepts in the fine-tuning process, enabling more nuanced image generation.
-
-Caption-based fine-tuning requires a lot of captions, not necessarily a lot of images. It can be done with a smaller set of images, as long as they have a diverse range of captions that represent the desired concepts or styles.
-
-##### Fine Tuning
-Fine tuning is a technique used to create a new checkpoint based on image captions. Unlike token-based fine tuning, this method requires a lot of images, ranging from hundreds to thousands. With fine tuning, you can choose to tune just the Unet or both the Unet and the decoder. This process requires a minimum of 15GB VRAM and produces a file ranging from 2GB to 5GB in size. While conventional dreambooth codes can be used for fine tuning, it is important to select the options that allow the use of captions instead of tokens.
-
-TUTORIAL: https://docs.google.com/document/d/1x9B08tMeAxdg87iuc3G4TQZeRv8YmV4tAcb-irTjuwc/edit
-https://github.com/victorchall/EveryDream-trainer 
-https://github.com/victorchall/EveryDream2trainer
-https://github.com/devilismyfriend/StableTuner
-
-#### Decoding Checkpoints
-Decoding checkpoints refer to a method of using pre-trained models to generate images based on textual prompts or other inputs. These checkpoints contain a set of weights that have been optimized during the training process to produce high-quality images. The decoding process involves feeding a textual prompt into the model and using the learned weights to generate an image that matches the input. These checkpoints can be used for a wide variety of image generation tasks, including creating artwork, generating realistic photographs, or creating new designs for products. Different types of decoding checkpoints may be used for different types of tasks, and users may experiment with different models to find the one that works best for their specific needs. Overall, decoding checkpoints are a powerful tool for generating high-quality images quickly and efficiently.
-
-
-
-### Mixing
-Mixing in Stable Diffusion refers to combining different models, embeddings, prompts, or other inputs to generate novel and varied images. Image2text is a tool that can be used to analyze existing images and generate prompts that capture the style or content of the image. These prompts can then be used to generate new images using Stable Diffusion models. Additionally, mixing can be achieved by combining different models or embeddings together, either through merging or using hypernetworks. This can allow for greater flexibility in generating images with unique styles and content.
-
-#### Using Multiple types of models and embeddings
-Using multiple types of models and embeddings such as hypernetworks, embeddings, or LORA can be useful for mixing different styles and objects together. By combining the strengths of multiple models, you can create more unique and diverse images. For example, using multiple embeddings can give you a wider range of prompts to use in image generation, while combining hypernetworks can help fine-tune the generated images without changing the underlying model architecture. However, using too many models at once can lead to decreased performance and longer training times. It is important to find a balance between using multiple models and keeping your system resources efficient.
-
-##### Multiple Embeddings
-When using Stable Diffusion for image generation, it is possible to use multiple embeddings simultaneously by adding the different keywords of the embeddings to your prompt. This can be helpful when attempting to mix different styles or objects together in your generated image. By using multiple embeddings, you can create more complex and nuanced prompts for the model to generate images from.
-
-##### Multiple Hypernetworks
-Using multiple hypernetworks can help mix styles and objects together in image generation. These hypernetworks can be added to the model to modify images in a certain way after they are created, without changing the underlying model architecture. While powerful, hypernetworks can be difficult to train and require a lower hardware requirement than fine-tuning models. By using multiple hypernetworks, users can achieve more diverse and nuanced results in their image generation.
-https://github.com/antis0007/sd-webui-multiple-hypernetworks
-
-##### Multiple LORA's
-To achieve a more customized image output, multiple LORA models can be used in combination with custom models and embeddings. However, some users have reported that using more than 5 LORA models simultaneously can lead to poor results. It is important to experiment with different combinations and find the optimal balance of LORA models to achieve the desired output.
-
-#### Merging
-Merging checkpoints allows for mixing two concepts together. This can be done by combining the weights of two or more pre-trained models. However, it is important to note that merging can cause a loss or weakening of some concepts in the final output due to the differences in the underlying architectures and training data of the models being merged. It is recommended to experiment with different merging approaches and models to achieve the desired results.
-
-##### Merging Checkpoints
-Merging checkpoints is a technique used to combine two different models to create a new model with characteristics of both. This process allows you to mix the models together in various proportions, ranging from 0% to 100%. By merging models, you can create entirely new styles and outputs that wouldn't be possible with a single model. However, it's important to note that merging models can also result in a loss or weakening of certain concepts. Therefore, it's important to experiment with different combinations and proportions to achieve the desired result.
-
-#### Converting
-Converting Checkpoints to LORA and Safetensors involves transforming the trained model weights into a compressed format that can be used in other applications.
-
-To convert a checkpoint to LORA, you can use the "compress.py" script provided in the LORA repository. This script takes a trained checkpoint and compresses it into a LORA file, which can be used in other machine learning projects. This can also be done with Kohya Ui. 
-
-To convert a checkpoint to a Safetensor, you can use the "export.py" script provided in the Safetensor repository. This script takes a trained checkpoint and exports it as a Safetensor, which is a compressed and encrypted version of the model that can be safely shared with others. This can also be done with most UIs. 
-
-Converting checkpoints to LORA or Safetensors can be useful for sharing models with others or for using them in other applications that require compressed model files.
-
-
-
-### One Shot Learning & Similar
-One-shot learning is a machine learning technique where a model is trained on a small set of examples to classify new examples. In the context of Stable Diffusion, one-shot learning can be used to quickly train a model on a new concept or object with just a few images.
-
-One way to do this is to use a technique called fine-tuning, where a pre-trained model is modified to fit the new data. For example, if you want to train a model to generate images of your pet cat, you can fine-tune an existing Stable Diffusion model on a small set of images of your cat. This will allow the model to learn the specific characteristics of your cat and generate new images of it.
-
-Another approach is to use a technique called contrastive learning, where a model is trained to differentiate between positive and negative examples of a concept. For example, you can train a model to recognize your cat by showing it a few positive examples of your cat, and many negative examples of other cats or animals. This will allow the model to learn the unique features of your cat and distinguish it from other animals.
-
-One-shot learning can be useful in scenarios where there are only a few examples of a concept, or where collecting large amounts of data is not feasible. However, it may not always produce the same level of accuracy as traditional training methods that use large datasets. Additionally, the quality of the generated images may depend on the quality of the initial few examples used for training.
-
-#### DreamArtist (WebUI Extension)
-DreamArtist is a web extension that allows users to generate custom art using Stable Diffusion. The extension provides a user-friendly interface that makes it easy for anyone to generate images without any coding experience. Users can upload their images, choose a specific style or subject, adjust settings such as resolution and noise level, and generate new images with a single click. DreamArtist also allows users to save and share their creations with others. It is a convenient tool for anyone who wants to experiment with Stable Diffusion and create unique digital art.
-https://github.com/7eu7d7/DreamArtist-sd-webui-extension
-
-#### Universal Guided Diffusion
-Universal Guided Diffusion is a method for training a diffusion model that can generate diverse high-quality images from a wide range of natural image distributions. It involves conditioning the diffusion process on a universal latent code that captures global properties of the image distribution, as well as a guided conditioning signal that captures local details. This approach allows for a high degree of flexibility in generating images with diverse styles and content, making it suitable for a wide range of image-generation tasks. The code is available on GitHub, and a paper describing the method is available on arXiv.
-https://github.com/arpitbansal297/Universal-Guided-Diffusion
-PAPER: https://arxiv.org/abs/2302.07121
-
-
-
-
-
-## Initiating Composition
-Initiating composition in the context of stable diffusion generally refers to the process of generating an image from scratch using a combination of textual prompts and/or image inputs. This process can be done using various techniques such as fine-tuning pre-trained models, using multiple embeddings, hypernetworks, and LORAs, merging models, and utilizing aesthetic gradients. The goal is to generate an image that reflects the desired style, subject, or concept that the user has in mind. Once an image has been generated, it can be further refined and tweaked using techniques such as image manipulation, denoising, and interpolation to achieve the desired outcome.
+## Generating Images & Methods of Image Generation
+In the context of stable diffusion generally refers to the process of generating an image from scratch using a combination of textual prompts and/or image inputs. This process can be done using various techniques such as fine-tuning pre-trained models, using multiple embeddings, hypernetworks, and LORAs, merging models, and utilizing aesthetic gradients. The goal is to generate an image that reflects the desired style, subject, or concept that the user has in mind. Once an image has been generated, it can be further refined and tweaked using techniques such as image manipulation, denoising, and interpolation to achieve the desired outcome.
 
 
 ### Text2Image
@@ -1581,7 +1125,497 @@ DEMO: https://huggingface.co/spaces/sczhou/CodeFormer
 
 
 
-## Software Addons  
+## Models ETC
+
+At the core of SD is the stable diffusion model, which is contained in a ckpt file. The stable diffusion model consists of three sub-models:
+
+Variational autoencoder (VAE): This sub-model is responsible for compressing and decompressing the image data into a smaller latent space. The VAE is used to generate a representation of the input image that can be easily manipulated by the other sub-models.
+
+U-Net: This sub-model is responsible for performing the diffusion process that generates the final image. The U-Net is used to gradually refine the image by adding or removing noise and information based on the text prompts.
+
+CLIP: This sub-model is responsible for guiding the diffusion process with text prompts. CLIP is a natural language processing model that is used to generate embeddings of the text prompts that are used to guide the diffusion process.
+
+Different models can use different versions of the VAE, U-Net, and CLIP models, depending on the specific requirements of the project. In addition, different samplers can be used to perform denoising in different ways, providing additional flexibility and control over the image generation process.
+
+Understanding the core components and models of SD is important for optimizing its performance and for selecting the appropriate models and settings for specific projects.
+
+
+
+### Base Models for Stable Diffusion
+
+Stable Diffusion (SD) relies on pre-trained models to generate high-quality images from text prompts. These models can be broadly categorized into two types: official models and community models.
+
+Official models are trained on large datasets of images, typically billions of images, and are often referred to by their dataset size. For example, the LAION-2B model was trained on a dataset of 2 billion images, while the LAION-5B model was trained on a dataset of 5.6 billion images. These models are typically trained on a wide range of images and can generate high-quality images that are suitable for many different applications.
+
+Community models, on the other hand, are models that have been finetuned by users for specific styles or objects. These models are often based on the official models, but with modifications to the Unet and decoder or just the Unet. For example, a user might finetune an official model to generate images of specific animals or to generate images with a particular style or aesthetic.
+
+The choice of which model to use depends on the specific requirements of the project. Official models are generally more versatile and can be used for a wide range of applications, but may not produce the specific style or quality of image desired. on the other hand, community models may be more tailored to specific applications but may not be as versatile as official models.
+
+It is important to carefully evaluate the specific needs and requirements of a project before selecting a model and to consider factors such as dataset size, style, object, and computational resources when making a decision.
+
+#### Stable Diffusion Models 1.4 and 1.5
+
+Stable Diffusion (SD) has gone through several iterations of models, each trained on different datasets and with different hyperparameters. The earliest models, 1.1, 1.2, and 1.3, were trained on subsets of the LAION-2B dataset at resolutions of 256x256 and 512x512.
+
+Model 1.4 was the first SD model to really stand out, and it was trained on the LAION-aesthetics v2.5+ dataset at a resolution of 512x512 for 225k steps. Model 1.5 was also trained on the LAION-aesthetics v2.5+ dataset, but for 595k steps. It comes in two flavors: vanilla 1.5 and inpainting 1.5.
+
+Both models are widely used in the SD community, with many finetuned models and embeddings based on 1.4. However, 1.5 is considered the dominant model in use because it produces good results and is a solid all-purpose model.
+
+One important consideration for users is compatibility between models. Most things are compatible between 1.4 and 1.5, which makes it easier for users to switch between models and take advantage of different features or capabilities.
+
+It is important to evaluate the specific needs and requirements of a project when selecting a model and to consider factors such as dataset size, resolution, and hyperparameters when making a decision.
+
+#### Stable Diffusion Models 2.0 and 2.1
+
+Stable Diffusion (SD) models 2.0 and 2.1 were released closely together, with 2.1 considered an improvement over 2.0. Both models were trained on the LAION-5B dataset, which contains roughly 5 billion images, compared to the LAION-2B dataset used for earlier models.
+
+One of the biggest changes from a user perspective was the switch from CLIP (OpenAI) to OpenCLIP, which is an open-source version of CLIP. While this is a positive development from an open-source perspective, it does mean that some workflows and capabilities that were easy to achieve in earlier versions may not be as easy to replicate in 2.0 and 2.1.
+
+SD2.1 comes in both 512x512 and 768x768 versions. Because it uses OpenCLIP instead of CLIP, some users have expressed frustration at not being able to replicate their SD1.5 workflows on SD2.1. However, new fine-tuned models and embeddings are emerging rapidly, which are extending the capabilities of SD2.1 and making it more versatile for different applications.
+
+As with earlier models, it is important to carefully evaluate the specific needs and requirements of a project when selecting a model and to consider factors such as dataset size, resolution, and hyperparameters when making a decision.
+
+##### 512-Depth Model for Image-to-Image Translation
+
+The 512-depth model is a Stable Diffusion model that enables image-to-image translation at a resolution of 512x512. While conventional image-to-image translation methods can suffer from issues with preserving the composition of the original image, the 512-depth model is designed to preserve composition much better. However, it is important to note that this model is limited to image-to-image translation and does not support other tasks such as text-to-image generation or inpainting.
+
+
+### Community Models
+#### Fine Tuned
+Fine-tuned models for Stable Diffusion are models that have been trained on top of the pre-trained Stable Diffusion model using a specific dataset or a specific task. These fine-tuned models can be more specialized and provide better results for certain tasks, such as generating images of specific objects or styles.
+
+For example, a fine-tuned model for generating anime-style images can be trained on a dataset of anime images. Similarly, a fine-tuned model for generating high-resolution images can be trained on a dataset of high-resolution images.
+
+Fine-tuned models can be created using transfer learning, where the pre-trained model is used as a starting point and the weights are fine-tuned on the specific task or dataset. This approach can significantly reduce the time and resources required to train a new model from scratch.
+
+There are many fine-tuned models available for Stable Diffusion, and they can be found on various repositories and platforms, such as Hugging Face, GitHub, and other online communities.
+
+#### Merged/Merges
+In Stable Diffusion, merged models are created by combining the weights of two or more pre-trained models to create a new model. This process involves taking the learned parameters of each model and averaging them to create a new set of weights.
+
+Merging models is often done to combine the strengths of multiple models and create a new model that is better suited for a specific task. For example, one might merge a model that is good at generating realistic faces with a model that excels at generating landscapes to create a new model that can generate realistic faces in landscapes.
+
+Merging models requires some knowledge of deep learning and neural networks, as the models being merged need to have similar architectures and be trained on similar tasks to be effectively combined. However, there are many pre-trained models available in Stable Diffusion that have already been merged and fine-tuned for specific tasks, making it easier for users to quickly find and use models that are suitable for their needs.
+
+##### Tutorial for Add Difference Method 
+An alternative method to merge models is the use of the merge_lora script by kohya_ss.
+
+To use this method, first, create a mix of the target model and the LoRa model using the merge_lora script. The resulting image is almost identical to just adding the LoRa, with the difference attributed to small rounding errors.
+
+Next, add the LoRa to the target model, and also add the result of the add_difference method applied to the fine-tuned model and the mix of the target model and LoRa. The resulting merge, called the Ultimate_Merge, is 99.99% similar to the target model and can handle massive merges of hundreds of specialized models with the preferred mix without affecting it much. The Ultimate_Merge only loses 0.01% or even less of the information.
+
+link to original tutorial/comment (NSFW) https://www.reddit.com/r/sdnsfw/comments/10nb2jr/comment/j67trgn/
+
+
+
+#### Megamerged/MegaMerges
+Megamerged models in Stable Diffusion are models that have been created by merging more than 5 models with a specific style, object, or capabilities in mind. These models can be quite complex and powerful and are often used for specific purposes or applications.
+
+Creating a megamerged model involves taking several existing models and merging them together in a way that preserves the desired features of each individual model. This can be done using techniques like add_difference or merge_lora, as well as other methods. The resulting megamerged model is a new model that combines the strengths of each of the individual models that were used to create it.
+
+Megamerged models can be quite powerful and effective, but they can also be more complex and difficult to work with than simpler models. They may require more VRAM and longer training times, and they may require more expertise to fine-tune and optimize for specific tasks. However, for certain applications and use cases, megamerged models can be an effective tool for achieving high-quality results.
+
+#### Embeddings
+Embeddings in Stable Diffusion are a way to add additional information to the model through text prompts. Community embeddings are created through textual inversion and can be added to prompts to achieve a desired style or object without using a fully fine-tuned model. These embeddings are not a checkpoint, but rather a new set of embeddings created by the community. Using embeddings can improve the quality and specificity of the generated images. Embeddings can be used to reduce biases within the original model or mimic visual styles.
+
+#### Community Forks
+Style2Paints
+Community forks are variations of the Stable Diffusion model that are developed and maintained by individuals or groups within the community. One such fork is Style2Paints, which is focused on being more of an artist's assistant than creating random generations. It seems to be highly anime-focused, but it is doing some interesting things with sketch infilling. The Style2Paints fork can be found on GitHub and includes a preview of version 5.
+https://github.com/lllyasviel/style2paints/tree/master/V5_preview 
+
+
+
+
+
+### VAE (Variational Autoencoder) in Stable Diffusion
+
+In Stable Diffusion, the VAE (or encoder-decoder) component is responsible for compressing the input images into a smaller, latent space, which helps to reduce the VRAM requirements for the diffusion process. In practice, it is important to use a decoder that can effectively reconstruct the original image from the latent space representation.
+
+While the default VAE models included with Stable Diffusion are suitable for many applications, there are other fine-tuned models available that may better meet specific needs. For example, the Hugging Face model repository includes a range of fine-tuned VAE models that may be useful for certain tasks.
+
+When selecting a VAE model, it is important to consider factors such as dataset size, resolution, and other hyperparameters that may impact performance. Ultimately, the choice of VAE model will depend on the specific needs and requirements of the project at hand.
+
+#### Original Autoencoder in Stable Diffusion
+
+The original autoencoder included in Stable Diffusion is the default encoder-decoder used in the model. While it is generally effective at compressing images into a latent space for the diffusion process, it may not perform as well on certain types of images, particularly human faces.
+
+Over time, several fine-tuned autoencoder models have been developed and made available to the community. These models often perform better than the original autoencoder for specific tasks and image types.
+
+When selecting an autoencoder model for a specific application, it is important to consider factors such as image resolution, dataset size, and other hyperparameters that may impact performance. Ultimately, the choice of the autoencoder model will depend on the specific needs and requirements of the project at hand.
+
+#### EMA VAE in Stable Diffusion
+
+The EMA (Exponential Moving Average) VAE is a fine-tuned encoder-decoder included in Stable Diffusion that is specifically designed to perform well on human faces. This model uses an exponential moving average of the encoder weights during training, which helps to stabilize the training process and improve overall performance.
+
+Compared to the original autoencoder included with Stable Diffusion, the EMA VAE generally produces better results on images of human faces. However, it is important to consider other factors such as image resolution, dataset size, and other hyperparameters when selecting a VAE model for a specific application.
+
+Overall, the EMA VAE is a valuable addition to the range of encoder-decoder models available in Stable Diffusion, particularly for applications that require high-quality image generation of human faces.
+
+#### MSE VAE in Stable Diffusion
+
+The MSE (Mean Squared Error) VAE is another fine-tuned encoder-decoder included in Stable Diffusion that is designed to perform well on images of human faces. This model uses MSE as the reconstruction loss during training, which can help to improve the quality of the reconstructed images.
+
+Compared to the original autoencoder and other VAE models included with Stable Diffusion, the MSE VAE generally produces better results on images of human faces. However, as with any model selection, it is important to consider other factors such as image resolution, dataset size, and other hyperparameters.
+
+Overall, the MSE VAE is a useful option for applications that require high-quality image generation of human faces, particularly when used in combination with other techniques such as diffusion and CLIP-guidance.
+
+
+
+### Samplers
+samplers are used in Stable Diffusion to denoise images during the diffusion process. They are different methods to solve differential equations, and there are both classic methods like Euler and Heun as well as newer neural network-based methods like DDIM, DPM, and DPM2. Some samplers are faster than others, and some converge to a final image while others like ancestral samplers simply keep generating new images with an increasing number of steps. It's important to test and compare the speed and performance of different samplers for different use cases, but generally, the DPM++ sampler is considered the best option for most situations.
+
+https://www.youtube.com/watch?v=gtr-4CUBfeQ
+
+#### Ancestral Samplers
+Ancestral samplers are designed to maintain the stochasticity of the diffusion process, where a small amount of noise is added to the image at each step, leading to different possible outcomes. This is in contrast to non-ancestral samplers, which aim to converge to a single image by minimizing diffusion loss. Ancestral samplers can produce interesting and diverse results with a low number of steps, but the downside is that the generated images can be more noisy and less realistic compared to the results obtained from non-ancestral samplers.
+
+##### DPM++ 2S A Karras
+DPM++ 2S A Karras is a two-step DPM++ solver. The "2S" in the name stands for "two-step". The "A" means it is an ancestral sampler and the "Karras" refers to the fact that it is based on the architecture used in the StyleGAN2 paper by Tero Karras et al.
+
+##### DPM++ A
+DPM++ A is an ancestral sampler version of the DPM++ sampler, meaning that it adds a little bit of noise at each step and never converges to a final image. It is a multi-step sampler that is based on a neural network approach to solving the diffusion process. It has been shown to produce high-quality results and is often used for generating images with complex textures and patterns. However, it can be computationally expensive and may take longer to generate images compared to other samplers.
+
+##### Euler A
+Euler A is an ancestral sampler that uses the classic Euler method to solve the discretized differential equations involved in the denoising process but adds a bit of noise at each step. This results in an image that is not necessarily converging to a single solution but rather keeps generating new variations at each step. Euler A is particularly effective at generating high-quality images at low step counts and offers a degree of control over the amount of noise added at each step for adjusting the output image.
+
+##### DPM Fast
+DPM Fast is a fast implementation of DPM (Dynamic Progressive Mesh) sampler, which is a neural network-based method of solving the problem of image denoising in Stable Diffusion models. It is a single-step method that is designed to converge faster than other methods, but it sacrifices some image quality to achieve this speed. DPM Fast is typically used for large batch processing, where speed is of the utmost importance. However, it may not be suitable for high-quality image generation where image fidelity is a priority.
+
+##### DPM Adaptive
+DPM Adaptive is a sampling method for Stable Diffusion that adapts the number of steps required to achieve a certain level of denoising based on the input image. It is designed to be more efficient than other methods by reducing the number of unnecessary steps and thus, the overall processing time. However, unlike other samplers, DPM Adaptive does not converge to a final image, meaning it will continue generating different variations of the image with an increasing number of steps. It is particularly useful for large images that require more processing time to denoise.
+
+#### DPM++
+DPM++ is a diffusion probabilistic model that uses a fast solver to speed up guided sampling. Compared to other samplers like Euler, LMS, PLMS, and DDIM, DPM++ is super fast and can achieve the same result in fewer steps. Its speed makes it a popular choice for generating high-quality images quickly. The DPM++ model is described in two research papers, available at the links provided.
+PAPER: https://arxiv.org/pdf/2211.01095.pdf
+PAPER: https://arxiv.org/pdf/2206.00364.pdf
+
+##### DPM++ SDE
+DPM++ SDE is a stochastic version of the DPM++ sampler. It solves the diffusion process using a stochastic differential equation (SDE) solver, which can handle both continuous and discrete-time noise. This sampler is designed to handle larger-scale guided sampling and can generate high-quality images in a relatively small number of steps. It is also one of the fastest DPM++ samplers available. The Karras version is a similar sampler that produces similar images but is optimized for smaller guidance scales.
+
+##### DPM++ 2M
+DPM++ 2M is a multi-step sampler based on the Diffusion Probabilistic Models (DPM++) solver. It is designed to perform better for large guidance scales and produces high-quality images in fewer steps compared to other samplers. The Karras version is also available, which produces similar results to the original DPM++ 2M sampler. DPM++ 2M is recommended for users who want to generate high-quality images with large guidance scales efficiently.
+
+#### Common Samplers / Equilibrium Samplers
+
+##### k_LMS 
+The k-LMS Stable Diffusion technique involves a sequence of minute, stochastic increments that proceed along the gradient of the distribution, originating from a specific location within the parameter space. By adapting the step magnitude according to the curvature of the distribution, this method reduces sample variance. Consequently, it facilitates swifter and more efficient sampling in the direction of the desired distribution.
+
+##### DDIM
+The DDIM Stable Diffusion technique represents an advanced adaptation of the k-LMS Stable Diffusion algorithm, delivering superior sampling accuracy. By further reducing sample variance and bolstering convergence towards the target distribution, this method attains enhanced performance. This improvement is achieved through the incorporation of additional information regarding the distribution's curvature into the model. Distinct from alternative algorithms, DDIM necessitates a mere eight steps to generate exceptional imagery.
+
+##### k_euler_a and Heun
+Analogous to DDIM, the k_euler_a and Heun samplers exhibit remarkable speed and generate outstanding outcomes with a minimal number of steps. Nonetheless, these methods also considerably modify the generative style. To achieve the optimal result, it is advised to transfer a promising image discovered in k_euler and Heun samplers to DDIM, or vice versa, and iterate until the ideal outcome is obtained.
+
+##### k_dpm_2_a
+Regarded by numerous experts as surpassing its counterparts, the k_dpm_2_a sampler prioritizes quality over speed. Entailing a 30- to 80-step procedure, this sampler yields exceptional outcomes. Ideally, it is employed for meticulously refined prompts exhibiting minimal inaccuracies, and may not be the most suitable sampler for exploratory purposes.
+
+
+
+
+
+
+## Methods of Training Models and Creating Embeddings
+Capturing concepts involves training a model to generate images that match a certain style or object. This can be done in several ways, such as using a dataset of images that represent the desired style or object, or by fine-tuning an existing model on a small dataset of images that match the desired concept.
+
+One approach to capturing concepts is to use a method called "guided diffusion," which involves generating images that match a given prompt or text description. This can be done by using a pre-trained model and fine-tuning it on a small dataset of images that match the desired concept, or by using a style transfer method to transfer the desired style onto a set of images.
+
+Another approach is to use a method called "latent space interpolation," which involves exploring the latent space of a pre-trained model and manipulating the latent vectors to generate images that match a desired style or object. This method can be used to generate new images that are similar to a given image or to explore the space of different styles or objects.
+
+Overall, capturing concepts involves training a model to generate images that match a desired style or object, and there are several methods available for doing so, including guided diffusion and latent space interpolation.
+
+### Dataset and Image Preparation
+Dataset and Image Preparation is a crucial step in training and generating images with stable diffusion models. A well-prepared dataset can lead to better image quality and more efficient training.
+
+Image preparation is also important to ensure that images are of good quality and uniform in size. Images can be resized and cropped to a consistent aspect ratio, and color correction can be applied to ensure consistency across the dataset.
+
+A screenshot pipeline can be used to automatically extract screenshots from anime or video game footage. This can be a more efficient way to gather images for training or generating images in a specific style.
+
+Overall, preparing a high-quality dataset is essential for stable diffusion models to generate high-quality images.
+
+Tutorial: https://github.com/nitrosocke/dreambooth-training-guide
+
+Screenshot Pipeline: https://github.com/cyber-meow/anime_screenshot_pipeline
+
+#### Captioning
+Captioning is the process of providing textual descriptions or labels to images, which is a crucial step in many machine-learning tasks, such as image recognition, object detection, and image captioning. In the context of training Stable Diffusion models, captioning can be helpful in providing additional context and guidance to the model, particularly when dealing with images of specific objects or styles.
+
+For example, when training a model to generate images of a particular character with different hairstyles or clothing, providing captions that mention the character's hair or clothing can help the model to focus on remembering the character's other built-in features and reproduce these features more consistently while allowing for variation of the features that were captioned.
+
+Captioning can also be useful in creating training datasets by automatically generating captions for images using techniques like object recognition or text-based image retrieval. These captions can then be used to train models for a variety of image-related tasks, including Stable Diffusion.
+
+#### Regularization/Classifier Images
+Regularization/Classifier Images are images used during the training process to help stabilize and regularize the model. They are typically created by training a classifier on a set of images and using the activations of that classifier as a form of regularization during training.
+
+The use of regularization images was initially met with skepticism in the Stable Diffusion community but has since been shown to be effective in improving model stability and image quality.
+
+The process of creating regularization images involves training a classifier on a dataset of images and then using the activations of that classifier as a form of regularization during the training process. This helps to ensure that the model is not overfitting to the training data and is able to generalize to new images.
+
+In addition to their use in regularization, classifier images can also be used to generate prompts for image generation. By identifying the features and attributes of images that are most important for classification, these images can be used to guide the generation of new images that meet certain criteria.
+
+Overall, regularization/classifier images are an important tool in the stable diffusion training process, helping to ensure that models are stable, generalizable, and capable of generating high-quality images.
+https://www.reddit.com/r/StableDiffusion/comments/z9g46h/i_was_wrong_classifierregularization_images_do/
+
+##### Links to Some Regularization Images
+https://github.com/aitrepreneur/REGULARIZATION-IMAGES-SD
+
+
+
+
+
+### Training
+Training is the process of fine-tuning a pre-existing model or creating a new one from scratch to generate images based on a specific subject or style. This is achieved by feeding the model with a large dataset of images that represent the subject or style. The model then learns the patterns and features of the input images and uses them to generate new images that are similar in style or subject.
+
+Training a model can be done in various ways, including transfer learning, where a pre-existing model is fine-tuned on a new dataset, or by creating a new model from scratch. The process typically involves setting hyperparameters, selecting the training dataset, defining the loss function, and training the model using an optimizer.
+
+Once a model is trained, it can be used to generate new images that represent the subject or style it was trained on. This can be useful for creating custom art, generating images for specific applications, or even creating new datasets for further training. Training a model can be a complex and time-consuming process, but it can also be very rewarding in terms of the results that can be achieved.
+
+#### File Type Overview
+Most common files types used as models or embeddings
+
+Models:
+.ckpt (Checkpoint file): This is a file format used by TensorFlow to save model checkpoints. It contains the weights and biases of the trained model and can be used to restore the model at a later time.
+.safetensor (SafeTensor file): This is a custom file format used by Stable Diffusion to store models and embeddings. It is optimized for efficient storage and retrieval of large models and embeddings, is also designed to be more secure. 
+.pth (PyTorch model file): This is a file format used by PyTorch to save trained models. It contains the model architecture and the learned parameters.
+.pkl: A Python pickle file, which is a serialized object that can be saved to disk and loaded later. This is the most common file type for saved models in Stable Diffusion.
+.pt: A PyTorch model file, which is used to save PyTorch models. This file type is also used in Stable Diffusion for saved models.
+.h5: A Hierarchical Data Format file, which is commonly used in machine learning for saving models. This file type is used for some Stable Diffusion models.
+
+Embeddings:
+.pt: PyTorch tensor file, which is a file format used for PyTorch tensors. This is the most common file type for embeddings in Stable Diffusion.
+.npy: NumPy array file, which is a file format used for NumPy arrays. Some Stable Diffusion embeddings are saved in this format.
+.h5: Hierarchical Data Format file, which can also be used for saving embeddings in Stable Diffusion.
+.bin (Binary file): This is a general-purpose file format that can be used to store binary data, including models and embeddings. It is a compact format that is efficient for storing large amounts of data.
+
+#### CKPT/Diffuser/SAfetensor
+
+
+#### Textual Inversion
+Textual inversion is a technique in which a new keyword is created to represent data that is already known to the model, without changing its weights. It can be particularly useful for creating images of characters or people. Textual inversion can be used in conjunction with almost any other option and can help achieve more consistent results when training models. It is not simply a compilation of prompts, but rather a way to push the output toward a desired outcome. By mixing and matching different techniques, interesting and unique results can be achieved.
+
+Textual inversion is trained on a model so although it will often work with compatible models this is not always the case. 
+
+https://github.com/rinongal/textual_inversion
+COLAB: https://colab.research.google.com/github/huggingface/notebooks/blob/main/diffusers/stable_diffusion_textual_inversion_library_navigator.ipynb
+
+Train New Embedding Tutorial: https://youtu.be/7OnZ_I5dYgw
+
+##### Negative Embedding
+A negative embedding is an embedding used as a negative prompt to avoid certain unwanted aspects in generated images. These embeddings are typically created by generating images using only negative prompts. They can be used to group or condense a long negative prompt into a single word or phrase. Negative embeddings are useful in improving the consistency and quality of generated images, particularly in avoiding undesirable artistic aspects.
+
+#### LORA
+LORA, or Low-Rank Adaptation, is a technique for training a model to a specific subject or style. LORA is advantageous over Dreambooth in that it only requires 6GB of VRAM to run and produces two small files of 6MB, making it less hardware-intensive. However, it is less flexible than Dreambooth and primarily focuses on faces. LORA can be thought of as injecting a part of a model and teaching it new concepts, making it a powerful tool for fine-tuning generated images without altering the underlying model architecture. One of the primary benefits of LORA is that it has a lower hardware requirement to train, although it can be more complex to train than other techniques. It also does not water down the model in the same way that merging models does.
+
+Training LORA requires following a specific set of instructions, which can be found in various tutorials available online. It is important to consider the weight of the LORA during training, with a recommended weight range of 0.5 to 0.7.
+
+LORA is not solely used in Stable Diffusion and is used in other machine learning projects as well. Additionally, DIM-Networks can be used in conjunction with LORA to further enhance training.
+
+https://github.com/cloneofsimo/lora
+DEMO - Broken?: https://huggingface.co/spaces/ysharma/Low-rank-Adaptation
+
+Training LORA
+Tutorial: https://www.reddit.com/r/StableDiffusion/comments/111mhsl/lora_training_guide_version_20_i_added_multiple/?utm_source=share&utm_medium=web2x&context=3
+
+Changing Lora Weight example: 0.5-:0.7
+
+
+Number of Images in training data
+
+Converting  Checkpoint to LORA
+
+##### LoHa
+Seems to be a LORA that has something to do with federated learning, meaning can be trained in small pieces by many computers instead of all at once in one large go? I'm not completely sure yet
+Github: https://github.com/KohakuBlueleaf/LyCORIS
+Paper: https://openreview.net/pdf?id=d71n4ftoCBy
+
+
+#### Hypernetworks
+Hypernetworks are a machine learning technique that allows for the training of a model without altering its weights. This technique involves the use of a separate small network, known as a hypernetwork, to modify the generated images after they have been created. This approach can be useful for fine-tuning generated images without changing the underlying model architecture.
+
+How Hypernetworks Work:
+
+Hypernetworks are typically applied to various points within a larger neural network. This allows them to steer results in a particular direction, such as imitating the art style of a specific artist, even if the artist is not recognized by the original model. Hypernetworks work by finding key areas of importance in the image, such as hair and eyes, and then patching these areas in secondary latent space.
+
+Benefits of Hypernetworks:
+
+One of the main benefits of hypernetworks is that they can be used to fine-tune generated images without changing the underlying model architecture. This can be useful in situations where changing the model architecture is not feasible or desirable. Additionally, hypernetworks are known for their lower hardware requirements compared to other training methods.
+
+Limitations of Hypernetworks:
+
+Despite their benefits, hypernetworks can be difficult to train effectively. Many users have voiced that hypernetworks work best with styles rather than faces or characters. This means that hypernetworks may not be suitable for all types of image-generation tasks.
+
+Tutorial: https://www.youtube.com/watch?v=1mEggRgRgfg
+
+G.A.?
+
+
+#### Aescetic Gradients
+Aesthetic gradients are a type of image input that can be used as an alternative to textual prompts. They are useful when trying to generate an image that is difficult to describe in words, allowing for a more intuitive approach to image generation. However, some users have reported underwhelming results when using aesthetic gradients as input. The settings to modify weight may be unclear and unintuitive, making experimentation necessary. Aesthetic gradients may work best as a supplement to a trained model, as both the model and the gradients have been trained on the same data, allowing for added variation in generated images.
+
+
+
+### Fine Tuning / Checkpoints/Diffusers/Safetensors
+To fine-tune a model, you start with a pre-trained checkpoint or diffuser and then continue training it on your own dataset or with your own prompts. This allows you to customize the model to better fit your specific needs. Checkpoints are saved models that can be loaded to continue training or to generate images. Diffusers, on the other hand, are used for guiding the diffusion process during image generation.
+
+Fine-tuning can be done on a variety of pre-trained models, including the base models such as 1.4, 1.5, 2.0, 2.1, as well as custom models. Fine-tuning can be useful for training a model to recognize a specific subject or style, or for improving the performance of a model on a specific task.
+
+A diffuser, checkpoint (ckpt), and safetensor are all related to the process of training and using neural network models, but they serve different purposes:
+
+A diffuser is a term used in the Stable Diffusion framework to refer to a specific type of image generation model. Diffusers are trained using a diffusion process that gradually adds noise to an image, allowing the model to generate increasingly complex images over time. Diffusers are a key component of the Stable Diffusion framework and are used to generate high-quality images based on textual prompts.
+
+A checkpoint (ckpt) is a file that contains the trained parameters (weights) of a neural network model at a particular point in the training process. Checkpoints are typically used for saving the progress of a training session so that it can be resumed later, or for transferring a pre-trained model to another computer or environment. Checkpoints can also be used to fine-tune a pre-trained model on a new dataset or task.
+
+A safetensor is a file format used to store the trained parameters (weights) of a neural network model in a way that is optimized for fast and efficient loading and processing. Safetensors are similar to checkpoints in that they store the model parameters, but they are specifically designed for use with the TensorFlow machine learning library. Safetensors can be used to save and load pre-trained models in TensorFlow, and can also be used for fine-tuning or transfer learning.
+
+In summary, diffusers are a type of image generation model used in the Stable Diffusion framework, while checkpoints and safetensors are file formats used to store and load the trained parameters of a neural network model. Checkpoints and safetensors are often used for fine-tuning or transfer learning, while diffusers are used for generating high-quality images based on textual prompts.
+
+#### Token Based
+Token-based fine-tuning is a simplified form of fine-tuning that requires fewer images and utilizes a single token to modify the model. This approach does not require captions for each image, making it easier to execute and reducing the chances of error. The single token is used to modify the model's weights to achieve the desired outcome. While token-based fine-tuning is a simpler method, it may not provide the same level of accuracy and customization as other forms of fine-tuning that use more detailed captions or multiple tokens.
+
+##### Dreambooth
+Dreambooth is a tool that allows you to fine-tune a Stable Diffusion checkpoint based on a single keyword that represents all of your images, for example, "mycat." This approach does not require you to caption each individual image, which can save time and effort. To use Dreambooth, you need to prepare at least 20 images in a square format of 512x512 or 768x768 and fine-tune the Stable Diffusion checkpoint on them. This process requires a significant amount of VRAM, typically above 15GB, and will produce a file ranging from 2GB to 5GB. Accumulative stacking is also possible in Dreambooth, which involves consecutive training while maintaining the structure of the models. However, this technique is challenging to execute. Overall, Dreambooth can be a useful tool for fine-tuning a Stable Diffusion checkpoint to a specific set of images using a single keyword.
+
+PAPER: https://dreambooth.github.io/
+TUTORIAL: https://www.youtube.com/watch?v=7m__xadX0z0 or https://www.youtube.com/watch?v=Bdl-jWR3Ukc
+COLAB: https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast-DreamBooth.ipynb
+
+##### Custom Diffusion by Adobe
+Custom Diffusion by Adobe is a technique for fine-tuning a Stable Diffusion model to a specific dataset. This approach involves training a new model on the dataset using the Diffusion process, which can take several days or even weeks depending on the size and complexity of the dataset. The resulting model can then be used to generate images with the specific style or content of the training dataset.
+
+One of the key benefits of Custom Diffusion by Adobe is its ability to generate high-quality images that are visually consistent with the training data. This makes it a powerful tool for a wide range of applications, from generating art and design to creating realistic simulations for video games and movies.
+
+However, Custom Diffusion by Adobe is also a computationally intensive process that requires significant resources, including powerful hardware and access to large amounts of data. As such, it may not be practical for all users or applications. Additionally, the technique may require significant expertise and training to use effectively, making it more suitable for advanced users with experience in machine learning and computer vision.
+https://github.com/adobe-research/custom-diffusion
+https://huggingface.co/spaces/nupurkmr9/custom-diffusion
+
+#### Caption Based Fine Tuning
+Caption-based fine-tuning is a method of fine-tuning a stable diffusion model that requires a large number of images, typically in the range of hundreds to thousands. In this approach, the image captions are used as the basis for fine-tuning, allowing for multi-concept training. While this method allows for more flexibility in training, it requires more work than other methods such as token-based fine-tuning. The key advantage of this approach is its ability to capture multiple concepts in the fine-tuning process, enabling more nuanced image generation.
+
+Caption-based fine-tuning requires a lot of captions, not necessarily a lot of images. It can be done with a smaller set of images, as long as they have a diverse range of captions that represent the desired concepts or styles.
+
+##### Fine Tuning
+Fine tuning is a technique used to create a new checkpoint based on image captions. Unlike token-based fine tuning, this method requires a lot of images, ranging from hundreds to thousands. With fine tuning, you can choose to tune just the Unet or both the Unet and the decoder. This process requires a minimum of 15GB VRAM and produces a file ranging from 2GB to 5GB in size. While conventional dreambooth codes can be used for fine tuning, it is important to select the options that allow the use of captions instead of tokens.
+
+TUTORIAL: https://docs.google.com/document/d/1x9B08tMeAxdg87iuc3G4TQZeRv8YmV4tAcb-irTjuwc/edit
+https://github.com/victorchall/EveryDream-trainer 
+https://github.com/victorchall/EveryDream2trainer
+https://github.com/devilismyfriend/StableTuner
+
+#### Decoding Checkpoints
+Decoding checkpoints refer to a method of using pre-trained models to generate images based on textual prompts or other inputs. These checkpoints contain a set of weights that have been optimized during the training process to produce high-quality images. The decoding process involves feeding a textual prompt into the model and using the learned weights to generate an image that matches the input. These checkpoints can be used for a wide variety of image generation tasks, including creating artwork, generating realistic photographs, or creating new designs for products. Different types of decoding checkpoints may be used for different types of tasks, and users may experiment with different models to find the one that works best for their specific needs. Overall, decoding checkpoints are a powerful tool for generating high-quality images quickly and efficiently.
+
+
+
+### Mixing
+Mixing in Stable Diffusion refers to combining different models, embeddings, prompts, or other inputs to generate novel and varied images. Image2text is a tool that can be used to analyze existing images and generate prompts that capture the style or content of the image. These prompts can then be used to generate new images using Stable Diffusion models. Additionally, mixing can be achieved by combining different models or embeddings together, either through merging or using hypernetworks. This can allow for greater flexibility in generating images with unique styles and content.
+
+#### Using Multiple types of models and embeddings
+Using multiple types of models and embeddings such as hypernetworks, embeddings, or LORA can be useful for mixing different styles and objects together. By combining the strengths of multiple models, you can create more unique and diverse images. For example, using multiple embeddings can give you a wider range of prompts to use in image generation, while combining hypernetworks can help fine-tune the generated images without changing the underlying model architecture. However, using too many models at once can lead to decreased performance and longer training times. It is important to find a balance between using multiple models and keeping your system resources efficient.
+
+##### Multiple Embeddings
+When using Stable Diffusion for image generation, it is possible to use multiple embeddings simultaneously by adding the different keywords of the embeddings to your prompt. This can be helpful when attempting to mix different styles or objects together in your generated image. By using multiple embeddings, you can create more complex and nuanced prompts for the model to generate images from.
+
+##### Multiple Hypernetworks
+Using multiple hypernetworks can help mix styles and objects together in image generation. These hypernetworks can be added to the model to modify images in a certain way after they are created, without changing the underlying model architecture. While powerful, hypernetworks can be difficult to train and require a lower hardware requirement than fine-tuning models. By using multiple hypernetworks, users can achieve more diverse and nuanced results in their image generation.
+https://github.com/antis0007/sd-webui-multiple-hypernetworks
+
+##### Multiple LORA's
+To achieve a more customized image output, multiple LORA models can be used in combination with custom models and embeddings. However, some users have reported that using more than 5 LORA models simultaneously can lead to poor results. It is important to experiment with different combinations and find the optimal balance of LORA models to achieve the desired output.
+
+#### Merging
+Merging checkpoints allows for mixing two concepts together. This can be done by combining the weights of two or more pre-trained models. However, it is important to note that merging can cause a loss or weakening of some concepts in the final output due to the differences in the underlying architectures and training data of the models being merged. It is recommended to experiment with different merging approaches and models to achieve the desired results.
+
+##### Merging Checkpoints
+Merging checkpoints is a technique used to combine two different models to create a new model with characteristics of both. This process allows you to mix the models together in various proportions, ranging from 0% to 100%. By merging models, you can create entirely new styles and outputs that wouldn't be possible with a single model. However, it's important to note that merging models can also result in a loss or weakening of certain concepts. Therefore, it's important to experiment with different combinations and proportions to achieve the desired result.
+
+#### Converting Checkpoints/Diffusers/LORAs
+Converting Checkpoints to LORA and Safetensors involves transforming the trained model weights into a compressed format that can be used in other applications.
+
+To convert a checkpoint to LORA, you can use the "compress.py" script provided in the LORA repository. This script takes a trained checkpoint and compresses it into a LORA file, which can be used in other machine learning projects. This can also be done with Kohya Ui. 
+
+To convert a checkpoint to a Safetensor, you can use the "export.py" script provided in the Safetensor repository. This script takes a trained checkpoint and exports it as a Safetensor, which is a compressed and encrypted version of the model that can be safely shared with others. This can also be done with most UIs. 
+
+Converting checkpoints to LORA or Safetensors can be useful for sharing models with others or for using them in other applications that require compressed model files.
+
+
+
+
+### Image2Text
+Image2text is a technique used to convert images into text descriptions, also known as image captioning. It involves using a trained model to generate a textual description of the content of an image. This can be useful for a variety of applications, such as generating captions for social media posts or providing context for image datasets used in machine learning.
+
+There are a few different approaches to image captioning, such as using a CNN-RNN model, which involves using a convolutional neural network to extract features from an image and then passing those features to a recurrent neural network to generate a description. Other models may use attention mechanisms or transformer architectures.
+
+To train an image captioning model, a large dataset of images with corresponding text descriptions is typically used. The model is then trained on this dataset using a loss function that compares the generated captions to the actual captions. Once trained, the model can be used to generate captions for new images.
+
+In the context of mixing two concepts, image2text can be used to generate textual descriptions of the different styles or objects being combined. These descriptions can then be used as prompts for a diffusion model to generate an image that combines those concepts.
+
+#### CLIP Interrogation
+CLIP Interrogator is a Python package that enables users to find the most suitable text prompts that describe an existing image based on the CLIP model. This tool can be useful for generating and refining prompts for image generation models or for labeling images programmatically during training.
+
+CLIP Interrogator is available on GitHub and can be installed via pip. The package also includes a demo notebook showcasing the tool's functionality. Additionally, the package can be used with the Hugging Face Transformers library to further streamline the prompt generation process.
+https://github.com/pharmapsychotic/clip-interrogator
+DEMO: https://huggingface.co/spaces/pharma/CLIP-Interrogator
+
+#### BLIP Captioning
+BLIP (Bootstrapping Language-Image Pre-training) is a framework for pre-training vision and language models that can generate captions for images. It uses a two-stage approach, where the first stage involves training an image encoder and a text decoder on large-scale image-caption datasets, and the second stage involves fine-tuning the model on a smaller dataset with captions and corresponding prompts. This fine-tuning process uses a novel method called Contrastive Learning for Prompt (CLP) which aims to learn the relationship between the image and the prompt.
+
+BLIP Image Captioning allows you to generate prompts for an existing image by interrogating the model. This is helpful in crafting your own prompts or for programatically labeling images during training. BLIP2 is the latest version of BLIP which has been further improved with new training techniques and larger datasets. A demo of BLIP Image Captioning can be found on the Hugging Face website.
+Paper: https://arxiv.org/pdf/2201.12086.pdf
+Summary: https://ahmed-sabir.medium.com/paper-summary-blip-bootstrapping-language-image-pre-training-for-unified-vision-language-c1df6f6c9166
+DEMO: https://huggingface.co/spaces/Salesforce/BLIP
+BLIP2: 
+
+#### DanBooru Tags / Deepdanbooru
+Danbooru is a popular anime and manga imageboard website where users can upload and tag images. DeepDanbooru is a neural network trained on the Danbooru2018 dataset to automatically tag images with relevant tags. The tags can then be used as prompts to generate images in a particular style or with certain objects.
+
+DeepDanbooru is available as a web service or can be run locally on a machine with GPU support. The DeepDanbooru model is trained on more than 3 million images and over 10,000 tags, and is capable of tagging images with a high degree of accuracy.
+
+Using DeepDanbooru tags as prompts can be a powerful tool for generating anime and manga-style images or images featuring particular characters or objects. It can also be used for automating the tagging process for large collections of images.
+
+#### Waifu Diffusion 1.4 tagger - Using DeepDanBooru Tags
+Waifu Diffusion 1.4 tagger is a tool developed using the DeepDanBooru tagger to automatically generate tags for images. The tool uses Stable Diffusion 1.4 model to generate images and DeepDanBooru model to generate tags. The generated tags can be used for various purposes such as organizing and searching images.
+
+The tagger works by taking an input image and generating tags for it using DeepDanBooru model. The generated tags are then displayed alongside the image. The user can edit the generated tags and add new tags as required. Once the tags are finalized, they can be saved and used for organizing and searching images.
+
+The tool is available as an open-source project on GitHub and can be used by anyone for free.
+https://github.com/toriato/stable-diffusion-webui-wd14-tagger
+
+
+
+
+
+
+
+
+
+
+
+### One Shot Learning & Similar
+One-shot learning is a machine learning technique where a model is trained on a small set of examples to classify new examples. In the context of Stable Diffusion, one-shot learning can be used to quickly train a model on a new concept or object with just a few images.
+
+One way to do this is to use a technique called fine-tuning, where a pre-trained model is modified to fit the new data. For example, if you want to train a model to generate images of your pet cat, you can fine-tune an existing Stable Diffusion model on a small set of images of your cat. This will allow the model to learn the specific characteristics of your cat and generate new images of it.
+
+Another approach is to use a technique called contrastive learning, where a model is trained to differentiate between positive and negative examples of a concept. For example, you can train a model to recognize your cat by showing it a few positive examples of your cat, and many negative examples of other cats or animals. This will allow the model to learn the unique features of your cat and distinguish it from other animals.
+
+One-shot learning can be useful in scenarios where there are only a few examples of a concept, or where collecting large amounts of data is not feasible. However, it may not always produce the same level of accuracy as traditional training methods that use large datasets. Additionally, the quality of the generated images may depend on the quality of the initial few examples used for training.
+
+#### DreamArtist (WebUI Extension)
+DreamArtist is a web extension that allows users to generate custom art using Stable Diffusion. The extension provides a user-friendly interface that makes it easy for anyone to generate images without any coding experience. Users can upload their images, choose a specific style or subject, adjust settings such as resolution and noise level, and generate new images with a single click. DreamArtist also allows users to save and share their creations with others. It is a convenient tool for anyone who wants to experiment with Stable Diffusion and create unique digital art.
+https://github.com/7eu7d7/DreamArtist-sd-webui-extension
+
+#### Universal Guided Diffusion
+Universal Guided Diffusion is a method for training a diffusion model that can generate diverse high-quality images from a wide range of natural image distributions. It involves conditioning the diffusion process on a universal latent code that captures global properties of the image distribution, as well as a guided conditioning signal that captures local details. This approach allows for a high degree of flexibility in generating images with diverse styles and content, making it suitable for a wide range of image-generation tasks. The code is available on GitHub, and a paper describing the method is available on arXiv.
+https://github.com/arpitbansal297/Universal-Guided-Diffusion
+PAPER: https://arxiv.org/abs/2302.07121
+
+
+
+
+
+
+
+
+
+## Other Software Addons  
 
 ### Blender Addons  
 #### Blender ControlNet
