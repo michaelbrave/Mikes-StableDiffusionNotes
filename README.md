@@ -23,14 +23,23 @@
       - [Krea AI](#krea-ai)
     - [Community Chatrooms and Gathering Locations](#community-chatrooms-and-gathering-locations)
       - [Prompt Inspiration Communities \& Tools](#prompt-inspiration-communities--tools)
-  - [What Can Be Done With Stable Diffusion](#what-can-be-done-with-stable-diffusion)
+  - [Use Cases of Stable Diffusion](#use-cases-of-stable-diffusion)
     - [Core Functionality \& Use Cases](#core-functionality--use-cases)
+      - [Image Generation](#image-generation)
+      - [Upscaling Images](#upscaling-images)
+      - [Editing Images](#editing-images)
+      - [Style Transfer](#style-transfer)
+      - [Photo Repair/Touchups](#photo-repairtouchups)
+      - [Color/Texture Filling](#colortexture-filling)
+      - [Image Completion/Polishing](#image-completionpolishing)
+      - [Image Variation](#image-variation)
+      - [Outpainting](#outpainting)
       - [Character Design](#character-design)
       - [Video Game Asset Creation](#video-game-asset-creation)
       - [Architecture and Interior Design](#architecture-and-interior-design)
     - [Use Cases Other Than Image Generation](#use-cases-other-than-image-generation)
       - [Video \& Animation](#video--animation)
-        - [Deforum](#deforum)
+        - [Deforum Animation](#deforum-animation)
         - [Depth Module for Stable Diffusion](#depth-module-for-stable-diffusion)
         - [Gen1](#gen1)
       - [3D Generation Techniques for Stable Diffusion \& Related Diffusion Based 3D Generation](#3d-generation-techniques-for-stable-diffusion--related-diffusion-based-3d-generation)
@@ -123,7 +132,7 @@
     - [Image2Image](#image2image)
       - [Img2Img](#img2img)
       - [Inpainting](#inpainting)
-      - [Outpainting](#outpainting)
+      - [Outpainting](#outpainting-1)
       - [Loopback](#loopback)
       - [InstructPix2Pix](#instructpix2pix)
       - [Depth2Image](#depth2image)
@@ -510,20 +519,20 @@ This is a website that offers a range of writing prompts and exercises for write
 
 
 
-## What Can Be Done With Stable Diffusion
+## Use Cases of Stable Diffusion
 
 ### Core Functionality & Use Cases
 Stable diffusion is primarily used for image generation, upscaling images and editing images. Subsets of these activities could be style transfer, photo repair, color or texture filling, image completion or polishing, and image variation.  
 
-- Image Generation
-- Upscaling Images
-- Editing Images
-- Style Transfer
-- Photo Repair/Touchups
-- Color/Texture Filling
-- Image Completion/Polishing
-- Image Variation
-- Outpainting
+#### Image Generation
+#### Upscaling Images
+#### Editing Images
+#### Style Transfer
+#### Photo Repair/Touchups
+#### Color/Texture Filling
+#### Image Completion/Polishing
+#### Image Variation
+#### Outpainting
 
 #### Character Design
 
@@ -535,7 +544,7 @@ Stable diffusion is primarily used for image generation, upscaling images and ed
 
 #### Video & Animation
 
-##### Deforum
+##### Deforum Animation
 https://github.com/deforum-art/deforum-stable-diffusion
 
 helpful Addons:
