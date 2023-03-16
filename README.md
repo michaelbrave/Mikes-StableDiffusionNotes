@@ -209,10 +209,11 @@
     - [Fine Tuning / Checkpoints/Diffusers/Safetensors](#fine-tuning--checkpointsdiffuserssafetensors)
       - [Token Based](#token-based)
         - [Dreambooth](#dreambooth)
-        - [EveryDream 2](#everydream-2)
         - [Custom Diffusion by Adobe](#custom-diffusion-by-adobe)
       - [Caption Based Fine Tuning](#caption-based-fine-tuning)
-        - [Fine Tuning](#fine-tuning)
+      - [Fine Tuning](#fine-tuning)
+        - [EveryDream 2](#everydream-2)
+        - [Stable Tuner](#stable-tuner)
       - [Decoding Checkpoints](#decoding-checkpoints)
     - [Mixing](#mixing)
       - [Using Multiple types of models and embeddings](#using-multiple-types-of-models-and-embeddings)
@@ -1504,10 +1505,7 @@ PAPER: https://dreambooth.github.io/
 TUTORIAL: https://www.youtube.com/watch?v=7m__xadX0z0 or https://www.youtube.com/watch?v=Bdl-jWR3Ukc
 COLAB: https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast-DreamBooth.ipynb
 
-##### EveryDream 2
-I've found this one to personally give great results
 
-Github: https://github.com/victorchall/EveryDream2trainer
 
 ##### Custom Diffusion by Adobe
 Custom Diffusion by Adobe is a technique for fine-tuning a Stable Diffusion model to a specific dataset. This approach involves training a new model on the dataset using the Diffusion process, which can take several days or even weeks depending on the size and complexity of the dataset. The resulting model can then be used to generate images with the specific style or content of the training dataset.
@@ -1523,13 +1521,20 @@ Caption-based fine-tuning is a method of fine-tuning a stable diffusion model th
 
 Caption-based fine-tuning requires a lot of captions, not necessarily a lot of images. It can be done with a smaller set of images, as long as they have a diverse range of captions that represent the desired concepts or styles.
 
-##### Fine Tuning
+#### Fine Tuning
 Fine tuning is a technique used to create a new checkpoint based on image captions. Unlike token-based fine tuning, this method requires a lot of images, ranging from hundreds to thousands. With fine tuning, you can choose to tune just the Unet or both the Unet and the decoder. This process requires a minimum of 15GB VRAM and produces a file ranging from 2GB to 5GB in size. While conventional dreambooth codes can be used for fine tuning, it is important to select the options that allow the use of captions instead of tokens.
 
+##### EveryDream 2
+I've found this one to personally give great results
+
+Github: https://github.com/victorchall/EveryDream2trainer
+Discord: https://discord.gg/uheqxU6sXN
+
 TUTORIAL: https://docs.google.com/document/d/1x9B08tMeAxdg87iuc3G4TQZeRv8YmV4tAcb-irTjuwc/edit
-https://github.com/victorchall/EveryDream-trainer 
-https://github.com/victorchall/EveryDream2trainer
-https://github.com/devilismyfriend/StableTuner
+
+##### Stable Tuner
+Github: https://github.com/devilismyfriend/StableTuner
+Discord: https://discord.gg/DahNECrBUZ
 
 #### Decoding Checkpoints
 Decoding checkpoints refer to a method of using pre-trained models to generate images based on textual prompts or other inputs. These checkpoints contain a set of weights that have been optimized during the training process to produce high-quality images. The decoding process involves feeding a textual prompt into the model and using the learned weights to generate an image that matches the input. These checkpoints can be used for a wide variety of image generation tasks, including creating artwork, generating realistic photographs, or creating new designs for products. Different types of decoding checkpoints may be used for different types of tasks, and users may experiment with different models to find the one that works best for their specific needs. Overall, decoding checkpoints are a powerful tool for generating high-quality images quickly and efficiently.
