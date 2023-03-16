@@ -43,10 +43,10 @@
         - [Depth Module for Stable Diffusion](#depth-module-for-stable-diffusion)
         - [Gen1](#gen1)
       - [3D Generation Techniques for Stable Diffusion \& Related Diffusion Based 3D Generation](#3d-generation-techniques-for-stable-diffusion--related-diffusion-based-3d-generation)
-      - [Text to 3D](#text-to-3d)
-      - [DMT Meshes / Point Cloud Based](#dmt-meshes--point-cloud-based)
-      - [3D radiance Fields](#3d-radiance-fields)
-      - [Novel View Synthesis](#novel-view-synthesis)
+        - [Text to 3D](#text-to-3d)
+        - [DMT Meshes / Point Cloud Based](#dmt-meshes--point-cloud-based)
+        - [3D radiance Fields](#3d-radiance-fields)
+        - [Novel View Synthesis](#novel-view-synthesis)
         - [NeRF Based:](#nerf-based)
         - [Img to Fspy to Blender:](#img-to-fspy-to-blender)
         - [Image to Shapes](#image-to-shapes)
@@ -567,21 +567,22 @@ though not publicly released and technically separate from stable diffusion, it 
 Gen1 takes a video and a style image and applies that style to that image, this allows for things like a video of stacks of boxes to be turned into a cityscape or things like that.   
 https://research.runwayml.com/gen1 
 
+
 #### 3D Generation Techniques for Stable Diffusion & Related Diffusion Based 3D Generation
 Stable Diffusion (SD) is a powerful text-to-image generation model that has inspired the development of several techniques for generating 3D images and scenes based on text prompts. Two of the most notable methods are:
 
-#### Text to 3D
+##### Text to 3D
 https://dreamfusion3d.github.io/  
 https://github.com/ashawkey/stable-dreamfusion  
 
-#### DMT Meshes / Point Cloud Based
+##### DMT Meshes / Point Cloud Based
 https://github.com/Firework-Games-AI-Division/dmt-meshes
 
-#### 3D radiance Fields
+##### 3D radiance Fields
 not technically stable diffusion but diffusion based 3D modeling  
 https://sirwyver.github.io/DiffRF/  
 
-#### Novel View Synthesis
+##### Novel View Synthesis
 not technicall stable diffusion but is related  
 https://3d-diffusion.github.io/  
 
@@ -814,11 +815,17 @@ https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg
 
 
 ### Kohya
-attempts to get it to run on linux and then in a colab
-https://github.com/kohya-ss/sd-webui-additional-networks
 
-https://www.bilibili.com/read/cv21373135?from=articleDetail
+
+Windows:
+https://github.com/bmaltais/kohya_ss
+
+Linux:
 https://github.com/Thund3rPat/kohya_ss-linux
+
+Colab:
+https://github.com/Spaceginner/kohya_ss_colab
+https://github.com/ddPn08/kohya-sd-scripts-webui
 
 #### Addons
 https://github.com/kohya-ss/sd-webui-additional-networks
