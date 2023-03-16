@@ -196,9 +196,10 @@
       - [Captioning](#captioning)
       - [Regularization/Classifier Images](#regularizationclassifier-images)
         - [Links to Some Regularization Images](#links-to-some-regularization-images)
-    - [Training](#training)
+      - [Training Tutorials](#training-tutorials)
+    - [Types of Training](#types-of-training)
       - [File Type Overview](#file-type-overview)
-      - [CKPT/Diffuser/SAfetensor](#ckptdiffusersafetensor)
+      - [CKPT/Diffuser/Safetensor](#ckptdiffusersafetensor)
       - [Textual Inversion](#textual-inversion)
         - [Negative Embedding](#negative-embedding)
       - [LORA](#lora)
@@ -208,6 +209,7 @@
     - [Fine Tuning / Checkpoints/Diffusers/Safetensors](#fine-tuning--checkpointsdiffuserssafetensors)
       - [Token Based](#token-based)
         - [Dreambooth](#dreambooth)
+        - [EveryDream 2](#everydream-2)
         - [Custom Diffusion by Adobe](#custom-diffusion-by-adobe)
       - [Caption Based Fine Tuning](#caption-based-fine-tuning)
         - [Fine Tuning](#fine-tuning)
@@ -1381,10 +1383,12 @@ https://www.reddit.com/r/StableDiffusion/comments/z9g46h/i_was_wrong_classifierr
 https://github.com/aitrepreneur/REGULARIZATION-IMAGES-SD
 
 
+#### Training Tutorials
+
+BlueFaux's Tutorial: https://www.reddit.com/r/StableDiffusion/comments/10zze8f/how_to_train_your_series_abridged_link_to_full/
 
 
-
-### Training
+### Types of Training
 Training is the process of fine-tuning a pre-existing model or creating a new one from scratch to generate images based on a specific subject or style. This is achieved by feeding the model with a large dataset of images that represent the subject or style. The model then learns the patterns and features of the input images and uses them to generate new images that are similar in style or subject.
 
 Training a model can be done in various ways, including transfer learning, where a pre-existing model is fine-tuned on a new dataset, or by creating a new model from scratch. The process typically involves setting hyperparameters, selecting the training dataset, defining the loss function, and training the model using an optimizer.
@@ -1408,7 +1412,7 @@ Embeddings:
 .h5: Hierarchical Data Format file, which can also be used for saving embeddings in Stable Diffusion.
 .bin (Binary file): This is a general-purpose file format that can be used to store binary data, including models and embeddings. It is a compact format that is efficient for storing large amounts of data.
 
-#### CKPT/Diffuser/SAfetensor
+#### CKPT/Diffuser/Safetensor
 
 
 #### Textual Inversion
@@ -1499,6 +1503,11 @@ Dreambooth is a tool that allows you to fine-tune a Stable Diffusion checkpoint 
 PAPER: https://dreambooth.github.io/
 TUTORIAL: https://www.youtube.com/watch?v=7m__xadX0z0 or https://www.youtube.com/watch?v=Bdl-jWR3Ukc
 COLAB: https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast-DreamBooth.ipynb
+
+##### EveryDream 2
+I've found this one to personally give great results
+
+Github: https://github.com/victorchall/EveryDream2trainer
 
 ##### Custom Diffusion by Adobe
 Custom Diffusion by Adobe is a technique for fine-tuning a Stable Diffusion model to a specific dataset. This approach involves training a new model on the dataset using the Diffusion process, which can take several days or even weeks depending on the size and complexity of the dataset. The resulting model can then be used to generate images with the specific style or content of the training dataset.
