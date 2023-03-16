@@ -92,11 +92,11 @@
         - [Two Shot](#two-shot)
         - [Composable Lora](#composable-lora)
         - [Couple Helper - lets you choose where to apply prompts on a grid](#couple-helper---lets-you-choose-where-to-apply-prompts-on-a-grid)
-        - [latent couple extension](#latent-couple-extension)
+        - [Latent Couple Extension](#latent-couple-extension)
         - [Remove Background](#remove-background)
     - [Kohya](#kohya)
       - [Addons](#addons)
-    - [EasyDiffusion / Formerly Stable Diffusion UI](#easydiffusion--formerly-stable-diffusion-ui)
+    - [EasyDiffusion (Formerly Stable Diffusion UI)](#easydiffusion-formerly-stable-diffusion-ui)
     - [InvokeAI](#invokeai)
     - [DiffusionBee (Mac OS)](#diffusionbee-mac-os)
     - [NKMD GUI](#nkmd-gui)
@@ -191,6 +191,8 @@
         - [k\_dpm\_2\_a](#k_dpm_2_a)
   - [Methods of Training Models and Creating Embeddings](#methods-of-training-models-and-creating-embeddings)
     - [Dataset and Image Preparation](#dataset-and-image-preparation)
+      - [Choosing Images](#choosing-images)
+        - [Tip for training faces and characters](#tip-for-training-faces-and-characters)
       - [Captioning](#captioning)
       - [Regularization/Classifier Images](#regularizationclassifier-images)
         - [Links to Some Regularization Images](#links-to-some-regularization-images)
@@ -324,7 +326,6 @@ LAION-5B - 5 billion image-text pairs were classified based on language and filt
 Laion-Aesthetics v2 5+  
 
 #### Core Technologies
-See Also [Stable Diffusion (SD) Core and Models](#stable-diffusion-sd-core-and-models)  
 
 Variational Autoencoder (VAE)  
 - The simplest explanation is that it makes an image small then makes it bigger again. 
@@ -803,7 +804,7 @@ https://github.com/opparco/stable-diffusion-webui-composable-lora
 https://github.com/Zuntan03/LatentCoupleHelper
 https://github-com.translate.goog/Zuntan03/LatentCoupleHelper?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp
 
-##### latent couple extension
+##### Latent Couple Extension
 https://github.com/miZyind/sd-webui-latent-couple
 https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
 
@@ -832,7 +833,7 @@ https://github.com/kohya-ss/sd-webui-additional-networks
 
 
 
-### EasyDiffusion / Formerly Stable Diffusion UI
+### EasyDiffusion (Formerly Stable Diffusion UI)
 https://github.com/cmdr2/stable-diffusion-ui
 
 
@@ -1350,6 +1351,12 @@ Overall, preparing a high-quality dataset is essential for stable diffusion mode
 Tutorial: https://github.com/nitrosocke/dreambooth-training-guide
 
 Screenshot Pipeline: https://github.com/cyber-meow/anime_screenshot_pipeline
+
+#### Choosing Images
+Try to only use high res images that you shrink down to the training size, stretching out smaller images will end up with a low quality training, it will create things that look blurry and pixelated. If you have to upscale them, use an upscaler, or the photoshop blur/sharpen/NeuralFiler-JPEGArtifactRemoval method
+
+##### Tip for training faces and characters
+try to have close to 30 images, have 10 be face shots, 10 be head shots, 6 be torso shots, 4 be full body shots. Have different outfits and backgrounds unless the outfit is core to their character. Label all the parts that are not an inherent part of the character, for example if a hairstyle is part of the character you don't need to label it, but if the character often changes their hairstyle then it should be labelled.  
 
 #### Captioning
 Captioning is the process of providing textual descriptions or labels to images, which is a crucial step in many machine-learning tasks, such as image recognition, object detection, and image captioning. In the context of training Stable Diffusion models, captioning can be helpful in providing additional context and guidance to the model, particularly when dealing with images of specific objects or styles.
