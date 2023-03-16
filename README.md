@@ -94,6 +94,8 @@
         - [Couple Helper - lets you choose where to apply prompts on a grid](#couple-helper---lets-you-choose-where-to-apply-prompts-on-a-grid)
         - [Latent Couple Extension](#latent-couple-extension)
         - [Remove Background](#remove-background)
+          - [Models for Background Removal](#models-for-background-removal)
+        - [Anime Background Remover](#anime-background-remover)
     - [Kohya](#kohya)
       - [Addons](#addons)
     - [EasyDiffusion (Formerly Stable Diffusion UI)](#easydiffusion-formerly-stable-diffusion-ui)
@@ -214,6 +216,7 @@
       - [Fine Tuning](#fine-tuning)
         - [EveryDream 2](#everydream-2)
         - [Stable Tuner](#stable-tuner)
+        - [Dream Artist Auto1111 Extension](#dream-artist-auto1111-extension)
       - [Decoding Checkpoints](#decoding-checkpoints)
     - [Mixing](#mixing)
       - [Using Multiple types of models and embeddings](#using-multiple-types-of-models-and-embeddings)
@@ -256,6 +259,8 @@
       - [Daz Control Rig](#daz-control-rig)
     - [Cinema4D](#cinema4d)
       - [Colors Scene (possibly no longer needed since controlNet Update)](#colors-scene-possibly-no-longer-needed-since-controlnet-update)
+    - [Unity](#unity)
+      - [Stable Diffusion Unity Integration](#stable-diffusion-unity-integration)
   - [Related Technologies, Communities and Tools, not necessarily Stable Diffusion, but Adjacent](#related-technologies-communities-and-tools-not-necessarily-stable-diffusion-but-adjacent)
   - [Techniques \& Possibilities](#techniques--possibilities)
     - [Seed and prompt blending](#seed-and-prompt-blending)
@@ -814,6 +819,21 @@ https://github.com/ashen-sensored/stable-diffusion-webui-two-shot
 ##### Remove Background
 https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg
 
+###### Models for Background Removal
+taken from this comment: https://www.reddit.com/r/StableDiffusion/comments/11s02mx/comment/jcbe029/?utm_source=share&utm_medium=web2x&context=3
+
+u2net (download:https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx, source:https://github.com/xuebinqin/U-2-Net): A pre-trained model for general use cases.
+u2netp (download:https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2netp.onnx, source:https://github.com/xuebinqin/U-2-Net): A lightweight version of u2net model.
+u2net_human_seg (download:https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net_human_seg.onnx, source:https://github.com/xuebinqin/U-2-Net): A pre-trained model for human segmentation.
+u2net_cloth_seg (download:https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net_cloth_seg.onnx, source:https://github.com/levindabhi/cloth-segmentation): A pre-trained model for Cloths Parsing from human portrait. Here clothes are parsed into 3 category: Upper body, Lower body and Full body.
+silueta (download:https://github.com/danielgatis/rembg/releases/download/v0.0.0/silueta.onnx, source:https://github.com/xuebinqin/U-2-Net/issues/295): Same as u2net but the size is reduced to 43Mb.
+
+##### Anime Background Remover
+https://github.com/KutsuyaYuki/ABG_extension
+
+
+
+
 
 ### Kohya
 Kohya's superpower is how it is able to use LORAs and can even merge them with ckpts and convert ckpts into them. 
@@ -915,8 +935,12 @@ https://sinkin.ai/
 #### Notes About Models
 
 ##### Model Safety Measures
-There is a possibility of someone injecting code via a ckpt model, I've yet to hear of anyone doing so but there is a possibility of it, to avoid this only download from trusted sources, check them with a pickle file or download a safetensor instead of a ckpt as those are designed to be safer. 
-Both pickling and SafeTensors are important techniques for ensuring the safety and performance of SD. They allow for models to be saved, loaded, and transferred between environments, while also ensuring that the data used in SD is secure and cannot be manipulated by attackers.
+
+In the world of machine learning, there are two formats in which models can be saved: .ckpt and .safetensors. The older format, .ckpt, is basically Python code and therefore has the potential to do anything that a program can do, including erasing or modifying files on your computer. The newer format, .safetensors, was created to address this weakness and supposedly loads faster when switching models.
+
+To ensure the safety and performance of your machine learning models, it is important to only download from trusted sources and to verify the authenticity of the model with a pickle file or by downloading a .safetensors model. While there haven't been any reported cases of code injection through a .ckpt model, there is always a possibility, and it is better to err on the side of caution.
+
+Both pickling and SafeTensors are crucial techniques for saving, loading, and transferring machine learning models while also ensuring the security of the data used in machine learning. By utilizing these techniques, you can ensure that your machine learning models are both safe and effective.
 
 Pickling:
 This is a technique used to serialize and deserialize Python objects. Pickling is used in SD to save and load models, as well as to transfer data between processes. Pickling can be used to save the state of the model at various stages of training or to transfer a model between different machines or environments. However, pickling can also introduce security risks if used improperly, as it allows for arbitrary code execution.
@@ -1536,6 +1560,11 @@ TUTORIAL: https://docs.google.com/document/d/1x9B08tMeAxdg87iuc3G4TQZeRv8YmV4tAc
 Github: https://github.com/devilismyfriend/StableTuner
 Discord: https://discord.gg/DahNECrBUZ
 
+##### Dream Artist Auto1111 Extension
+some have used this for single image training
+
+Github: https://github.com/7eu7d7/DreamArtist-sd-webui-extension
+
 #### Decoding Checkpoints
 Decoding checkpoints refer to a method of using pre-trained models to generate images based on textual prompts or other inputs. These checkpoints contain a set of weights that have been optimized during the training process to produce high-quality images. The decoding process involves feeding a textual prompt into the model and using the learned weights to generate an image that matches the input. These checkpoints can be used for a wide variety of image generation tasks, including creating artwork, generating realistic photographs, or creating new designs for products. Different types of decoding checkpoints may be used for different types of tasks, and users may experiment with different models to find the one that works best for their specific needs. Overall, decoding checkpoints are a powerful tool for generating high-quality images quickly and efficiently.
 
@@ -1702,7 +1731,9 @@ PAPER: https://arxiv.org/abs/2302.07121
 #### Colors Scene (possibly no longer needed since controlNet Update)
 - https://www.reddit.com/r/StableDiffusion/comments/11flemo/color150_segmentation_colors_for_cinema4d_and/
 
-
+### Unity
+#### Stable Diffusion Unity Integration
+- https://github.com/dobrado76/Stable-Diffusion-Unity-Integration
 
 ## Related Technologies, Communities and Tools, not necessarily Stable Diffusion, but Adjacent
 DeepDream
