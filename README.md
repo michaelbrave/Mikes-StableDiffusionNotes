@@ -1075,7 +1075,7 @@ Models - https://huggingface.co/lllyasviel/ControlNet
 Compressed Models - https://huggingface.co/webui/ControlNet-modules-safetensors/tree/main
 Automatic 1111 Addon - https://github.com/Mikubill/sd-webui-controlnet
 Tutorial - https://youtu.be/vhqqmkTBMlU https://youtu.be/OxFcIv8Gq8o 
-
+Explanation - https://www.reddit.com/r/StableDiffusion/comments/119o71b/a1111_controlnet_extension_explained_like_youre_5/?utm_source=share&utm_medium=web2x&context=3
 
 
 ### Pix2Pix-zero
