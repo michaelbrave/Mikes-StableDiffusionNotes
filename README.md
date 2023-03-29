@@ -231,6 +231,7 @@
       - [BLIP Captioning](#blip-captioning)
       - [DanBooru Tags / Deepdanbooru](#danbooru-tags--deepdanbooru)
       - [Waifu Diffusion 1.4 tagger - Using DeepDanBooru Tags](#waifu-diffusion-14-tagger---using-deepdanbooru-tags)
+    - [Pruning Models](#pruning-models)
     - [One Shot Learning \& Similar](#one-shot-learning--similar)
       - [DreamArtist (WebUI Extension)](#dreamartist-webui-extension)
       - [Universal Guided Diffusion](#universal-guided-diffusion)
@@ -874,6 +875,8 @@ https://github.com/divamgupta/diffusionbee-stable-diffusion-ui
 ### NKMD GUI
 https://nmkd.itch.io/t2i-gui
 https://github.com/n00mkrad/text2image-gui
+
+Apparently it has tools for pruning models
 
 Requirements:
 https://github.com/n00mkrad/text2image-gui/blob/main/README.md#system-requirements
@@ -1649,9 +1652,15 @@ https://github.com/toriato/stable-diffusion-webui-wd14-tagger
 
 
 
+### Pruning Models
+NKMD GUI has pruning functionality 
 
+https://medium.com/@souvik.paul01/pruning-in-deep-learning-models-1067a19acd89
+https://www.tensorflow.org/model_optimization/guide/pruning/comprehensive_guide
 
-
+https://raw.githubusercontent.com/prettydeep/Dreambooth-SD-ckpt-pruning/main/prune-ckpt.py
+https://github.com/JoePenna/Dreambooth-Stable-Diffusion/blob/main/prune_ckpt.py
+https://github.com/lopho/stable-diffusion-prune
 
 
 ### One Shot Learning & Similar
