@@ -1654,13 +1654,19 @@ https://github.com/toriato/stable-diffusion-webui-wd14-tagger
 
 ### Pruning Models
 NKMD GUI has pruning functionality 
+Dreambooth has this functionality?
 
 https://medium.com/@souvik.paul01/pruning-in-deep-learning-models-1067a19acd89
 https://www.tensorflow.org/model_optimization/guide/pruning/comprehensive_guide
+https://colab.research.google.com/drive/1bBWC_MNN6MJvPXxw4e4paVwPwdzSJ-X0?usp=sharing
 
 https://raw.githubusercontent.com/prettydeep/Dreambooth-SD-ckpt-pruning/main/prune-ckpt.py
 https://github.com/JoePenna/Dreambooth-Stable-Diffusion/blob/main/prune_ckpt.py
 https://github.com/lopho/stable-diffusion-prune
+
+
+
+
 
 
 ### One Shot Learning & Similar
